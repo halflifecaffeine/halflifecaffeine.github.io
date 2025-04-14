@@ -5,12 +5,10 @@ import {
   XAxis, 
   YAxis, 
   CartesianGrid, 
-  Tooltip, 
+  Tooltip as RechartsTooltip, 
   ResponsiveContainer,
   ReferenceLine,
-  Label,
-  TooltipProps,
-  ReferenceArea
+  Label
 } from 'recharts';
 import { TimeSeriesData, calculateRemainingCaffeine } from '../engine/caffeineCalculator';
 import CurrentCaffeineDonut from './CurrentCaffeineDonut';
@@ -130,7 +128,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     const startOfDay = new Date(centerTime);
     startOfDay.setHours(0, 0, 0, 0);  // Start at beginning of the day
     
-    // Chart boundaries
+    // Chart boundaries for the current day being viewed
     const windowStartTime = new Date(startOfDay);
     const windowEndTime = new Date(startOfDay);
     windowEndTime.setHours(24, 0, 0, 0);  // Show full 24 hours
@@ -146,28 +144,27 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     nextDay.setDate(nextDay.getDate() + 1);
     dayBoundaries.push(new Date(nextDay));  // Start of next day
     
-    // Add sleep time for the viewed day (not just current day)
-    const sleepStart = new Date(startOfDay);
-    sleepStart.setHours(sleepStartHour, 0, 0, 0);
+    // Add sleep time for the current day
+    const sleepStartCurrent = new Date(startOfDay);
+    sleepStartCurrent.setHours(sleepStartHour, 0, 0, 0);
     
     // If sleep time is earlier than noon, it means it's for the next day
     if (sleepStartHour < 12) {
-      sleepStart.setDate(sleepStart.getDate() + 1);
+      sleepStartCurrent.setDate(sleepStartCurrent.getDate() + 1);
     }
     
-    sleepStartTimes.push(sleepStart);
+    sleepStartTimes.push(sleepStartCurrent);
     
     return { 
       windowStartTime, 
       windowEndTime, 
       sleepStartTimes,
       dayBoundaries,
-      centerTime,
       startOfDay
     };
   }, [now, timeOffset, sleepStartHour]);
   
-  const { windowStartTime, windowEndTime, sleepStartTimes, dayBoundaries, centerTime, startOfDay } = timeCalculations;
+  const { windowStartTime, windowEndTime, sleepStartTimes, dayBoundaries, startOfDay } = timeCalculations;
 
   // Format date for day boundary labels
   const formatDate = useCallback((date: Date) => {
@@ -338,16 +335,38 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }, []);
 
-  // Generate fixed hour markers (00, 06, 12, 18) for the viewed day
+  // Generate fixed hour markers (00, 06, 12, 18) for all visible days (past, present, and future)
   const generateFixedTimeMarkers = useCallback(() => {
     const markers: number[] = [];
     
-    // Generate time markers for the current window's day
+    // Generate markers for previous day as well to ensure past days have markers
+    const prevDay = new Date(startOfDay);
+    prevDay.setDate(prevDay.getDate() - 1);
+    
+    // Add markers for previous day (00:00, 06:00, 12:00, 18:00)
+    [0, 6, 12, 18].forEach(hour => {
+      const marker = new Date(prevDay);
+      marker.setHours(hour, 0, 0, 0);
+      markers.push(marker.getTime());
+    });
+    
+    // Generate markers for the current day being viewed
     const currentDay = new Date(startOfDay);
     
-    // Add markers at 00:00, 06:00, 12:00, 18:00 for the viewed day
+    // Add markers at 00:00, 06:00, 12:00, 18:00 for the current day
     [0, 6, 12, 18].forEach(hour => {
       const marker = new Date(currentDay);
+      marker.setHours(hour, 0, 0, 0);
+      markers.push(marker.getTime());
+    });
+    
+    // Add markers for the next day as well to ensure future days have markers
+    const nextDay = new Date(currentDay);
+    nextDay.setDate(nextDay.getDate() + 1);
+    
+    // Add markers for the next day (00:00, 06:00, 12:00, 18:00)
+    [0, 6, 12, 18].forEach(hour => {
+      const marker = new Date(nextDay);
       marker.setHours(hour, 0, 0, 0);
       markers.push(marker.getTime());
     });
@@ -371,12 +390,12 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     return Math.max(...allLevels);
   }, [data, combinedFutureData, maxSafeLevel]);
 
-  // Create chart margins with extra space for labels at top
+  // Create chart margins with extra space for labels at top and bottom
   const chartMargins = useMemo(() => ({
-    top: 40,  // Increased for labels above chart
+    top: 40,  // For labels above chart
     right: 30,
     left: 10, 
-    bottom: 30  // Increased for day labels
+    bottom: 70  // Further increased for better day label separation
   }), []);
 
   // Custom tooltip component
@@ -456,7 +475,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
             <Card.Body>
               <div className="d-flex align-items-center justify-content-between mb-2">
                 <h3 className="mb-0">
-                  {<FontAwesomeIcon icon={faCalendarDay} className="me-2" />}
+                  <FontAwesomeIcon icon={faCalendarDay} className="me-2" />
                   Caffeine Levels Over Time
                 </h3>
                 
@@ -513,15 +532,22 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       type="number"
                       domain={[windowStartTime.getTime(), windowEndTime.getTime()]}
                       ticks={fixedTimeMarkers}
+                      tick={{ fontSize: 10 }}
                       padding={{ left: 10, right: 10 }}
-                    />
+                                          />
                     <YAxis 
                       domain={[0, Math.ceil(maxLevel * 1.1 / 50) * 50]} 
                       padding={{ top: 15, bottom: 5 }}
                     />
-                    <Tooltip content={(props) => CustomTooltip(props)} />
+                    <RechartsTooltip 
+                      content={(props: any) => CustomTooltip({
+                        active: props.active,
+                        payload: props.payload,
+                        label: props.label
+                      })} 
+                    />
                     
-                    {/* Day boundary markers - always show the start of the current day */}
+                    {/* Day boundary markers with clear positioning well below time labels */}
                     {dayBoundaries.map((day, index) => (
                       <ReferenceLine 
                         key={`day-${index}`}
@@ -531,11 +557,11 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                         strokeDasharray="5 5" 
                         label={{
                           value: index === 0 ? formatDate(day) : "Next Day",
-                          position: 'insideBottomRight',
+                          position: 'bottom',
                           fill: '#6c757d',
-                          fontSize: 11,
-                          angle: -45,
-                          offset: 10
+                          fontSize: 12,
+                          dy: 25, // Significantly increased to position well below time markers
+                          offset: 0
                         }}
                       />
                     ))}
@@ -589,21 +615,19 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       />
                     ))}
                     
-                    {/* Current time marker - only show when within the visible window */}
-                    {timeOffset === 0 && (
-                      <ReferenceLine 
-                        x={now.getTime()} 
-                        stroke="#28a745" 
-                        strokeWidth={2}
-                        label={{
-                          value: getNowLabel(),
-                          position: 'insideTopRight',
-                          fill: '#28a745',
-                          fontSize: 12,
-                          offset: 5
-                        }}
-                      />
-                    )}
+                    {/* Current time marker - always show regardless of navigation */}
+                    <ReferenceLine 
+                      x={now.getTime()} 
+                      stroke="#28a745" 
+                      strokeWidth={2}
+                      label={{
+                        value: getNowLabel(),
+                        position: 'insideTopRight',
+                        fill: '#28a745',
+                        fontSize: 12,
+                        offset: 5
+                      }}
+                    />
                     
                     {/* Actual caffeine data (solid) */}
                     <Area 
