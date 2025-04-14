@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPencilAlt, faTrash, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPencilAlt, faTrash, faPlusSquare, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import IntakeForm from '../../components/IntakeForm';
 import IntakeLogTable from '../../components/IntakeLogTable';
@@ -13,12 +13,13 @@ import drinksData from '../../data/drinks.json'; // Import default drinks
 
 /**
  * Page component for managing caffeine intake records.
- * Provides functionality to view, add, edit, and delete intake records.
+ * Provides functionality to view, add, edit, clone, and delete intake records.
  */
 const IntakePage: React.FC = () => {
   // Context and state
   const { state, addCaffeineIntake, updateCaffeineIntake, removeCaffeineIntake } = useAppContext();
   const [selectedIntake, setSelectedIntake] = useState<CaffeineIntake | null>(null);
+  const [clonedIntake, setClonedIntake] = useState<CaffeineIntake | null>(null);
   
   // Slideout panel visibility states
   const [showAddPanel, setShowAddPanel] = useState<boolean>(false);
@@ -32,6 +33,7 @@ const IntakePage: React.FC = () => {
   const handleAddIntake = (intake: CaffeineIntake) => {
     addCaffeineIntake(intake);
     setShowAddPanel(false);
+    setClonedIntake(null); // Clear the cloned intake after saving
   };
 
   // Handler for updating an existing intake
@@ -62,6 +64,37 @@ const IntakePage: React.FC = () => {
     setShowDeletePanel(true);
   };
 
+  // Handler for opening the clone slideout
+  const handleCloneClick = (intake: CaffeineIntake) => {
+    // Set the intake to be cloned, but update the datetime to current time
+    const now = new Date();
+    setClonedIntake({
+      ...intake,
+      // Don't copy the ID - a new one will be generated when saved
+      datetime: now.toISOString()
+    });
+    setShowAddPanel(true);
+  };
+
+  // Close the add panel and reset any cloned data
+  const handleAddPanelClose = () => {
+    setShowAddPanel(false);
+    setClonedIntake(null);
+  };
+
+  // Standard footer component for the add slideout
+  const addFooter = (
+    <div className="d-flex justify-content-between w-100">
+      <Button 
+        variant="outline-secondary" 
+        onClick={handleAddPanelClose}
+        className="d-flex align-items-center"
+      >
+        &lt; Back
+      </Button>
+    </div>
+  );
+
   // Standard footer component for the edit slideout
   const editFooter = (
     <div className="d-flex justify-content-between w-100">
@@ -91,13 +124,23 @@ const IntakePage: React.FC = () => {
   // Check if there's any intake data
   const hasIntakeData = state.caffeineIntakes.length > 0;
 
+  // Determine the appropriate title and icon for the add panel based on whether we're cloning
+  const addPanelTitle = clonedIntake ? "Clone Caffeine Intake" : "Add Caffeine Intake";
+  const addPanelIcon = clonedIntake ? faCopy : faPlus;
+  const addPanelDescription = clonedIntake 
+    ? "Create a new intake based on an existing one. Make any changes needed before saving."
+    : "Record a new caffeine intake with the details below.";
+
   return (
     <Container className="py-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h1><FontAwesomeIcon icon={faPlusSquare} className="me-2" />Caffeine Intake</h1>
         <Button 
           variant="primary" 
-          onClick={() => setShowAddPanel(true)}
+          onClick={() => {
+            setClonedIntake(null); // Ensure we're not cloning when clicking Add
+            setShowAddPanel(true);
+          }}
           className="d-flex align-items-center"
         >
           <FontAwesomeIcon icon={faPlus} className="me-2" />
@@ -111,34 +154,26 @@ const IntakePage: React.FC = () => {
           intakes={state.caffeineIntakes}
           onEditIntake={handleEditClick}
           onDeleteIntake={handleDeleteClick}
+          onCloneIntake={handleCloneClick}
         />
       ) : (
         <IntakeWelcome onAddClick={() => setShowAddPanel(true)} />
       )}
 
-      {/* Add intake slideout panel */}
+      {/* Add/Clone intake slideout panel */}
       <SlideoutPanel
         show={showAddPanel}
-        onHide={() => setShowAddPanel(false)}
-        title="Add Caffeine Intake"
-        description="Record a new caffeine intake with the details below."
-        icon={faPlus}
-        footer={
-          <div className="d-flex justify-content-between w-100">
-            <Button 
-              variant="outline-secondary" 
-              onClick={() => setShowAddPanel(false)}
-              className="d-flex align-items-center"
-            >
-              &lt; Back
-            </Button>
-          </div>
-        }
+        onHide={handleAddPanelClose}
+        title={addPanelTitle}
+        description={addPanelDescription}
+        icon={addPanelIcon}
+        footer={addFooter}
       >
         <IntakeForm
+          intake={clonedIntake || undefined}
           drinks={availableDrinks}
           onSave={handleAddIntake}
-          onCancel={() => setShowAddPanel(false)}
+          onCancel={handleAddPanelClose}
         />
       </SlideoutPanel>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Label, Tooltip, Sector } from 'recharts';
+import { useTheme } from '../hooks/useTheme';
 
 interface CurrentCaffeineDonutProps {
   currentLevel: number;
@@ -68,15 +69,21 @@ const renderActiveShape = (props: any) => {
 
 // Custom tooltip
 const CustomTooltip = ({ active, payload }: any) => {
+  const [theme] = useTheme();
+  const isDarkMode = theme === 'dark';
+  
   if (active && payload && payload.length) {
     const data = payload[0].payload;
+    const tooltipClass = `custom-tooltip p-2 border rounded shadow${isDarkMode ? ' bg-dark text-light' : ' bg-light text-dark'}`;
 
     return (
-      <div className="custom-tooltip p-2 border rounded shadow">
+      <div className={tooltipClass}>
         <p className="mb-1"><strong>{data.name}</strong></p>
         <p className="mb-0">Range: {data.range}</p>
         {data.description && (
-          <p className="mb-0 small text-muted">{data.description}</p>
+          <p className={`mb-0 small ${isDarkMode ? 'text-light-emphasis' : 'text-muted'}`}>
+            {data.description}
+          </p>
         )}
       </div>
     );
@@ -91,6 +98,17 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
   sleepThreshold,
   halfLifeHours = 6
 }) => {
+  const [theme] = useTheme();
+  const isDarkMode = theme === 'dark';
+  
+  // Define theme-aware colors
+  const colors = {
+    safe: '#28a745', // Green (consistent across themes)
+    warning: '#ffc107', // Yellow (consistent across themes)
+    danger: '#dc3545', // Red (consistent across themes)
+    remaining: isDarkMode ? '#343a40' : '#f8f9fa' // Dark gray in dark mode, light gray in light mode
+  };
+  
   // Create data for the donut chart
   const createChartData = () => {
     const MAX_SCALE = 500; // Maximum value for the chart
@@ -101,7 +119,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
         name: 'Safe Level',
         value: Math.min(sleepThreshold, currentLevel),
         range: `0 - ${sleepThreshold} mg`,
-        fill: '#28a745', // Green
+        fill: colors.safe,
         description: 'Unlikely to disrupt sleep'
       },
       // Sleep disruption level (sleepThreshold - maxSafeLevel)
@@ -111,7 +129,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
           ? Math.min(maxSafeLevel, currentLevel) - sleepThreshold 
           : 0,
         range: `${sleepThreshold} - ${maxSafeLevel} mg`,
-        fill: '#ffc107', // Yellow
+        fill: colors.warning,
         description: 'May affect sleep quality if consumed before bedtime'
       },
       // Excessive level (maxSafeLevel - currentLevel)
@@ -121,7 +139,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
           ? currentLevel - maxSafeLevel 
           : 0,
         range: `${maxSafeLevel}+ mg`,
-        fill: '#dc3545', // Red
+        fill: colors.danger,
         description: 'Exceeds recommended daily intake'
       },
       // Remaining capacity (up to MAX_SCALE)
@@ -129,7 +147,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
         name: 'Remaining Capacity',
         value: Math.max(0, MAX_SCALE - currentLevel),
         range: '',
-        fill: '#f8f9fa', // Light gray
+        fill: colors.remaining,
       }
     ];
   };
@@ -141,12 +159,12 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
     {
       name: 'Sleep Threshold Marker',
       value: sleepThreshold / 500 * 100,
-      fill: '#ffc107'
+      fill: colors.warning
     },
     {
       name: 'Max Safe Marker',
       value: maxSafeLevel / 500 * 100,
-      fill: '#dc3545'
+      fill: colors.danger
     }
   ];
 
@@ -159,6 +177,8 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
   const onPieLeave = () => {
     setActiveIndex(undefined);
   };
+
+  const textClass = isDarkMode ? 'text-light-emphasis' : 'text-muted';
 
   return (
     <div className="current-caffeine-donut">
@@ -222,7 +242,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
         <div className="mb-1">
           <span className="badge bg-danger me-1">■</span> Excessive ({maxSafeLevel}mg+)
         </div>
-        <div className="mt-2 small text-muted">
+        <div className={`mt-2 small ${textClass}`}>
           Using {halfLifeHours}-hour caffeine half-life
         </div>
       </div>

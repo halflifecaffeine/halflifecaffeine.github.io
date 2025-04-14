@@ -4,11 +4,18 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faChartLine, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
+interface WelcomeJumbotronProps {
+  /**
+   * Function to open the intake form slideout when clicking "Log First Drink"
+   */
+  onLogIntakeClick?: () => void;
+}
+
 /**
  * A welcome component that appears when users have no caffeine intake data
  * Provides a friendly introduction and quick action buttons
  */
-export const WelcomeJumbotron: React.FC = () => {
+export const WelcomeJumbotron: React.FC<WelcomeJumbotronProps> = ({ onLogIntakeClick }) => {
   return (
     <Card className="border-0 shadow-sm welcome-jumbotron">
       <Card.Body className="text-center p-md-5 p-4">
@@ -28,8 +35,7 @@ export const WelcomeJumbotron: React.FC = () => {
         <Row className="justify-content-center mb-4 g-3">
           <Col md={4} sm={6}>
             <Button 
-              as={Link} 
-              to="/intake" 
+              onClick={onLogIntakeClick}
               variant="primary" 
               size="lg" 
               className="w-100"

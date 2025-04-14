@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Button, ButtonGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPencilAlt, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { CaffeineIntake } from '../types';
 import { formatVolume } from '../utils/conversions';
 
@@ -9,16 +9,18 @@ interface IntakeLogTableProps {
   intakes: CaffeineIntake[];
   onEditIntake: (intake: CaffeineIntake) => void;
   onDeleteIntake: (intake: CaffeineIntake) => void;
+  onCloneIntake: (intake: CaffeineIntake) => void;
 }
 
 /**
  * Table component that displays a sortable list of caffeine intake records
- * with options to edit or delete each record.
+ * with options to edit, clone, or delete each record.
  */
 const IntakeLogTable: React.FC<IntakeLogTableProps> = ({ 
   intakes, 
   onEditIntake, 
-  onDeleteIntake 
+  onDeleteIntake,
+  onCloneIntake 
 }) => {
   const formatDateTime = (isoString: string): string => {
     const date = new Date(isoString);
@@ -71,8 +73,17 @@ const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
               <td>
                 <ButtonGroup size="sm" className="float-end">
                   <Button
+                    variant="outline-secondary"
+                    onClick={() => onCloneIntake(intake)}
+                    title="Clone intake"
+                    aria-label={`Clone intake at ${formatDateTime(intake.datetime)}`}
+                  >
+                    <FontAwesomeIcon icon={faCopy} />
+                  </Button>
+                  <Button
                     variant="outline-primary"
                     onClick={() => onEditIntake(intake)}
+                    title="Edit intake"
                     aria-label={`Edit intake at ${formatDateTime(intake.datetime)}`}
                   >
                     <FontAwesomeIcon icon={faPencilAlt} />
@@ -80,6 +91,7 @@ const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
                   <Button
                     variant="outline-danger"
                     onClick={() => onDeleteIntake(intake)}
+                    title="Delete intake"
                     aria-label={`Delete intake at ${formatDateTime(intake.datetime)}`}
                   >
                     <FontAwesomeIcon icon={faTrash} />
