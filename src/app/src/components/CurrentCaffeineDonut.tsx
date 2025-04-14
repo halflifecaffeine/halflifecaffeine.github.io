@@ -22,23 +22,23 @@ interface CustomLabelProps {
 // Custom label component for the center of the donut
 const CustomLabel: React.FC<CustomLabelProps> = ({ viewBox, currentLevel }) => {
   if (!viewBox) return null;
-  
+
   return (
     <g>
-      <text 
-        x={viewBox.cx} 
-        y={viewBox.cy - 15} 
-        textAnchor="middle" 
+      <text
+        x={viewBox.cx}
+        y={viewBox.cy - 15}
+        textAnchor="middle"
         dominantBaseline="central"
         className="donut-label-title"
         fontSize="16"
       >
         Current Level
       </text>
-      <text 
-        x={viewBox.cx} 
-        y={viewBox.cy + 15} 
-        textAnchor="middle" 
+      <text
+        x={viewBox.cx}
+        y={viewBox.cy + 15}
+        textAnchor="middle"
         dominantBaseline="central"
         className="donut-label-value"
         fontSize="22"
@@ -73,7 +73,7 @@ const renderActiveShape = (props: any) => {
 const CustomTooltip = ({ active, payload }: any) => {
   const [theme] = useTheme();
   const isDarkMode = theme === 'dark';
-  
+
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     const tooltipClass = `custom-tooltip p-2 border rounded shadow${isDarkMode ? ' bg-dark text-light' : ' bg-light text-dark'}`;
@@ -102,7 +102,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
 }) => {
   const [theme] = useTheme();
   const isDarkMode = theme === 'dark';
-  
+
   // Define theme-aware colors
   const colors = {
     safe: '#28a745', // Green (consistent across themes)
@@ -110,11 +110,11 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
     danger: '#dc3545', // Red (consistent across themes)
     remaining: isDarkMode ? '#343a40' : '#f8f9fa' // Dark gray in dark mode, light gray in light mode
   };
-  
+
   // Create data for the donut chart
   const createChartData = () => {
     const MAX_SCALE = 500; // Maximum value for the chart
-    
+
     return [
       // Safe level segment (0 - sleepThreshold)
       {
@@ -127,8 +127,8 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
       // Sleep disruption level (sleepThreshold - maxSafeLevel)
       {
         name: 'May Disrupt Sleep',
-        value: currentLevel > sleepThreshold 
-          ? Math.min(maxSafeLevel, currentLevel) - sleepThreshold 
+        value: currentLevel > sleepThreshold
+          ? Math.min(maxSafeLevel, currentLevel) - sleepThreshold
           : 0,
         range: `${sleepThreshold} - ${maxSafeLevel} mg`,
         fill: colors.warning,
@@ -137,8 +137,8 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
       // Excessive level (maxSafeLevel - currentLevel)
       {
         name: 'Excessive',
-        value: currentLevel > maxSafeLevel 
-          ? currentLevel - maxSafeLevel 
+        value: currentLevel > maxSafeLevel
+          ? currentLevel - maxSafeLevel
           : 0,
         range: `${maxSafeLevel}+ mg`,
         fill: colors.danger,
@@ -155,7 +155,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
   };
 
   const data = createChartData();
-  
+
   // Calculate segments for the threshold markers
   const thresholdMarkers = [
     {
@@ -175,7 +175,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
   const onPieEnter = (_: any, index: number) => {
     setActiveIndex(index);
   };
-  
+
   const onPieLeave = () => {
     setActiveIndex(undefined);
   };
@@ -185,8 +185,9 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
   return (
     <div className="current-caffeine-donut">
       <h3 className="mb-3">
-        {<FontAwesomeIcon icon={faClock} className="me-1" />}
-        Current Level</h3>
+        {<FontAwesomeIcon icon={faClock} className="me-2" />}
+        Current <span className="d-inline d-lg-none">Caffeine</span> Level
+      </h3>
       <div style={{ width: '100%', height: 300 }}>
         <ResponsiveContainer>
           <PieChart>
@@ -213,7 +214,7 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
                 position="center"
               />
             </Pie>
-            
+
             {/* Threshold marker lines */}
             <Pie
               data={thresholdMarkers}
@@ -229,12 +230,12 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
                 <Cell key={`marker-${index}`} fill={entry.fill} />
               ))}
             </Pie>
-            
+
             <Tooltip content={<CustomTooltip />} />
           </PieChart>
         </ResponsiveContainer>
       </div>
-      
+
       {/* Left-justified legend */}
       <div className="mt-2 text-start">
         <div className="mb-1">

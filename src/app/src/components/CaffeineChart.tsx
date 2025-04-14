@@ -152,8 +152,9 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
 
   // Format time labels for the chart
   const getNowLabel = useCallback(() => `${labels.now}: ${formatCurrentTime(now)}`, [labels.now, formatCurrentTime, now]);
-  const getSleepLabel = useCallback((sleepStart: Date) => `${labels.sleepTime}: ${formatCurrentTime(sleepStart)}`, [labels.sleepTime, formatCurrentTime]);
-  
+  //const getSleepLabel = useCallback((sleepStart: Date) => `${labels.sleepTime}: ${formatCurrentTime(sleepStart)}`, [labels.sleepTime, formatCurrentTime]);
+  const getSleepLabel = useCallback(() => 'Bedtime', [labels.now, formatCurrentTime, now]);
+
   // Get current caffeine level (most recent data point not in the future)
   const currentCaffeineLevel = useMemo(() => {
     if (!data || data.length === 0) return 0;
@@ -379,12 +380,12 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     return Math.max(...allLevels);
   }, [data, combinedFutureData, maxSafeLevel]);
 
-  // Create chart margins with extra space for labels
+  // Create chart margins with reduced space to maximize visible chart area
   const chartMargins = useMemo(() => ({
-    top: 40,
-    right: 30,
-    left: 10,
-    bottom: 70 
+    top: 30,      // Reduced from 40
+    right: 10,    // Reduced from 30
+    left: 5,      // Reduced from 10
+    bottom: 5    // Reduced from 70
   }), []);
 
   // Custom tooltip component
@@ -462,7 +463,10 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
               <div className="d-flex align-items-center justify-content-between mb-2">
                 <h3 className="mb-0">
                   <FontAwesomeIcon icon={faCalendarDay} className="me-2" />
-                  Caffeine Levels Over Time
+                  
+                  <span className="d-none d-md-inline">Caffeine </span>
+                  <span className="d-none d-lg-inline">Levels </span>
+                  <span>Over Time</span>
                 </h3>
                 
                 {/* Zoom controls */}
@@ -519,7 +523,9 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                     />
                     <YAxis 
                       domain={[0, Math.ceil(maxLevel * 1.1 / 50) * 50]} 
-                      padding={{ top: 15, bottom: 5 }}
+                      padding={{ top: 10, bottom: 0 }}
+                      tick={{ fontSize: 9 }}
+                      width={25}
                     />
                     <RechartsTooltip 
                       content={(props: any) => CustomTooltip({
@@ -539,10 +545,10 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                         strokeDasharray="5 5" 
                         label={{
                           value: formatDate(day),
-                          position: 'bottom',
+                          position: 'insideBottom',
                           fill: '#6c757d',
-                          fontSize: 11,
-                          dy: 35,
+                          fontSize: 10, // Reduced from 11
+                          dy: 25, // Reduced from 35
                           offset: 0
                         }}
                       />
@@ -558,8 +564,8 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                         value={labels.maxSafe}
                         position="insideBottomLeft"
                         fill="red"
-                        fontSize={12}
-                        offset={5}
+                        fontSize={10} // Reduced from 12
+                        offset={3} // Reduced from 5
                       />
                     </ReferenceLine>
                     
@@ -573,8 +579,8 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                         value={labels.sleepThreshold}
                         position="insideBottomLeft"
                         fill="#FFA500"
-                        fontSize={12}
-                        offset={5}
+                        fontSize={10} // Reduced from 12
+                        offset={3} // Reduced from 5
                       />
                     </ReferenceLine>
                     
@@ -590,8 +596,8 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                           value: getSleepLabel(sleepTime),
                           position: 'top',
                           fill: '#6610f2',
-                          fontSize: 12,
-                          offset: 15
+                          fontSize: 10, // Reduced from 12
+                          offset: 10 // Reduced from 15
                         }}
                       />
                     ))}

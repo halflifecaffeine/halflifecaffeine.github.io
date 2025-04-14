@@ -158,8 +158,8 @@ const HomePage: React.FC = () => {
               <Card.Header className="border-bottom d-flex justify-content-between align-items-center">
                 <h3 className="mb-0">
                   Caffeine Levels
-                  <small className="text-muted ms-2 fs-6 fw-normal" style={{ fontSize: '0.8rem' }}>
-                    (Last updated: {lastUpdateTime.toLocaleTimeString()})
+                  <small className="d-none d-sm-inline text-muted ms-2 fs-6 fw-normal" style={{ fontSize: '0.7rem' }}>
+                    (Updated: {lastUpdateTime.toLocaleTimeString()})
                   </small>
                 </h3>
                 <Button 
@@ -170,7 +170,8 @@ const HomePage: React.FC = () => {
                   aria-label="Add new caffeine intake"
                 >
                   <FontAwesomeIcon icon={faPlus} className="me-1" />
-                  Add Intake
+                  Add
+                  <span className="d-none d-sm-inline">&nbsp;Intake</span>
                 </Button>
               </Card.Header>
               <Card.Body className="p-0 p-md-3">

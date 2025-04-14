@@ -61,7 +61,8 @@ const CaffeineHealthInfo: React.FC<CaffeineHealthInfoProps> = ({
     <div className="caffeine-health-info">
       <h3 className="mb-3">
         {<FontAwesomeIcon icon={faHeartPulse} className="me-2" />}
-        Caffeine Health Information</h3>
+        <span className="d-none d-md-inline">Caffeine </span>
+        Health Information</h3>
       
       <Row className="g-3">
         {/* Daily intake card */}
