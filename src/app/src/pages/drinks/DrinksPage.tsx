@@ -6,7 +6,7 @@ import { Drink } from '../../types'; // Import Drink type
 import drinksData from '../../data/drinks.json'; // Import default drinks data
 
 const DrinksPage: React.FC = () => {
-  const { state, addCustomDrink, updateCustomDrink, removeCustomDrink } = useAppContext();
+  const { state, addCustomDrink, updateCustomDrink } = useAppContext();
 
   return (
     <Container className="mt-4">
@@ -21,7 +21,6 @@ const DrinksPage: React.FC = () => {
           customDrinks={state.customDrinks} // Pass custom drinks from context
           onAddCustomDrink={addCustomDrink} // Pass context action
           onUpdateCustomDrink={updateCustomDrink} // Pass context action
-          onRemoveCustomDrink={removeCustomDrink} // Pass context action
         />
       </div>
     </Container>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap'; // Import Nav
 import { LinkContainer } from 'react-router-bootstrap'; // Use LinkContainer for react-bootstrap integration
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPlusSquare, faGlassWhiskey, faFileContract, faUserSecret } from '@fortawesome/free-solid-svg-icons'; // Add icons
+import { faHome, faPlusSquare, faGlassWhiskey } from '@fortawesome/free-solid-svg-icons'; // Add icons
 import SettingsPanel from './SettingsPanel';
 import { useAppContext } from '../../contexts/AppContext'; // Import context to get theme
 

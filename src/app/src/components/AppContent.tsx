@@ -21,7 +21,7 @@ import drinksData from '../data/drinks.json';
 import { useAppContext } from '../contexts/AppContext';
 
 // Import types
-import { CaffeineIntake, Drink, CustomDrink } from '../types';
+import { CaffeineIntake, Drink } from '../types';
 
 /**
  * Main application content component
@@ -78,6 +78,7 @@ const AppContent: React.FC = () => {
               maxSafeLevel={state.preferences.maxSafeCaffeineLevel}
               sleepThreshold={state.preferences.sleepCaffeineThreshold}
               sleepStartHour={state.preferences.sleepStartHour}
+              halfLifeHours={state.preferences.halfLifeHours}
             />
           </div>
         )}
@@ -106,7 +107,6 @@ const AppContent: React.FC = () => {
                     drinks={[...drinksData as Drink[], ...state.customDrinks]} 
                     onAddCustomDrink={addCustomDrink}
                     onUpdateCustomDrink={updateCustomDrink}
-                    onRemoveCustomDrink={removeCustomDrink}
                     customDrinks={state.customDrinks}
                   />
                 </Tab>
@@ -128,8 +128,8 @@ const AppContent: React.FC = () => {
           <Tab eventKey="log" title="Intake Log">
             <div className="mt-3">
               <CaffeineTable 
-                caffeineIntakes={state.caffeineIntakes} 
-                availableDrinks={[...drinksData as Drink[], ...state.customDrinks]}
+                intakes={state.caffeineIntakes} 
+                drinks={[...drinksData as Drink[], ...state.customDrinks]}
                 onDeleteIntake={handleDeleteIntake} 
               />
             </div>

@@ -8,7 +8,8 @@ import {
   Tooltip, 
   ResponsiveContainer,
   ReferenceLine,
-  Label
+  Label,
+  TooltipProps
 } from 'recharts';
 import { TimeSeriesData, calculateRemainingCaffeine } from '../engine/caffeineCalculator';
 import CurrentCaffeineDonut from './CurrentCaffeineDonut';
@@ -27,6 +28,13 @@ interface CaffeineChartProps {
 interface TooltipPayload {
   value: number | null;
   dataKey: string;
+}
+
+// Define custom tooltip props
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: TooltipPayload[];
+  label?: string | number;
 }
 
 // Define breakpoint for responsive design
@@ -147,13 +155,13 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     const pastData = data.filter(point => point.time <= now).map(item => ({
       time: item.time.getTime(), // Convert to timestamp
       actualLevel: item.level,
-      projectedLevel: null
+      projectedLevel: null as number | null
     }));
     
     // Future data (projected decay)
     const futureData = projectedData.map(item => ({
       time: item.time.getTime(),
-      actualLevel: null,
+      actualLevel: null as number | null,
       projectedLevel: item.level
     }));
 
@@ -196,7 +204,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
   }), []);
 
   // Custom tooltip component
-  const CustomTooltip: React.FC<any> = useCallback(({ active, payload, label }) => {
+  const CustomTooltip = useCallback(({ active, payload, label }: CustomTooltipProps) => {
     if (active && payload && payload.length) {
       // Find the payload item that has a non-null value
       const dataPoint = payload.find((p: TooltipPayload) => p.value !== null);
@@ -207,7 +215,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
       
       return (
         <div className="custom-tooltip p-2 bg-light border rounded shadow">
-          <p className="mb-1"><strong>{formatXAxis(label)}</strong></p>
+          <p className="mb-1"><strong>{formatXAxis(label as number)}</strong></p>
           <p className="mb-0">
             {isProjected ? "Projected Caffeine: " : "Caffeine Level: "}
             <strong>{caffeine} mg</strong>
@@ -272,7 +280,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       domain={[0, Math.ceil(maxLevel * 1.1 / 50) * 50]} 
                       padding={{ top: 15, bottom: 5 }}
                     />
-                    <Tooltip content={CustomTooltip} />
+                    <Tooltip content={(props) => CustomTooltip(props)} />
                     
                     {/* Max safe level - with responsive label text and original positioning */}
                     <ReferenceLine 

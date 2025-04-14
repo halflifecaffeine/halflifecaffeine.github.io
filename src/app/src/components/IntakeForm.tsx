@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, InputGroup, Row, Col, Alert } from 'react-bootstrap';
+import { Form, Button, InputGroup, Row, Col } from 'react-bootstrap';
 import { CaffeineIntake, Drink, VolumeUnit } from '../types';
 import { validateVolumeInput } from '../utils/validators';
 import { v4 as uuidv4 } from 'uuid';
