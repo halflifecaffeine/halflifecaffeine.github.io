@@ -1,0 +1,1546 @@
+[
+  {
+    "manufacturer": "Starbucks",
+    "product": "Pike Place Roast Coffee",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 310,
+    "labels": ["#coffee", "#brewed"]
+  },
+  {
+    "manufacturer": "Starbucks",
+    "product": "Americano",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#espresso"]
+  },
+  {
+    "manufacturer": "Starbucks",
+    "product": "Caffè Latte",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#espresso", "#milk"]
+  },
+  {
+    "manufacturer": "Dunkin'",
+    "product": "Brewed Coffee",
+    "category": "coffee",
+    "volume_oz": 14,
+    "caffeine_mg": 210,
+    "labels": ["#coffee", "#brewed"]
+  },
+  {
+    "manufacturer": "Red Bull",
+    "product": "Energy Drink",
+    "category": "energy_drink",
+    "volume_oz": 8.4,
+    "caffeine_mg": 80,
+    "labels": ["#energy", "#taurine"]
+  },
+  {
+    "manufacturer": "Monster",
+    "product": "Energy Drink",
+    "category": "energy_drink",
+    "volume_oz": 16,
+    "caffeine_mg": 160,
+    "labels": ["#energy", "#taurine"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Coca-Cola Classic",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 34,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Pepsi",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 38,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Lipton",
+    "product": "Black Tea",
+    "category": "tea",
+    "volume_oz": 8,
+    "caffeine_mg": 47,
+    "labels": ["#tea", "#black"]
+  },
+  {
+    "manufacturer": "Celestial Seasonings",
+    "product": "Green Tea",
+    "category": "tea",
+    "volume_oz": 8,
+    "caffeine_mg": 25,
+    "labels": ["#tea", "#green"]
+  },
+  {
+    "manufacturer": "Panera",
+    "product": "Green Tea",
+    "category": "tea",
+    "volume_oz": 20,
+    "caffeine_mg": 75,
+    "labels": ["#sweet", "#green-tea"]
+  },
+  {
+    "manufacturer": "5 Hour Energy",
+    "product": "Energy Shot",
+    "category": "energy_shot",
+    "volume_oz": 1.93,
+    "caffeine_mg": 200,
+    "labels": ["#energy", "#shot"]
+  },
+  {
+    "manufacturer": "Swiss Miss",
+    "product": "Hot Chocolate",
+    "category": "chocolate",
+    "volume_oz": 8,
+    "caffeine_mg": 5,
+    "labels": ["#chocolate", "#cocoa"]
+  },
+  {
+    "manufacturer": "Hershey's",
+    "product": "Dark Chocolate Bar",
+    "category": "chocolate",
+    "volume_oz": 1.45,
+    "caffeine_mg": 20,
+    "labels": ["#chocolate", "#dark"]
+  },
+  {
+    "manufacturer": "Starbucks",
+    "product": "Espresso Shot",
+    "category": "coffee",
+    "volume_oz": 1,
+    "caffeine_mg": 75,
+    "labels": ["#coffee", "#espresso", "#shot"]
+  },
+  {
+    "manufacturer": "Death Wish Coffee",
+    "product": "Death Wish Coffee",
+    "category": "coffee",
+    "volume_oz": 8,
+    "caffeine_mg": 472,
+    "labels": ["#coffee", "#strong"]
+  },
+  {
+    "manufacturer": "Rockstar",
+    "product": "Energy Drink",
+    "category": "energy_drink",
+    "volume_oz": 16,
+    "caffeine_mg": 160,
+    "labels": ["#energy", "#taurine"]
+  },
+  {
+    "manufacturer": "Bang",
+    "product": "Energy Drink",
+    "category": "energy_drink",
+    "volume_oz": 16,
+    "caffeine_mg": 300,
+    "labels": ["#energy", "#creatine"]
+  },
+  {
+    "manufacturer": "Crystal Light",
+    "product": "Energy Drink Mix",
+    "category": "energy_mix",
+    "volume_oz": 16,
+    "caffeine_mg": 60,
+    "labels": ["#energy", "#mix"]
+  },
+  {
+    "manufacturer": "Snapple",
+    "product": "Tea",
+    "category": "tea",
+    "volume_oz": 16,
+    "caffeine_mg": 42,
+    "labels": ["#tea", "#bottled"]
+  },
+  {
+    "manufacturer": "Diet Pepsi",
+    "product": "Diet Pepsi",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 35,
+    "labels": ["#soda", "#cola", "#diet"]
+  },
+  {
+    "manufacturer": "RC Cola",
+    "product": "RC Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 43,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Dr Pepper",
+    "product": "Dr Pepper",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 42,
+    "labels": ["#soda", "#dr-pepper"]
+  },
+  {
+    "manufacturer": "Mountain Dew",
+    "product": "MTN Dew",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 54,
+    "labels": ["#soda", "#citrus"]
+  },
+  {
+    "manufacturer": "Red Bull",
+    "product": "Red Bull (12oz)",
+    "category": "energy_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 114,
+    "labels": ["#energy", "#taurine"]
+  },
+  {
+    "manufacturer": "Monster Energy",
+    "product": "Monster Energy (12oz)",
+    "category": "energy_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 120,
+    "labels": ["#energy", "#taurine"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Brewed Coffee (12oz)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 136,
+    "labels": ["#coffee", "#brewed"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Pepsi One",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 57,
+    "labels": ["#soda", "#cola", "#diet"]
+  },
+  {
+    "manufacturer": "Cheerwine",
+    "product": "Diet Cheerwine",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 48,
+    "labels": ["#soda", "#cherry", "#diet"]
+  },
+  {
+    "manufacturer": "Tab",
+    "product": "Tab",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 48,
+    "labels": ["#soda", "#cola", "#diet"]
+  },
+  {
+    "manufacturer": "Cheerwine",
+    "product": "Cheerwine",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 48,
+    "labels": ["#soda", "#cherry"]
+  },
+  {
+    "manufacturer": "RC Cola",
+    "product": "Diet RC",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 47,
+    "labels": ["#soda", "#cola", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Diet Coke",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 46,
+    "labels": ["#soda", "#cola", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Diet Coke with Lime",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 46,
+    "labels": ["#soda", "#cola", "#diet", "#lime"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Diet Vanilla Coke",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 45,
+    "labels": ["#soda", "#cola", "#diet", "#vanilla"]
+  },
+  {
+    "manufacturer": "Shasta",
+    "product": "Shasta Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 43,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Faygo",
+    "product": "Faygo Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 42,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Diet Cherry Pepsi",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 41,
+    "labels": ["#soda", "#cola", "#cherry", "#diet"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Cherry Pepsi",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 40,
+    "labels": ["#soda", "#cola", "#cherry"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Pepsi with Lime",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 38,
+    "labels": ["#soda", "#cola", "#lime"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Diet Vanilla Pepsi",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 38,
+    "labels": ["#soda", "#cola", "#vanilla", "#diet"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Vanilla Pepsi",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 37,
+    "labels": ["#soda", "#cola", "#vanilla"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Diet Coke Black Cherry Vanilla",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 37,
+    "labels": ["#soda", "#cola", "#cherry", "#vanilla", "#diet"]
+  },
+  {
+    "manufacturer": "Pepsi",
+    "product": "Diet Pepsi with Lime",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 36,
+    "labels": ["#soda", "#cola", "#lime", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Coke Zero",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 36,
+    "labels": ["#soda", "#cola", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Black Cherry Vanilla Coke",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 35,
+    "labels": ["#soda", "#cola", "#cherry", "#vanilla"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Diet Cherry Coke",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 35,
+    "labels": ["#soda", "#cola", "#cherry", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Cherry Coke",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 34,
+    "labels": ["#soda", "#cola", "#cherry"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Coca-Cola C2",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 34,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Diet Coke with Splenda",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 34,
+    "labels": ["#soda", "#cola", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Coke with Lime",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 34,
+    "labels": ["#soda", "#cola", "#lime"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Vanilla Coke",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 33,
+    "labels": ["#soda", "#cola", "#vanilla"]
+  },
+  {
+    "manufacturer": "Red Rock",
+    "product": "Red Rock Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 26,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Ritz",
+    "product": "Ritz Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 10,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Double Cola",
+    "product": "Double Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 36,
+    "labels": ["#soda", "#cola"]
+  },
+  {
+    "manufacturer": "Dr Pepper",
+    "product": "Diet Dr Pepper",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 44,
+    "labels": ["#soda", "#dr-pepper", "#diet"]
+  },
+  {
+    "manufacturer": "Dr Pepper",
+    "product": "Diet Dr Pepper Berries & Cream",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 42,
+    "labels": ["#soda", "#dr-pepper", "#berry", "#diet"]
+  },
+  {
+    "manufacturer": "Dr Pepper",
+    "product": "Dr Pepper Berries & Cream",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 41,
+    "labels": ["#soda", "#dr-pepper", "#berry"]
+  },
+  {
+    "manufacturer": "Dr Pepper",
+    "product": "Diet Cherry Vanilla Dr Pepper",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 40,
+    "labels": ["#soda", "#dr-pepper", "#cherry", "#vanilla", "#diet"]
+  },
+  {
+    "manufacturer": "Dr Pepper",
+    "product": "Cherry Vanilla Dr Pepper",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 39,
+    "labels": ["#soda", "#dr-pepper", "#cherry", "#vanilla"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Pibb Zero",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 41,
+    "labels": ["#soda", "#dr-pepper-type", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Pibb Xtra",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 40,
+    "labels": ["#soda", "#dr-pepper-type"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Vault Zero",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 74,
+    "labels": ["#soda", "#citrus", "#energy", "#diet"]
+  },
+  {
+    "manufacturer": "SunDrop",
+    "product": "Diet SunDrop",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 72,
+    "labels": ["#soda", "#citrus", "#diet"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Vault Citrus",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 71,
+    "labels": ["#soda", "#citrus", "#energy"]
+  },
+  {
+    "manufacturer": "SunDrop",
+    "product": "SunDrop",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 65,
+    "labels": ["#soda", "#citrus"]
+  },
+  {
+    "manufacturer": "Mountain Dew",
+    "product": "Diet Mountain Dew Code Red",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 55,
+    "labels": ["#soda", "#citrus", "#cherry", "#diet"]
+  },
+  {
+    "manufacturer": "Mountain Dew",
+    "product": "Diet Mountain Dew",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 55,
+    "labels": ["#soda", "#citrus", "#diet"]
+  },
+  {
+    "manufacturer": "Ski",
+    "product": "Ski Citrus Soda",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 69,
+    "labels": ["#soda", "#citrus"]
+  },
+  {
+    "manufacturer": "Mountain Dew",
+    "product": "Mountain Dew Code Red",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 54,
+    "labels": ["#soda", "#citrus", "#cherry"]
+  },
+  {
+    "manufacturer": "Coca-Cola",
+    "product": "Mello Yello",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 50,
+    "labels": ["#soda", "#citrus"]
+  },
+  {
+    "manufacturer": "Faygo",
+    "product": "Moon Mist",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 20,
+    "labels": ["#soda", "#citrus"]
+  },
+  {
+    "manufacturer": "Sunkist",
+    "product": "Diet Sunkist",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 19,
+    "labels": ["#soda", "#orange", "#diet"]
+  },
+  {
+    "manufacturer": "Sunkist",
+    "product": "Sunkist",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 19,
+    "labels": ["#soda", "#orange"]
+  },
+  {
+    "manufacturer": "Big Red",
+    "product": "Big Red",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 34,
+    "labels": ["#soda", "#cream"]
+  },
+  {
+    "manufacturer": "A&W",
+    "product": "Cream Soda",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 29,
+    "labels": ["#soda", "#cream"]
+  },
+  {
+    "manufacturer": "Barq's",
+    "product": "Root Beer",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 22,
+    "labels": ["#soda", "#root-beer"]
+  },
+  {
+    "manufacturer": "IGA",
+    "product": "Dr IGA",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 60,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Diet Dr Pop",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 57,
+    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Dr Pop",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 48,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Kroger",
+    "product": "Dr K",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 41,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Kroger",
+    "product": "Diet Dr K",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 41,
+    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Dr Topper",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 34,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Publix",
+    "product": "Dr Publix",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 32,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Dr Bob",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 31,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Piggly Wiggly",
+    "product": "Mr. Pigg",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 31,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Diet Dr Bob",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 31,
+    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Walmart",
+    "product": "Dr Thunder",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 31,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Dr Chilli",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 30,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Walmart",
+    "product": "Diet Dr Thunder",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 30,
+    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Chek",
+    "product": "Dr Chek",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 24,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Chek",
+    "product": "Diet Dr Chek",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 22,
+    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Laura Lynn",
+    "product": "Dr Lynn",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 19,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Food Lion",
+    "product": "Dr Perky",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 19,
+    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
+  },
+  {
+    "manufacturer": "Laura Lynn",
+    "product": "Diet Dr Lynn",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 18,
+    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Chek",
+    "product": "Kountry Mist",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 55,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Ramp Red",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 55,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "IGA",
+    "product": "Spring Mist",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 54,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Publix",
+    "product": "Citrus Hit",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 54,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Ramp",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 54,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Mountain Chill",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 54,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Chek",
+    "product": "Red Alert",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 53,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Mountain Holler",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 53,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Mountain Yeller",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 53,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "CloverValley",
+    "product": "Citrus Drop",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 52,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Sam's",
+    "product": "Mountain Lightning",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 47,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Chek",
+    "product": "Diet Kountry Mist",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 46,
+    "labels": ["#soda", "#citrus", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Generic",
+    "product": "Mountain Lion",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 31,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Laura Lynn",
+    "product": "Mountain Moon Drops",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 28,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big K",
+    "product": "Citrus Drop",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 26,
+    "labels": ["#soda", "#citrus", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big K",
+    "product": "Diet Citrus Drop",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 25,
+    "labels": ["#soda", "#citrus", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big Fizz",
+    "product": "Big Fizz Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 46,
+    "labels": ["#soda", "#cola", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big Fizz",
+    "product": "Big Fizz Diet Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 62,
+    "labels": ["#soda", "#cola", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big K",
+    "product": "Big K Cherry Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 43,
+    "labels": ["#soda", "#cola", "#cherry", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big K",
+    "product": "Big K Diet Cherry Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 40,
+    "labels": ["#soda", "#cola", "#cherry", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Walgreens",
+    "product": "Walgreens Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 39,
+    "labels": ["#soda", "#cola", "#store-brand"]
+  },
+  {
+    "manufacturer": "Walgreens",
+    "product": "Walgreens Diet Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 45,
+    "labels": ["#soda", "#cola", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big K",
+    "product": "Big K Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 39,
+    "labels": ["#soda", "#cola", "#store-brand"]
+  },
+  {
+    "manufacturer": "Big K",
+    "product": "Big K Diet Cola",
+    "category": "soft_drink",
+    "volume_oz": 12,
+    "caffeine_mg": 30,
+    "labels": ["#soda", "#cola", "#diet", "#store-brand"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Caffè Americano (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 170,
+    "labels": ["#coffee", "#americano", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Caffè Americano (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 255,
+    "labels": ["#coffee", "#americano", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Caffè Americano (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 340,
+    "labels": ["#coffee", "#americano", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Caffè Latte (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 85,
+    "labels": ["#coffee", "#latte", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Caffè Latte (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 170,
+    "labels": ["#coffee", "#latte", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Cappuccino (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 85,
+    "labels": ["#coffee", "#cappuccino", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Cappuccino (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 170,
+    "labels": ["#coffee", "#cappuccino", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Espresso (Solo)",
+    "category": "coffee",
+    "volume_oz": 1,
+    "caffeine_mg": 85,
+    "labels": ["#coffee", "#espresso", "#blonde", "#shot"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Espresso (Doppio)",
+    "category": "coffee",
+    "volume_oz": 2,
+    "caffeine_mg": 170,
+    "labels": ["#coffee", "#espresso", "#blonde", "#shot"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Flat White (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#flat-white", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Flat White (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#flat-white", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Roast (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 270,
+    "labels": ["#coffee", "#brewed", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Roast (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 360,
+    "labels": ["#coffee", "#brewed", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Blonde Roast (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 475,
+    "labels": ["#coffee", "#brewed", "#blonde"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Pike Place Brewed Coffee (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 235,
+    "labels": ["#coffee", "#brewed", "#pike-place"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Pike Place Brewed Coffee (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 310,
+    "labels": ["#coffee", "#brewed", "#pike-place"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Pike Place Brewed Coffee (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 410,
+    "labels": ["#coffee", "#brewed", "#pike-place"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Featured Dark Roast (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 195,
+    "labels": ["#coffee", "#brewed", "#dark-roast"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Featured Dark Roast (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 260,
+    "labels": ["#coffee", "#brewed", "#dark-roast"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Featured Dark Roast (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 340,
+    "labels": ["#coffee", "#brewed", "#dark-roast"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caffè Americano (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#americano"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caffè Americano (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#americano"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caffè Americano (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 300,
+    "labels": ["#coffee", "#americano"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caffè Latte (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 75,
+    "labels": ["#coffee", "#latte"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caffè Latte (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#latte"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caffè Mocha (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 95,
+    "labels": ["#coffee", "#mocha", "#chocolate"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caffè Mocha (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 175,
+    "labels": ["#coffee", "#mocha", "#chocolate"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caramel Macchiato (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 75,
+    "labels": ["#coffee", "#macchiato", "#caramel"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Caramel Macchiato (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#macchiato", "#caramel"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "White Chocolate Mocha (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 75,
+    "labels": ["#coffee", "#mocha", "#white-chocolate"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "White Chocolate Mocha (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#mocha", "#white-chocolate"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Espresso (Solo)",
+    "category": "coffee",
+    "volume_oz": 1,
+    "caffeine_mg": 75,
+    "labels": ["#coffee", "#espresso", "#shot"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Espresso (Doppio)",
+    "category": "coffee",
+    "volume_oz": 2,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#espresso", "#shot"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Classic Chai Tea Latte (Tall)",
+    "category": "tea",
+    "volume_oz": 12,
+    "caffeine_mg": 70,
+    "labels": ["#tea", "#chai", "#latte"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Classic Chai Tea Latte (Grande)",
+    "category": "tea",
+    "volume_oz": 16,
+    "caffeine_mg": 95,
+    "labels": ["#tea", "#chai", "#latte"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Classic Chai Tea Latte (Venti)",
+    "category": "tea",
+    "volume_oz": 20,
+    "caffeine_mg": 120,
+    "labels": ["#tea", "#chai", "#latte"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Teavana Earl Grey (Tall)",
+    "category": "tea",
+    "volume_oz": 12,
+    "caffeine_mg": 40,
+    "labels": ["#tea", "#earl-grey"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Teavana Earl Grey (Grande)",
+    "category": "tea",
+    "volume_oz": 16,
+    "caffeine_mg": 80,
+    "labels": ["#tea", "#earl-grey"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Teavana Green Tea Latte (Tall)",
+    "category": "tea",
+    "volume_oz": 12,
+    "caffeine_mg": 55,
+    "labels": ["#tea", "#green-tea", "#latte"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Teavana Green Tea Latte (Grande)",
+    "category": "tea",
+    "volume_oz": 16,
+    "caffeine_mg": 80,
+    "labels": ["#tea", "#green-tea", "#latte"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Teavana Jade Citrus Mint (Grande)",
+    "category": "tea",
+    "volume_oz": 16,
+    "caffeine_mg": 40,
+    "labels": ["#tea", "#green-tea", "#mint"]
+  },
+  {
+    "manufacturer": "Starbucks US",
+    "product": "Hot Chocolate (Grande)",
+    "category": "chocolate",
+    "volume_oz": 16,
+    "caffeine_mg": 25,
+    "labels": ["#chocolate", "#hot-chocolate"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Brewed Coffee (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 229,
+    "labels": ["#coffee", "#brewed", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Brewed Coffee (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 308,
+    "labels": ["#coffee", "#brewed", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Brewed Coffee (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 387,
+    "labels": ["#coffee", "#brewed", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Americano (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#americano", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Americano (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#americano", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Americano (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 300,
+    "labels": ["#coffee", "#americano", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Latte (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Latte (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Latte (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Mocha (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 165,
+    "labels": ["#coffee", "#mocha", "#chocolate", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Mocha (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 170,
+    "labels": ["#coffee", "#mocha", "#chocolate", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caffè Mocha (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 250,
+    "labels": ["#coffee", "#mocha", "#chocolate", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Cappuccino (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#cappuccino", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Cappuccino (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#cappuccino", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Cappuccino (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#cappuccino", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caramel Macchiato (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#macchiato", "#caramel", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caramel Macchiato (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#macchiato", "#caramel", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Caramel Macchiato (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#macchiato", "#caramel", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Flat White",
+    "category": "coffee",
+    "volume_oz": 8,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#flat-white", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Espresso (Solo)",
+    "category": "coffee",
+    "volume_oz": 1,
+    "caffeine_mg": 75,
+    "labels": ["#coffee", "#espresso", "#shot", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Espresso (Doppio)",
+    "category": "coffee",
+    "volume_oz": 2,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#espresso", "#shot", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "White Chocolate Mocha (Tall)",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#mocha", "#white-chocolate", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "White Chocolate Mocha (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#mocha", "#white-chocolate", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "White Chocolate Mocha (Venti)",
+    "category": "coffee",
+    "volume_oz": 20,
+    "caffeine_mg": 225,
+    "labels": ["#coffee", "#mocha", "#white-chocolate", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Chai Tea Latte (Grande)",
+    "category": "tea",
+    "volume_oz": 16,
+    "caffeine_mg": 92,
+    "labels": ["#tea", "#chai", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Chai Tea Latte (Venti)",
+    "category": "tea",
+    "volume_oz": 20,
+    "caffeine_mg": 115,
+    "labels": ["#tea", "#chai", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Matcha Tea Latte (Tall)",
+    "category": "tea",
+    "volume_oz": 12,
+    "caffeine_mg": 60,
+    "labels": ["#tea", "#matcha", "#green-tea", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Matcha Tea Latte (Grande)",
+    "category": "tea",
+    "volume_oz": 16,
+    "caffeine_mg": 90,
+    "labels": ["#tea", "#matcha", "#green-tea", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Matcha Tea Latte (Venti)",
+    "category": "tea",
+    "volume_oz": 20,
+    "caffeine_mg": 120,
+    "labels": ["#tea", "#matcha", "#green-tea", "#latte", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Cortado",
+    "category": "coffee",
+    "volume_oz": 12,
+    "caffeine_mg": 157,
+    "labels": ["#coffee", "#cortado", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Salted Caramel Mocha (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 199,
+    "labels": ["#coffee", "#mocha", "#caramel", "#uk"]
+  },
+  {
+    "manufacturer": "Starbucks UK",
+    "product": "Pumpkin Spice Latte (Grande)",
+    "category": "coffee",
+    "volume_oz": 16,
+    "caffeine_mg": 150,
+    "labels": ["#coffee", "#latte", "#pumpkin-spice", "#seasonal", "#uk"]
+  }
+]
