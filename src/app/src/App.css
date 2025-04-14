@@ -1,12 +1,26 @@
 /* Brand Colors */
 :root {
-  --brand-primary: #153e4d;
-  --brand-secondary: #2a7486;
-  --brand-accent: #4fb286;
-  --brand-light: #eaf0e4;
+  /* Updated harmonized brand colors - blue-teal based */
+  --brand-primary: #153e4d;     /* Dark blue-teal for header/footer */
+  --brand-secondary: #2a7486;    /* Medium blue-teal for buttons/links */
+  --brand-accent: #45a0b5;      /* Bright blue-teal accent */
+  --brand-light: #e8f0f3;       /* Light blue-teal tinted gray */
   --header-height: 56px;
   --footer-height: 56px;
   --app-padding: 1rem;
+
+  /* Updated dark mode custom colors with blue-teal undertones */
+  --dark-mode-bg: #0a1d24;
+  --dark-mode-card-bg: #1b323b;
+  --dark-mode-container-bg: #1a2e36;
+  --dark-mode-border: #2a3f47;
+  --dark-mode-text: #e9f0f2;
+  --dark-mode-secondary-text: #a7b8be;
+  --dark-mode-table-header: #1d353e;
+
+  /* Updated welcome jumbotron styles */
+  --welcome-icon-shadow: 0 0 15px rgba(69, 160, 181, 0.5);
+  --welcome-card-border: rgba(69, 160, 181, 0.2);
 }
 
 /* Bootstrap Overrides */
@@ -30,8 +44,8 @@
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #236b7c !important;
-  border-color: #1d6273 !important;
+  background-color: #236577 !important;
+  border-color: #1d5563 !important;
 }
 
 .bg-primary {
@@ -53,7 +67,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #236b7c;
+  color: #236577;
 }
 
 /* App Layout - Sticky Header & Footer */
@@ -119,6 +133,69 @@ footer.app-footer {
   min-height: 100vh;
 }
 
+/* Dark Mode specific styling */
+[data-bs-theme="dark"] {
+  --bs-body-bg: var(--dark-mode-bg);
+  --bs-body-color: var(--dark-mode-text);
+  --bs-tertiary-bg: var(--dark-mode-card-bg);
+  --bs-secondary-bg: var(--dark-mode-container-bg);
+  --bs-border-color: var(--dark-mode-border);
+  color-scheme: dark;
+}
+
+/* Fix background elements in dark mode */
+[data-bs-theme="dark"] .bg-light {
+  background-color: var(--dark-mode-card-bg) !important;
+  color: var(--dark-mode-text);
+}
+
+/* Fix text colors in dark mode */
+[data-bs-theme="dark"] .text-muted {
+  color: var(--dark-mode-secondary-text) !important;
+}
+
+/* Fix table header in dark mode */
+[data-bs-theme="dark"] .table thead th {
+  background-color: var(--dark-mode-table-header);
+  color: var(--dark-mode-text);
+  border-color: var(--dark-mode-border);
+}
+
+/* Fix chart text color and background */
+[data-bs-theme="dark"] .recharts-text {
+  fill: var(--dark-mode-text);
+}
+
+[data-bs-theme="dark"] .recharts-default-tooltip {
+  background-color: var(--dark-mode-card-bg) !important;
+  border-color: var(--dark-mode-border) !important;
+}
+
+[data-bs-theme="dark"] .recharts-tooltip-item-name,
+[data-bs-theme="dark"] .recharts-tooltip-item-value {
+  color: var(--dark-mode-text) !important;
+}
+
+/* Fix card headers in dark mode */
+[data-bs-theme="dark"] .card-header {
+  background-color: var(--dark-mode-table-header);
+  border-color: var(--dark-mode-border);
+}
+
+/* Fix donut chart in dark mode */
+[data-bs-theme="dark"] .current-caffeine-donut text {
+  fill: var(--dark-mode-text) !important;
+}
+
+[data-bs-theme="dark"] .current-caffeine-donut .donut-center-text {
+  fill: var(--dark-mode-text) !important;
+}
+
+/* Fix Caffeine Levels header in dark mode */
+[data-bs-theme="dark"] .caffeine-dashboard h3 {
+  color: var(--dark-mode-text);
+}
+
 /* Theme variations can be added here if needed */
 .theme-dark .app-header, .theme-dark footer.app-footer {
   background-color: #0f2b36 !important;
@@ -153,4 +230,55 @@ footer.app-footer {
   .app-container {
     height: -webkit-fill-available;
   }
+}
+
+/* Welcome Jumbotron styling */
+.welcome-jumbotron {
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.welcome-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-jumbotron .welcome-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--brand-accent);
+  box-shadow: var(--welcome-icon-shadow);
+  margin-bottom: 1.5rem;
+}
+
+.welcome-jumbotron .welcome-icon .coffee-icon {
+  font-size: 48px;
+  color: white;
+}
+
+.welcome-jumbotron .welcome-title {
+  color: var(--brand-secondary);
+  margin-bottom: 1rem;
+}
+
+.welcome-jumbotron .info-section {
+  border-left: 4px solid var(--brand-accent);
+}
+
+/* Dark mode styling for the welcome jumbotron */
+[data-bs-theme="dark"] .welcome-jumbotron .welcome-icon {
+  background: linear-gradient(45deg, var(--brand-secondary), var(--brand-accent));
+}
+
+[data-bs-theme="dark"] .welcome-jumbotron .info-section {
+  background-color: var(--dark-mode-card-bg) !important;
+}
+
+[data-bs-theme="dark"] .welcome-jumbotron .welcome-title {
+  color: var(--brand-accent);
 }

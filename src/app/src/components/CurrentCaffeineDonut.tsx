@@ -72,7 +72,7 @@ const CustomTooltip = ({ active, payload }: any) => {
     const data = payload[0].payload;
 
     return (
-      <div className="custom-tooltip p-2 bg-light border rounded shadow">
+      <div className="custom-tooltip p-2 border rounded shadow">
         <p className="mb-1"><strong>{data.name}</strong></p>
         <p className="mb-0">Range: {data.range}</p>
         {data.description && (

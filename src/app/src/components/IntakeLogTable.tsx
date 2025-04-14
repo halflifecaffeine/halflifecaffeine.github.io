@@ -33,7 +33,7 @@ const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
 
   if (intakes.length === 0) {
     return (
-      <div className="text-center p-5 bg-light rounded">
+      <div className="text-center p-5 border rounded">
         <p className="text-muted mb-0">No caffeine intake recorded yet.</p>
       </div>
     );
@@ -47,7 +47,7 @@ const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
   return (
     <div className="table-responsive">
       <Table striped hover className="align-middle">
-        <thead className="table-light">
+        <thead>
           <tr>
             <th>Date & Time</th>
             <th>Drink</th>

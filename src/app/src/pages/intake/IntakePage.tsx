@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPencilAlt, faTrash, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import IntakeForm from '../../components/IntakeForm';
 import IntakeLogTable from '../../components/IntakeLogTable';
+import IntakeWelcome from '../../components/IntakeWelcome';
 import SlideoutPanel from '../../components/layout/SlideoutPanel';
 import DeleteConfirmation from '../../components/DeleteConfirmation';
 import { CaffeineIntake, Drink } from '../../types';
@@ -87,10 +88,13 @@ const IntakePage: React.FC = () => {
     </div>
   );
 
+  // Check if there's any intake data
+  const hasIntakeData = state.caffeineIntakes.length > 0;
+
   return (
     <Container className="py-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1>Caffeine Intake</h1>
+        <h1><FontAwesomeIcon icon={faPlusSquare} className="me-2" />Caffeine Intake</h1>
         <Button 
           variant="primary" 
           onClick={() => setShowAddPanel(true)}
@@ -101,12 +105,16 @@ const IntakePage: React.FC = () => {
         </Button>
       </div>
 
-      {/* Main content - Intake records table */}
-      <IntakeLogTable
-        intakes={state.caffeineIntakes}
-        onEditIntake={handleEditClick}
-        onDeleteIntake={handleDeleteClick}
-      />
+      {/* Show welcome component if no data, otherwise show intake table */}
+      {hasIntakeData ? (
+        <IntakeLogTable
+          intakes={state.caffeineIntakes}
+          onEditIntake={handleEditClick}
+          onDeleteIntake={handleDeleteClick}
+        />
+      ) : (
+        <IntakeWelcome onAddClick={() => setShowAddPanel(true)} />
+      )}
 
       {/* Add intake slideout panel */}
       <SlideoutPanel

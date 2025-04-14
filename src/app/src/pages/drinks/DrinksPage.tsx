@@ -4,13 +4,15 @@ import { useAppContext } from '../../contexts/AppContext';
 import DrinkLookup from '../../components/DrinkLookup';
 import { Drink } from '../../types'; // Import Drink type
 import drinksData from '../../data/drinks.json'; // Import default drinks data
+import { faGlassWhiskey } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DrinksPage: React.FC = () => {
   const { state, addCustomDrink, updateCustomDrink } = useAppContext();
 
   return (
     <Container className="mt-4">
-      <h1>Manage Drinks Database</h1>
+      <h1><FontAwesomeIcon icon={faGlassWhiskey} className="me-2" />Manage Drinks Database</h1>
       <p className="text-muted">
         View the default drink database or add, edit, and remove your own custom drinks.
         Custom drinks are stored locally in your browser.
@@ -22,7 +24,7 @@ const DrinksPage: React.FC = () => {
           onAddCustomDrink={addCustomDrink} // Pass context action
           onUpdateCustomDrink={updateCustomDrink} // Pass context action
         />
-        <div className="mt-4 p-3 bg-light rounded">
+        <div className="mt-4 p-3 border rounded">
           <h5>Errors and Corrections</h5>
           <p>
             If you find information above to be incorrect, please <a href="https://github.com/halflifecaffeine/halflifecaffeine.github.io/issues" target="_blank">submit an issue on GitHub</a> and include any links or relevant information that you have.

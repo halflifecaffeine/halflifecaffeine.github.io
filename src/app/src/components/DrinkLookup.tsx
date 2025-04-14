@@ -488,7 +488,7 @@ const DrinkLookup: React.FC<DrinkLookupProps> = ({
         </Modal.Footer>
       </Modal>
       
-      <div className="mt-4 p-3 bg-light rounded">
+      <div className="mt-4 p-3 border rounded">
         <h5>About Drink Caffeine Content</h5>
         <p>
           The information in this database is sourced from manufacturer reports and 
