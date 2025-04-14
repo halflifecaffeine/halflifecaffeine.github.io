@@ -1,4 +1,4 @@
-import { faCheckCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faExclamationTriangle, faHeartPulse } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, Row, Col, Badge, ProgressBar } from 'react-bootstrap';
@@ -59,7 +59,9 @@ const CaffeineHealthInfo: React.FC<CaffeineHealthInfoProps> = ({
   
   return (
     <div className="caffeine-health-info">
-      <h3 className="mb-3">Caffeine Health Information</h3>
+      <h3 className="mb-3">
+        {<FontAwesomeIcon icon={faHeartPulse} className="me-2" />}
+        Caffeine Health Information</h3>
       
       <Row className="g-3">
         {/* Daily intake card */}

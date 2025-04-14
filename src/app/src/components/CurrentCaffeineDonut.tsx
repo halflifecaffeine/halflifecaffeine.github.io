@@ -1,6 +1,8 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Label, Tooltip, Sector } from 'recharts';
 import { useTheme } from '../hooks/useTheme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 interface CurrentCaffeineDonutProps {
   currentLevel: number;
@@ -182,7 +184,9 @@ const CurrentCaffeineDonut: React.FC<CurrentCaffeineDonutProps> = ({
 
   return (
     <div className="current-caffeine-donut">
-      <h3 className="mb-3">Current Caffeine Level</h3>
+      <h3 className="mb-3">
+        {<FontAwesomeIcon icon={faClock} className="me-1" />}
+        Current Level</h3>
       <div style={{ width: '100%', height: 300 }}>
         <ResponsiveContainer>
           <PieChart>

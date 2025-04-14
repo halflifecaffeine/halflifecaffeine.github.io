@@ -9,12 +9,15 @@ import {
   ResponsiveContainer,
   ReferenceLine,
   Label,
-  TooltipProps
+  TooltipProps,
+  ReferenceArea
 } from 'recharts';
 import { TimeSeriesData, calculateRemainingCaffeine } from '../engine/caffeineCalculator';
 import CurrentCaffeineDonut from './CurrentCaffeineDonut';
 import CaffeineHealthInfo from './CaffeineHealthInfo';
-import { Card, Row, Col, Container } from 'react-bootstrap';
+import { Card, Row, Col, Container, Button, ButtonGroup } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 
 interface CaffeineChartProps {
   data: TimeSeriesData[];
@@ -22,7 +25,8 @@ interface CaffeineChartProps {
   sleepThreshold: number;
   sleepStartHour: number;
   halfLifeHours: number;
-  currentTime?: Date; // Add optional prop to pass in current time
+  currentTime?: Date; // Actual "now" time
+  includeFutureIntakes?: boolean; // Whether to include future caffeine intakes
 }
 
 // Define interfaces for tooltip payload
@@ -38,6 +42,10 @@ interface CustomTooltipProps {
   label?: string | number;
 }
 
+// Constants for time navigation
+const HOURS_VISIBLE = 18; // Total hours visible in chart (default: -6h to +12h = 18h)
+const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
 // Define breakpoint for responsive design
 const MOBILE_BREAKPOINT = 768; // Bootstrap md breakpoint
 
@@ -52,8 +60,12 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
   sleepThreshold,
   sleepStartHour,
   halfLifeHours,
-  currentTime
+  currentTime,
+  includeFutureIntakes = true // Default to including future intakes
 }) => {
+  // State for chart viewport/navigation
+  const [timeOffset, setTimeOffset] = useState<number>(0); // Offset in days (0 = today)
+  
   // State to track viewport width for responsive labels
   const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
   
@@ -69,29 +81,102 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     };
   }, []);
   
+  // Handle swipe gestures for mobile scrolling
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  }, []);
+  
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    
+    const touchDelta = touchStart - e.touches[0].clientX;
+    // Threshold to trigger navigation (50px)
+    if (Math.abs(touchDelta) > 50) {
+      // Navigate left/right based on swipe direction
+      setTimeOffset(prev => prev + (touchDelta > 0 ? 1 : -1));
+      setTouchStart(null); // Reset to prevent continuous scrolling
+    }
+  }, [touchStart]);
+  
+  const handleTouchEnd = useCallback(() => {
+    setTouchStart(null);
+  }, []);
+  
+  // Handle navigation buttons
+  const navigateTime = useCallback((direction: 'prev' | 'next' | 'today') => {
+    if (direction === 'today') {
+      setTimeOffset(0);
+    } else {
+      setTimeOffset(prev => prev + (direction === 'next' ? 1 : -1));
+    }
+  }, []);
+  
   // Determine if we're on a small screen device
   const isMobile = useMemo(() => viewportWidth < MOBILE_BREAKPOINT, [viewportWidth]);
 
   // Use provided currentTime or create a new Date - this will be reactive to props changes
   const now = useMemo(() => currentTime || new Date(), [currentTime]);
   
+  // Calculate the visible time window based on offset
   const timeCalculations = useMemo(() => {
-    const sixHoursBefore = new Date(now.getTime() - (6 * 60 * 60 * 1000));
-    const twelveHoursAhead = new Date(now.getTime() + (12 * 60 * 60 * 1000));
+    const offsetMs = timeOffset * ONE_DAY_MS;
     
-    // Calculate sleep start time
-    const sleepStart = new Date(now);
+    // Chart center time (adjusted by offset)
+    const centerTime = new Date(now.getTime() + offsetMs);
+    
+    // Chart boundaries - ensure we see 24 hours regardless of navigation
+    const startOfDay = new Date(centerTime);
+    startOfDay.setHours(0, 0, 0, 0);  // Start at beginning of the day
+    
+    // Chart boundaries
+    const windowStartTime = new Date(startOfDay);
+    const windowEndTime = new Date(startOfDay);
+    windowEndTime.setHours(24, 0, 0, 0);  // Show full 24 hours
+    
+    // Calculate day boundaries and sleep times for each visible day
+    const dayBoundaries: Date[] = [];
+    const sleepStartTimes: Date[] = [];
+    
+    // Add day boundaries (always 2 - start and end of window)
+    dayBoundaries.push(new Date(startOfDay));  // Start of day
+    
+    const nextDay = new Date(startOfDay);
+    nextDay.setDate(nextDay.getDate() + 1);
+    dayBoundaries.push(new Date(nextDay));  // Start of next day
+    
+    // Add sleep time for the viewed day (not just current day)
+    const sleepStart = new Date(startOfDay);
     sleepStart.setHours(sleepStartHour, 0, 0, 0);
     
-    // If sleep time is in the past, move it to tomorrow
-    if (sleepStart < now) {
+    // If sleep time is earlier than noon, it means it's for the next day
+    if (sleepStartHour < 12) {
       sleepStart.setDate(sleepStart.getDate() + 1);
     }
     
-    return { sixHoursBefore, twelveHoursAhead, sleepStart };
-  }, [now, sleepStartHour]);
+    sleepStartTimes.push(sleepStart);
+    
+    return { 
+      windowStartTime, 
+      windowEndTime, 
+      sleepStartTimes,
+      dayBoundaries,
+      centerTime,
+      startOfDay
+    };
+  }, [now, timeOffset, sleepStartHour]);
   
-  const { sixHoursBefore, twelveHoursAhead, sleepStart } = timeCalculations;
+  const { windowStartTime, windowEndTime, sleepStartTimes, dayBoundaries, centerTime, startOfDay } = timeCalculations;
+
+  // Format date for day boundary labels
+  const formatDate = useCallback((date: Date) => {
+    return date.toLocaleDateString([], { 
+      month: 'short',
+      day: 'numeric',
+      weekday: 'short'
+    });
+  }, []);
 
   // Use responsive labels based on screen size
   const labels = useMemo(() => ({
@@ -99,9 +184,20 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     sleepThreshold: isMobile ? "Sleep Well" : "Sleep Disruption Threshold (100mg)",
     sleepTime: isMobile ? "Bedtime" : "Sleep Time Goal",
     now: isMobile ? "Now" : "Now",
-    halfLife: isMobile ? `${halfLifeHours}h Half-Life` : `Based on ${halfLifeHours}-hour Half-Life`
+    halfLife: isMobile ? `${halfLifeHours}h Half-Life` : `Based on ${halfLifeHours}-hour Half-Life`,
+    today: "Today",
+    dayBoundary: isMobile ? "" : "New Day"
   }), [isMobile, halfLifeHours]);
 
+  // Format time for labels
+  const formatCurrentTime = useCallback((date: Date) => {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }, []);
+
+  // Format time labels for the chart
+  const getNowLabel = useCallback(() => `${labels.now}: ${formatCurrentTime(now)}`, [labels.now, formatCurrentTime, now]);
+  const getSleepLabel = useCallback((sleepStart: Date) => `${labels.sleepTime}: ${formatCurrentTime(sleepStart)}`, [labels.sleepTime, formatCurrentTime]);
+  
   // Get current caffeine level (most recent data point not in the future)
   const currentCaffeineLevel = useMemo(() => {
     if (!data || data.length === 0) return 0;
@@ -113,14 +209,15 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     return currentPoint.level;
   }, [data, now]);
 
-  // Format time for labels
-  const formatCurrentTime = useCallback((date: Date) => {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  }, []);
-
-  // Format time labels for the chart
-  const getNowLabel = useCallback(() => `${labels.now}: ${formatCurrentTime(now)}`, [labels.now, formatCurrentTime, now]);
-  const getSleepLabel = useCallback(() => `${labels.sleepTime}: ${formatCurrentTime(sleepStart)}`, [labels.sleepTime, formatCurrentTime, sleepStart]);
+  // Separate real caffeine data into past and future intakes
+  const { pastIntakes, futureIntakes } = useMemo(() => {
+    if (!data || data.length === 0) return { pastIntakes: [], futureIntakes: [] };
+    
+    return {
+      pastIntakes: data.filter(point => point.time <= now),
+      futureIntakes: data.filter(point => point.time > now)
+    };
+  }, [data, now]);
 
   // Generate projected caffeine decay data for the future
   const projectedData = useMemo(() => {
@@ -135,9 +232,17 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     
     if (currentLevel <= 0) return [];
     
+    // Extend projections to cover the visible window plus extra for scrolling
+    const endTime = new Date(Math.max(
+      windowEndTime.getTime(), 
+      now.getTime() + 24 * 60 * 60 * 1000
+    ));
+    
     const projections: TimeSeriesData[] = [];
+    const totalMinutes = (endTime.getTime() - now.getTime()) / (60 * 1000);
+    
     // Generate projection points every 30 minutes
-    for (let i = 0; i <= 24; i++) { // 12 hours, 2 points per hour
+    for (let i = 0; i <= totalMinutes / 30; i++) {
       const futureTime = new Date(now.getTime() + i * 30 * 60 * 1000);
       const hoursSinceNow = i / 2; // Convert 30-min intervals to hours
       const projectedLevel = calculateRemainingCaffeine(currentLevel, hoursSinceNow, halfLifeHours);
@@ -147,26 +252,71 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
         level: Math.round(projectedLevel * 100) / 100
       });
     }
+    
     return projections;
-  }, [data, now, halfLifeHours]);
+  }, [data, now, halfLifeHours, windowEndTime]);
+
+  // If including future intakes, combine them with the projected data
+  const combinedFutureData = useMemo(() => {
+    if (!includeFutureIntakes || futureIntakes.length === 0) {
+      return projectedData;
+    }
+    
+    // Make a shallow copy of projected data
+    const result = [...projectedData];
+    
+    // For each future intake, adjust the projected levels
+    futureIntakes.forEach(intake => {
+      // Adjust all projection points that occur after this intake
+      for (let i = 0; i < result.length; i++) {
+        const projectionPoint = result[i];
+        
+        // Skip points that are before this intake
+        if (projectionPoint.time < intake.time) continue;
+        
+        // For points at or after the intake, add the caffeine amount
+        // and recalculate the decay from that point
+        const hoursSinceIntake = (projectionPoint.time.getTime() - intake.time.getTime()) / (60 * 60 * 1000);
+        // Decay the intake amount based on time since intake
+        const additionalCaffeine = calculateRemainingCaffeine(intake.level, hoursSinceIntake, halfLifeHours);
+        
+        // Add the additional caffeine to the projected level
+        projectionPoint.level += additionalCaffeine;
+        // Round to two decimal places
+        projectionPoint.level = Math.round(projectionPoint.level * 100) / 100;
+      }
+    });
+    
+    return result;
+  }, [projectedData, futureIntakes, includeFutureIntakes, halfLifeHours]);
 
   // Create combined data for chart display
   const combinedData = useMemo(() => {
     if (!data || data.length === 0) return [];
     
     // Past data (actual intake)
-    const pastData = data.filter(point => point.time <= now).map(item => ({
+    const pastData = pastIntakes.map(item => ({
       time: item.time.getTime(), // Convert to timestamp
       actualLevel: item.level,
-      projectedLevel: null as number | null
+      projectedLevel: null as number | null,
+      futureLevel: null as number | null
     }));
     
-    // Future data (projected decay)
-    const futureData = projectedData.map(item => ({
+    // Future projection data
+    const futureData = combinedFutureData.map(item => ({
       time: item.time.getTime(),
       actualLevel: null as number | null,
-      projectedLevel: item.level
+      projectedLevel: item.level,
+      futureLevel: null as number | null
     }));
+    
+    // Future actual intakes (if any and if includeFutureIntakes is true)
+    const futurePlannedData = includeFutureIntakes ? futureIntakes.map(item => ({
+      time: item.time.getTime(),
+      actualLevel: null as number | null,
+      projectedLevel: null as number | null,
+      futureLevel: item.level
+    })) : [];
 
     // Add the current point to both datasets to ensure continuity
     if (pastData.length > 0) {
@@ -174,12 +324,13 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
       futureData.unshift({
         time: lastActualPoint.time,
         actualLevel: lastActualPoint.actualLevel,
-        projectedLevel: lastActualPoint.actualLevel // Start projection from the current level
+        projectedLevel: lastActualPoint.actualLevel,
+        futureLevel: null
       });
     }
 
-    return [...pastData, ...futureData];
-  }, [data, projectedData, now]);
+    return [...pastData, ...futureData, ...futurePlannedData].sort((a, b) => a.time - b.time);
+  }, [pastIntakes, combinedFutureData, futureIntakes, includeFutureIntakes]);
 
   // Format X-axis timestamps
   const formatXAxis = useCallback((timeValue: number) => {
@@ -187,23 +338,45 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }, []);
 
+  // Generate fixed hour markers (00, 06, 12, 18) for the viewed day
+  const generateFixedTimeMarkers = useCallback(() => {
+    const markers: number[] = [];
+    
+    // Generate time markers for the current window's day
+    const currentDay = new Date(startOfDay);
+    
+    // Add markers at 00:00, 06:00, 12:00, 18:00 for the viewed day
+    [0, 6, 12, 18].forEach(hour => {
+      const marker = new Date(currentDay);
+      marker.setHours(hour, 0, 0, 0);
+      markers.push(marker.getTime());
+    });
+    
+    return markers;
+  }, [startOfDay]);
+  
+  // Generate fixed time markers for the chart
+  const fixedTimeMarkers = useMemo(generateFixedTimeMarkers, [generateFixedTimeMarkers]);
+
   // Find max level for proper y-axis scale
   const maxLevel = useMemo(() => {
     if (!data || data.length === 0) return maxSafeLevel;
     
-    return Math.max(
+    const allLevels = [
       ...data.map(item => item.level),
-      ...projectedData.map(item => item.level),
+      ...combinedFutureData.map(item => item.level),
       maxSafeLevel
-    );
-  }, [data, projectedData, maxSafeLevel]);
+    ];
+    
+    return Math.max(...allLevels);
+  }, [data, combinedFutureData, maxSafeLevel]);
 
   // Create chart margins with extra space for labels at top
   const chartMargins = useMemo(() => ({
     top: 40,  // Increased for labels above chart
     right: 30,
     left: 10, 
-    bottom: 10
+    bottom: 30  // Increased for day labels
   }), []);
 
   // Custom tooltip component
@@ -215,20 +388,35 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
       
       const caffeine = dataPoint.value;
       const isProjected = dataPoint.dataKey === 'projectedLevel';
+      const isFuture = dataPoint.dataKey === 'futureLevel';
+      
+      const pointTime = new Date(label as number);
+      const timeStr = pointTime.toLocaleTimeString([], { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      });
+      const dateStr = pointTime.toLocaleDateString([], { 
+        weekday: 'short',
+        month: 'short', 
+        day: 'numeric' 
+      });
       
       return (
         <div className="custom-tooltip p-2 bg-light border rounded shadow">
-          <p className="mb-1"><strong>{formatXAxis(label as number)}</strong></p>
+          <p className="mb-1">
+            <strong>{dateStr}</strong> at <strong>{timeStr}</strong>
+          </p>
           <p className="mb-0">
-            {isProjected ? "Projected Caffeine: " : "Caffeine Level: "}
+            {isFuture ? "Planned Intake: " : isProjected ? "Projected Caffeine: " : "Caffeine Level: "}
             <strong>{caffeine} mg</strong>
           </p>
           {isProjected && <p className="mb-0 small text-muted">({labels.halfLife})</p>}
+          {isFuture && <p className="mb-0 small text-muted">(Planned future intake)</p>}
         </div>
       );
     }
     return null;
-  }, [formatXAxis, labels.halfLife]);
+  }, [labels.halfLife]);
 
   // Early return for no data case
   if (!data || data.length === 0) {
@@ -240,6 +428,9 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
       </Container>
     );
   }
+
+  // Get the current day being viewed
+  const currentViewDay = formatDate(startOfDay);
 
   return (
     <Container fluid className="caffeine-dashboard p-0">
@@ -263,8 +454,53 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
           {/* Section 2: Caffeine Levels Over Time */}
           <Card className="mb-3 shadow-sm">
             <Card.Body>
-              <h3 className="mb-3">Caffeine Levels Over Time</h3>
-              <div style={{ width: '100%', height: 350 }}>
+              <div className="d-flex align-items-center justify-content-between mb-2">
+                <h3 className="mb-0">
+                  {<FontAwesomeIcon icon={faCalendarDay} className="me-2" />}
+                  Caffeine Levels Over Time
+                </h3>
+                
+                {/* Chart navigation controls */}
+                <ButtonGroup>
+                  <Button 
+                    variant="outline-secondary" 
+                    size="sm" 
+                    onClick={() => navigateTime('prev')}
+                    title="View earlier time"
+                  >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </Button>
+                  
+                  {timeOffset !== 0 && (
+                    <Button 
+                      variant="outline-primary" 
+                      size="sm" 
+                      onClick={() => navigateTime('today')}
+                      title="Return to current time"
+                    >
+                      <FontAwesomeIcon icon={faCalendarDay} className="me-1" />
+                      {labels.today}
+                    </Button>
+                  )}
+                  
+                  <Button 
+                    variant="outline-secondary" 
+                    size="sm" 
+                    onClick={() => navigateTime('next')}
+                    title="View later time"
+                  >
+                    <FontAwesomeIcon icon={faChevronRight} />
+                  </Button>
+                </ButtonGroup>
+              </div>
+              
+              <div 
+                style={{ width: '100%', height: 350 }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                className="chart-container"
+              >
                 <ResponsiveContainer>
                   <AreaChart
                     data={combinedData}
@@ -275,8 +511,8 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       dataKey="time" 
                       tickFormatter={formatXAxis}
                       type="number"
-                      domain={[sixHoursBefore.getTime(), twelveHoursAhead.getTime()]}
-                      tickCount={9}
+                      domain={[windowStartTime.getTime(), windowEndTime.getTime()]}
+                      ticks={fixedTimeMarkers}
                       padding={{ left: 10, right: 10 }}
                     />
                     <YAxis 
@@ -284,6 +520,25 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       padding={{ top: 15, bottom: 5 }}
                     />
                     <Tooltip content={(props) => CustomTooltip(props)} />
+                    
+                    {/* Day boundary markers - always show the start of the current day */}
+                    {dayBoundaries.map((day, index) => (
+                      <ReferenceLine 
+                        key={`day-${index}`}
+                        x={day.getTime()} 
+                        stroke="#6c757d" 
+                        strokeWidth={1}
+                        strokeDasharray="5 5" 
+                        label={{
+                          value: index === 0 ? formatDate(day) : "Next Day",
+                          position: 'insideBottomRight',
+                          fill: '#6c757d',
+                          fontSize: 11,
+                          angle: -45,
+                          offset: 10
+                        }}
+                      />
+                    ))}
                     
                     {/* Max safe level - with responsive label text and original positioning */}
                     <ReferenceLine 
@@ -315,33 +570,40 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       />
                     </ReferenceLine>
                     
-                    {/* Sleep time marker - with responsive label text and original positioning */}
-                    <ReferenceLine 
-                      x={sleepStart.getTime()} 
-                      stroke="#6610f2" 
-                      strokeDasharray="3 3" 
-                      label={{
-                        value: getSleepLabel(),
-                        position: 'top',
-                        fill: '#6610f2',
-                        fontSize: 12,
-                        offset: 15
-                      }}
-                    />
+                    {/* Sleep time markers - always show for the current day */}
+                    {sleepStartTimes.map((sleepStart, index) => (
+                      <ReferenceLine 
+                        key={`sleep-${index}`}
+                        x={sleepStart.getTime()} 
+                        stroke="#6610f2" 
+                        strokeWidth={timeOffset !== 0 ? 2 : 1}
+                        strokeDasharray="3 3" 
+                        label={{
+                          value: getSleepLabel(sleepStart),
+                          position: 'top',
+                          fill: '#6610f2',
+                          fontSize: 12,
+                          fontWeight: timeOffset !== 0 ? 'bold' : 'normal',
+                          offset: 15
+                        }}
+                      />
+                    ))}
                     
-                    {/* Current time marker - with responsive label text and original positioning */}
-                    <ReferenceLine 
-                      x={now.getTime()} 
-                      stroke="#28a745" 
-                      strokeWidth={2}
-                      label={{
-                        value: getNowLabel(),
-                        position: 'insideTopRight',
-                        fill: '#28a745',
-                        fontSize: 12,
-                        offset: 5
-                      }}
-                    />
+                    {/* Current time marker - only show when within the visible window */}
+                    {timeOffset === 0 && (
+                      <ReferenceLine 
+                        x={now.getTime()} 
+                        stroke="#28a745" 
+                        strokeWidth={2}
+                        label={{
+                          value: getNowLabel(),
+                          position: 'insideTopRight',
+                          fill: '#28a745',
+                          fontSize: 12,
+                          offset: 5
+                        }}
+                      />
+                    )}
                     
                     {/* Actual caffeine data (solid) */}
                     <Area 
@@ -350,7 +612,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       stroke="#8884d8" 
                       fill="#8884d8" 
                       fillOpacity={0.6} 
-                      isAnimationActive={true}
+                      isAnimationActive={false}
                       name="Actual Caffeine Level" 
                       connectNulls={true}
                     />
@@ -363,15 +625,39 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       fill="#82ca9d" 
                       fillOpacity={0.3}
                       strokeDasharray="5 5"
-                      isAnimationActive={true}
+                      isAnimationActive={false}
                       name="Projected Caffeine Level"
                       connectNulls={true}
                     />
+                    
+                    {/* Future planned intakes */}
+                    {includeFutureIntakes && (
+                      <Area 
+                        type="monotone" 
+                        dataKey="futureLevel" 
+                        stroke="#ff7300" 
+                        fill="#ff7300" 
+                        fillOpacity={0.6}
+                        isAnimationActive={false}
+                        name="Future Planned Intake"
+                        connectNulls={true}
+                      />
+                    )}
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
-              <div className="mt-2">
-                <small className="text-muted">* Dotted green area shows projected caffeine decay {labels.halfLife}</small>
+              <div className="mt-3 d-flex flex-wrap justify-content-between align-items-center">
+                <small className="text-muted">
+                  * Dotted green area shows projected caffeine decay {labels.halfLife}
+                </small>
+                {includeFutureIntakes && futureIntakes.length > 0 && (
+                  <small className="text-muted">
+                    * Orange spikes show planned future intakes
+                  </small>
+                )}
+                <small className="text-muted">
+                  {isMobile ? "Swipe to navigate between days" : "Use the arrows to navigate between days"}
+                </small>
               </div>
             </Card.Body>
           </Card>
