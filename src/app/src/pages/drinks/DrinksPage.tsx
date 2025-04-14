@@ -27,7 +27,7 @@ const DrinksPage: React.FC = () => {
           <p>
             If you find information above to be incorrect, please <a href="https://github.com/halflifecaffeine/halflifecaffeine.github.io/issues" target="_blank">submit an issue on GitHub</a> and include any links or relevant information that you have.
           </p>
-          <p>If you are a software developer, please feel free to submit a pull request with the changes you would like to see. See the <a href="https://github.com/halflifecaffeine/halflifecaffeine.github.io/CONTRIBUTING.md" target="_blank">CONTRIBUTING.md</a> first though.</p>
+          <p>If you are a software developer, please feel free to submit a pull request with the changes you would like to see. See the <a href="https://github.com/halflifecaffeine/halflifecaffeine.github.io/blob/main/CONTRIBUTING.md" target="_blank">CONTRIBUTING.md</a> first though.</p>
           <p className="text-muted">
             Your feedback helps us improve the application!
           </p>
