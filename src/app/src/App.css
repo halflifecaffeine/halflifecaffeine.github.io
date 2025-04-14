@@ -225,6 +225,30 @@ footer.app-footer {
   }
 }
 
+/* Mobile navbar background fix - ONLY adds background color to collapsed navbar */
+@media (max-width: 991.98px) {
+  #basic-navbar-nav.show, 
+  #basic-navbar-nav.collapsing {
+    background-color: var(--brand-primary);
+  }
+}
+
+/* Mobile navbar styling - fixes background and alignment issues */
+@media (max-width: 991.98px) {
+  /* Ensure proper background color when navbar is expanded in mobile view */
+  .navbar-collapse {
+    background-color: var(--brand-primary);
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  
+  /* Fix padding alignment for nav items in mobile view */
+  .navbar-nav .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 /* iOS Safari specific fixes */
 @supports (-webkit-touch-callout: none) {
   .app-container {
@@ -281,4 +305,48 @@ footer.app-footer {
 
 [data-bs-theme="dark"] .welcome-jumbotron .welcome-title {
   color: var(--brand-accent);
+}
+
+/* Settings panel theming - ensure brand colors are applied */
+.settings-panel .btn-primary {
+  background-color: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+}
+
+.settings-panel .btn-primary:hover, 
+.settings-panel .btn-primary:focus, 
+.settings-panel .btn-primary:active {
+  background-color: #236577 !important;
+  border-color: #1d5563 !important;
+}
+
+.settings-panel .btn-outline-primary {
+  color: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+}
+
+.settings-panel .btn-outline-primary:hover,
+.settings-panel .btn-outline-primary:focus {
+  background-color: var(--brand-secondary);
+  color: white;
+}
+
+/* Ensure form range elements (sliders) use brand colors */
+.settings-panel .form-range::-webkit-slider-thumb {
+  background-color: var(--brand-secondary);
+}
+
+.settings-panel .form-range::-moz-range-thumb {
+  background-color: var(--brand-secondary);
+}
+
+.settings-panel .form-range::-ms-thumb {
+  background-color: var(--brand-secondary);
+}
+
+/* Add teal highlight to active/focus form elements */
+.settings-panel .form-select:focus,
+.settings-panel .form-control:focus {
+  border-color: var(--brand-secondary);
+  box-shadow: 0 0 0 0.25rem rgba(42, 116, 134, 0.25);
 }

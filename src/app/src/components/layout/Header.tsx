@@ -1,18 +1,43 @@
-import React from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap'; // Import Nav
-import { LinkContainer } from 'react-router-bootstrap'; // Use LinkContainer for react-bootstrap integration
+import React, { useState, useRef, useEffect } from 'react';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPlusSquare, faGlassWhiskey } from '@fortawesome/free-solid-svg-icons'; // Add icons
+import { faHome, faPlusSquare, faGlassWhiskey, faGear } from '@fortawesome/free-solid-svg-icons';
+import { useAppContext } from '../../contexts/AppContext';
 import SettingsPanel from './SettingsPanel';
-import { useAppContext } from '../../contexts/AppContext'; // Import context to get theme
 
+/**
+ * Application header component with navigation and settings
+ */
 const Header: React.FC = () => {
-  const { theme } = useAppContext(); // Get theme for potential styling
+  const { theme } = useAppContext();
+  const [showSettings, setShowSettings] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  
+  // Helper to close the mobile menu
+  const closeNavMenu = (): void => {
+    setExpanded(false);
+  };
+
+  const handleSettingsClick = (): void => {
+    setShowSettings(true);
+    closeNavMenu();
+  };
+  
+  const handleSettingsClose = (): void => {
+    setShowSettings(false);
+  };
 
   return (
-    // Update Navbar to use sticky layout classes and remove margin bottom
-    <Navbar bg="primary" variant="dark" expand="lg" className={`app-header theme-${theme}`}>
-      <Container>
+    <Navbar 
+      bg="primary" 
+      variant="dark" 
+      expand="lg" 
+      expanded={expanded}
+      onToggle={setExpanded}
+      className={`app-header theme-${theme}`}
+    >
+      <Container fluid>
         <LinkContainer to="/">
           <Navbar.Brand>
             <img
@@ -26,28 +51,38 @@ const Header: React.FC = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <LinkContainer to="/">
+            <LinkContainer to="/" onClick={closeNavMenu}>
               <Nav.Link><FontAwesomeIcon icon={faHome} className="me-1" /> Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/intake">
+            <LinkContainer to="/intake" onClick={closeNavMenu}>
               <Nav.Link><FontAwesomeIcon icon={faPlusSquare} className="me-1" /> Intake</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/drinks">
+            <LinkContainer to="/drinks" onClick={closeNavMenu}>
               <Nav.Link><FontAwesomeIcon icon={faGlassWhiskey} className="me-1" /> Drinks</Nav.Link>
             </LinkContainer>
-            {/* <LinkContainer to="/terms">
-              <Nav.Link><FontAwesomeIcon icon={faFileContract} className="me-1" /> Terms</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/privacy">
-              <Nav.Link><FontAwesomeIcon icon={faUserSecret} className="me-1" /> Privacy</Nav.Link>
-            </LinkContainer> */}
           </Nav>
-          {/* Settings Panel remains on the right */}
-          <div className="ms-auto">
-            <SettingsPanel />
-          </div>
+          <Nav>
+            {/* Only show separator in mobile view */}
+            <div 
+              className="d-lg-none my-2 w-100" 
+              style={{ 
+                height: '1px', 
+                backgroundColor: 'rgba(255, 255, 255, 0.3)' 
+              }}
+            ></div>
+            
+            <Nav.Link onClick={handleSettingsClick} aria-label="Open Settings">
+              <FontAwesomeIcon icon={faGear} className="me-1" /> Settings
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
+      
+      {/* Settings panel with controlled visibility */}
+      <SettingsPanel 
+        show={showSettings}
+        onClose={handleSettingsClose}
+      />
     </Navbar>
   );
 };

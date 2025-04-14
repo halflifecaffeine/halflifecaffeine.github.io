@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
-import { Button, Offcanvas } from 'react-bootstrap';
+import { Button, Offcanvas, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faMoon, faSun, faClock } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 
-const SettingsPanel: React.FC = () => {
+interface SettingsPanelProps {
+  /**
+   * Whether the settings panel should be shown (controlled mode)
+   */
+  show?: boolean;
+  
+  /**
+   * Callback when the panel is closed (controlled mode)
+   */
+  onClose?: () => void;
+}
+
+/**
+ * Settings panel component for managing user preferences and application settings
+ * Can operate in standalone mode or controlled mode via props
+ */
+const SettingsPanel: React.FC<SettingsPanelProps> = ({ show: externalShow, onClose }) => {
   const {
     state,
     updatePreferences,
@@ -14,56 +30,81 @@ const SettingsPanel: React.FC = () => {
     clearAllIntakes,
   } = useAppContext();
 
-  const [showSettings, setShowSettings] = useState(false);
-  const [exportString, setExportString] = useState<string | null>(null);
-  const [importString, setImportString] = useState<string>('');
-  const [importError, setImportError] = useState<string | null>(null);
+  // Internal state for standalone mode
+  const [internalShow, setInternalShow] = useState(false);
+  
+  // Use external state if provided (controlled mode), otherwise use internal state
+  const isControlled = externalShow !== undefined;
+  const showSettings = isControlled ? externalShow : internalShow;
+  
+  // Format hour for display (0-23 to formatted 12-hour time)
+  const formatHour = (hour: number): string => {
+    const amPm = hour >= 12 ? 'PM' : 'AM';
+    const displayHour = hour % 12 || 12;
+    return `${displayHour}:00 ${amPm}`;
+  };
 
-  const handleExport = () => {
+  const handleClose = (): void => {
+    if (isControlled && onClose) {
+      onClose();
+    } else {
+      setInternalShow(false);
+    }
+  };
+
+  const handleExport = (): void => {
     const data = exportData();
     setExportString(JSON.stringify(data, null, 2));
   };
 
-  const handleImport = () => {
+  const handleImport = (): void => {
     try {
       const data = JSON.parse(importString);
       importData(data);
       setImportString('');
       setImportError(null);
-      setShowSettings(false);
+      handleClose();
     } catch (error) {
       setImportError('Invalid JSON format. Please check your data.');
     }
   };
 
-  const handleResetPreferences = () => {
+  const handleResetPreferences = (): void => {
     if (window.confirm('Reset all settings to default values?')) {
       resetPreferences();
     }
   };
 
-  const handleClearData = () => {
+  const handleClearData = (): void => {
     if (window.confirm('Are you sure you want to clear all caffeine intake data? This cannot be undone.')) {
       clearAllIntakes();
-      setShowSettings(false);
+      handleClose();
     }
   };
 
+  const [exportString, setExportString] = useState<string | null>(null);
+  const [importString, setImportString] = useState<string>('');
+  const [importError, setImportError] = useState<string | null>(null);
+
   return (
     <>
-      <Button 
-        variant="light" 
-        onClick={() => setShowSettings(true)}
-        className="settings-button"
-        aria-label="Open Settings"
-      >
-        <FontAwesomeIcon icon={faGear} />
-      </Button>
+      {/* Only render button in standalone mode */}
+      {!isControlled && (
+        <Button 
+          variant="light" 
+          onClick={() => setInternalShow(true)}
+          className="settings-button"
+          aria-label="Open Settings"
+        >
+          <FontAwesomeIcon icon={faGear} />
+        </Button>
+      )}
 
       <Offcanvas 
         show={showSettings} 
-        onHide={() => setShowSettings(false)} 
+        onHide={handleClose} 
         placement="end"
+        className="settings-panel"
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Settings</Offcanvas.Title>
@@ -132,20 +173,21 @@ const SettingsPanel: React.FC = () => {
 
           <h5 className="mt-4">Sleep Time Goal</h5>
           <div className="mb-3">
-            <label htmlFor="sleepStartHour" className="form-label">
-              Target Sleep Time: {state.preferences.sleepStartHour}:00
+            <label htmlFor="sleepStartHour" className="form-label d-flex align-items-center">
+              <FontAwesomeIcon icon={faClock} className="me-2" /> Target Sleep Time
             </label>
-            <input
-              type="range"
-              className="form-range"
+            <Form.Select
               id="sleepStartHour"
-              min="20"
-              max="24"
-              step="1"
               value={state.preferences.sleepStartHour}
               onChange={(e) => updatePreferences({ sleepStartHour: parseInt(e.target.value) })}
-            />
-            <div className="text-muted small">
+            >
+              {Array.from({ length: 24 }, (_, i) => (
+                <option key={i} value={i}>
+                  {formatHour(i)}
+                </option>
+              ))}
+            </Form.Select>
+            <div className="text-muted small mt-1">
               Set your target bedtime to help manage caffeine levels before sleep.
             </div>
           </div>
