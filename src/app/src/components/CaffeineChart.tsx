@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import React, { useMemo, useState, useCallback, useEffect } from 'react';
 import { 
   AreaChart, 
   Area, 
@@ -13,9 +13,9 @@ import {
 import { TimeSeriesData, calculateRemainingCaffeine } from '../engine/caffeineCalculator';
 import CurrentCaffeineDonut from './CurrentCaffeineDonut';
 import CaffeineHealthInfo from './CaffeineHealthInfo';
-import { Card, Row, Col, Container, Button, ButtonGroup } from 'react-bootstrap';
+import { Card, Row, Col, Container, ButtonGroup, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDay, faSearchPlus, faSearchMinus } from '@fortawesome/free-solid-svg-icons';
 
 interface CaffeineChartProps {
   data: TimeSeriesData[];
@@ -40,11 +40,34 @@ interface CustomTooltipProps {
   label?: string | number;
 }
 
-// Constants for time navigation
-const HOURS_VISIBLE = 18; // Total hours visible in chart (default: -6h to +12h = 18h)
-const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+// Define zoom levels in hours (how many hours before and after "now")
+type ZoomLevel = {
+  pastHours: number;
+  futureHours: number;
+};
 
-// Define breakpoint for responsive design
+// Helper function to format time span for display
+const formatTimeSpan = (hours: number): string => {
+  if (hours < 24) {
+    return `${hours}h`;
+  } else {
+    const days = hours / 24;
+    return days % 1 === 0 ? `${days}d` : `${days.toFixed(1)}d`;
+  }
+};
+
+// Generate zoom levels in 12-hour increments up to 7 days (84 hours past, 84 hours future)
+const generateZoomLevels = (): ZoomLevel[] => {
+  const levels: ZoomLevel[] = [];
+  for (let hours = 12; hours <= 84; hours += 12) {
+    levels.push({ pastHours: hours, futureHours: hours });
+  }
+  return levels;
+};
+
+const ZOOM_LEVELS: ZoomLevel[] = generateZoomLevels();
+
+const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 const MOBILE_BREAKPOINT = 768; // Bootstrap md breakpoint
 
 /**
@@ -61,111 +84,49 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
   currentTime,
   includeFutureIntakes = true // Default to including future intakes
 }) => {
-  // State for chart viewport/navigation
-  const [timeOffset, setTimeOffset] = useState<number>(0); // Offset in days (0 = today)
-  
-  // State to track viewport width for responsive labels
-  const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
-  
-  // Effect to handle viewport size changes
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportWidth(window.innerWidth);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-  
-  // Handle swipe gestures for mobile scrolling
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    setTouchStart(e.touches[0].clientX);
-  }, []);
-  
-  const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (touchStart === null) return;
-    
-    const touchDelta = touchStart - e.touches[0].clientX;
-    // Threshold to trigger navigation (50px)
-    if (Math.abs(touchDelta) > 50) {
-      // Navigate left/right based on swipe direction
-      setTimeOffset(prev => prev + (touchDelta > 0 ? 1 : -1));
-      setTouchStart(null); // Reset to prevent continuous scrolling
-    }
-  }, [touchStart]);
-  
-  const handleTouchEnd = useCallback(() => {
-    setTouchStart(null);
-  }, []);
-  
-  // Handle navigation buttons
-  const navigateTime = useCallback((direction: 'prev' | 'next' | 'today') => {
-    if (direction === 'today') {
-      setTimeOffset(0);
-    } else {
-      setTimeOffset(prev => prev + (direction === 'next' ? 1 : -1));
-    }
-  }, []);
+  // State for current zoom level
+  const [currentZoomIndex, setCurrentZoomIndex] = useState<number>(0);
   
   // Determine if we're on a small screen device
+  const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
   const isMobile = useMemo(() => viewportWidth < MOBILE_BREAKPOINT, [viewportWidth]);
+
+  // For window resize handler
+  useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Use provided currentTime or create a new Date - this will be reactive to props changes
   const now = useMemo(() => currentTime || new Date(), [currentTime]);
   
-  // Calculate the visible time window based on offset
-  const timeCalculations = useMemo(() => {
-    const offsetMs = timeOffset * ONE_DAY_MS;
-    
-    // Chart center time (adjusted by offset)
-    const centerTime = new Date(now.getTime() + offsetMs);
-    
-    // Chart boundaries - ensure we see 24 hours regardless of navigation
-    const startOfDay = new Date(centerTime);
-    startOfDay.setHours(0, 0, 0, 0);  // Start at beginning of the day
-    
-    // Chart boundaries for the current day being viewed
-    const windowStartTime = new Date(startOfDay);
-    const windowEndTime = new Date(startOfDay);
-    windowEndTime.setHours(24, 0, 0, 0);  // Show full 24 hours
-    
-    // Calculate day boundaries and sleep times for each visible day
-    const dayBoundaries: Date[] = [];
-    const sleepStartTimes: Date[] = [];
-    
-    // Add day boundaries (always 2 - start and end of window)
-    dayBoundaries.push(new Date(startOfDay));  // Start of day
-    
-    const nextDay = new Date(startOfDay);
-    nextDay.setDate(nextDay.getDate() + 1);
-    dayBoundaries.push(new Date(nextDay));  // Start of next day
-    
-    // Add sleep time for the current day
-    const sleepStartCurrent = new Date(startOfDay);
-    sleepStartCurrent.setHours(sleepStartHour, 0, 0, 0);
-    
-    // If sleep time is earlier than noon, it means it's for the next day
-    if (sleepStartHour < 12) {
-      sleepStartCurrent.setDate(sleepStartCurrent.getDate() + 1);
-    }
-    
-    sleepStartTimes.push(sleepStartCurrent);
-    
-    return { 
-      windowStartTime, 
-      windowEndTime, 
-      sleepStartTimes,
-      dayBoundaries,
-      startOfDay
-    };
-  }, [now, timeOffset, sleepStartHour]);
+  // Zoom in function - decrease visible time range
+  const handleZoomIn = useCallback(() => {
+    setCurrentZoomIndex(prev => Math.max(0, prev - 1));
+  }, []);
   
-  const { windowStartTime, windowEndTime, sleepStartTimes, dayBoundaries, startOfDay } = timeCalculations;
-
+  // Zoom out function - increase visible time range
+  const handleZoomOut = useCallback(() => {
+    setCurrentZoomIndex(prev => Math.min(ZOOM_LEVELS.length - 1, prev + 1));
+  }, []);
+  
+  // Calculate chart boundaries based on current zoom level
+  const chartBoundaries = useMemo(() => {
+    const zoomLevel = ZOOM_LEVELS[currentZoomIndex];
+    
+    const startTime = new Date(now);
+    startTime.setHours(startTime.getHours() - zoomLevel.pastHours);
+    
+    const endTime = new Date(now);
+    endTime.setHours(endTime.getHours() + zoomLevel.futureHours);
+    
+    return {
+      startTime,
+      endTime
+    };
+  }, [now, currentZoomIndex]);
+  
   // Format date for day boundary labels
   const formatDate = useCallback((date: Date) => {
     return date.toLocaleDateString([], { 
@@ -178,12 +139,10 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
   // Use responsive labels based on screen size
   const labels = useMemo(() => ({
     maxSafe: isMobile ? "Max Safe" : "Maximum Safe Daily Intake (400mg)",
-    sleepThreshold: isMobile ? "Sleep Well" : "Sleep Disruption Threshold (100mg)",
-    sleepTime: isMobile ? "Bedtime" : "Sleep Time Goal",
+    sleepThreshold: isMobile ? "Sleep Wellness" : "Sleep Disruption Threshold (100mg)",
+    sleepTime: isMobile ? "Bedtime" : "Bedtime",
     now: isMobile ? "Now" : "Now",
-    halfLife: isMobile ? `${halfLifeHours}h Half-Life` : `Based on ${halfLifeHours}-hour Half-Life`,
-    today: "Today",
-    dayBoundary: isMobile ? "" : "New Day"
+    halfLife: isMobile ? `${halfLifeHours}h Half-Life` : `Based on ${halfLifeHours}-hour Half-Life`
   }), [isMobile, halfLifeHours]);
 
   // Format time for labels
@@ -229,11 +188,9 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     
     if (currentLevel <= 0) return [];
     
-    // Extend projections to cover the visible window plus extra for scrolling
-    const endTime = new Date(Math.max(
-      windowEndTime.getTime(), 
-      now.getTime() + 24 * 60 * 60 * 1000
-    ));
+    // Project into the future for 48 hours
+    const endTime = new Date(now);
+    endTime.setHours(endTime.getHours() + ZOOM_LEVELS[ZOOM_LEVELS.length - 1].futureHours);
     
     const projections: TimeSeriesData[] = [];
     const totalMinutes = (endTime.getTime() - now.getTime()) / (60 * 1000);
@@ -251,7 +208,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     }
     
     return projections;
-  }, [data, now, halfLifeHours, windowEndTime]);
+  }, [data, now, halfLifeHours]);
 
   // If including future intakes, combine them with the projected data
   const combinedFutureData = useMemo(() => {
@@ -335,47 +292,79 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }, []);
 
-  // Generate fixed hour markers (00, 06, 12, 18) for all visible days (past, present, and future)
-  const generateFixedTimeMarkers = useCallback(() => {
+  // Generate day boundaries for clear day separation
+  const dayBoundaries = useMemo(() => {
+    const boundaries: Date[] = [];
+    const start = new Date(chartBoundaries.startTime);
+    const end = new Date(chartBoundaries.endTime);
+    
+    // Start from the beginning of the day containing the start time
+    const dayStart = new Date(start);
+    dayStart.setHours(0, 0, 0, 0);
+    
+    // Add each day boundary
+    for (let day = new Date(dayStart); day <= end; day.setDate(day.getDate() + 1)) {
+      boundaries.push(new Date(day));
+    }
+    
+    return boundaries;
+  }, [chartBoundaries]);
+
+  // Generate sleep time goals for all days in view
+  const sleepTimes = useMemo(() => {
+    const sleepMarkers: Date[] = [];
+    const start = new Date(chartBoundaries.startTime);
+    const end = new Date(chartBoundaries.endTime);
+    
+    // Start from the beginning of the day containing the start time
+    const dayStart = new Date(start);
+    dayStart.setHours(0, 0, 0, 0);
+    
+    // Add sleep time for each day
+    for (let day = new Date(dayStart); day <= end; day.setDate(day.getDate() + 1)) {
+      const sleepTime = new Date(day);
+      sleepTime.setHours(sleepStartHour, 0, 0, 0);
+      
+      // If sleep time is early morning (e.g., 2AM), it belongs to the next day
+      if (sleepStartHour < 12) {
+        sleepTime.setDate(sleepTime.getDate() + 1);
+      }
+      
+      // Only add if within our chart boundaries
+      if (sleepTime >= start && sleepTime <= end) {
+        sleepMarkers.push(new Date(sleepTime));
+      }
+    }
+    
+    return sleepMarkers;
+  }, [chartBoundaries, sleepStartHour]);
+
+  // Generate hour markers for all days in the view window
+  const hourMarkers = useMemo(() => {
     const markers: number[] = [];
+    const start = new Date(chartBoundaries.startTime);
+    const end = new Date(chartBoundaries.endTime);
     
-    // Generate markers for previous day as well to ensure past days have markers
-    const prevDay = new Date(startOfDay);
-    prevDay.setDate(prevDay.getDate() - 1);
+    // Start with the beginning of the day containing start time
+    const dayStart = new Date(start);
+    dayStart.setHours(0, 0, 0, 0);
     
-    // Add markers for previous day (00:00, 06:00, 12:00, 18:00)
-    [0, 6, 12, 18].forEach(hour => {
-      const marker = new Date(prevDay);
-      marker.setHours(hour, 0, 0, 0);
-      markers.push(marker.getTime());
-    });
-    
-    // Generate markers for the current day being viewed
-    const currentDay = new Date(startOfDay);
-    
-    // Add markers at 00:00, 06:00, 12:00, 18:00 for the current day
-    [0, 6, 12, 18].forEach(hour => {
-      const marker = new Date(currentDay);
-      marker.setHours(hour, 0, 0, 0);
-      markers.push(marker.getTime());
-    });
-    
-    // Add markers for the next day as well to ensure future days have markers
-    const nextDay = new Date(currentDay);
-    nextDay.setDate(nextDay.getDate() + 1);
-    
-    // Add markers for the next day (00:00, 06:00, 12:00, 18:00)
-    [0, 6, 12, 18].forEach(hour => {
-      const marker = new Date(nextDay);
-      marker.setHours(hour, 0, 0, 0);
-      markers.push(marker.getTime());
-    });
+    // Add markers for each day in view
+    for (let day = new Date(dayStart); day <= end; day.setDate(day.getDate() + 1)) {
+      // Add markers at 00:00, 06:00, 12:00, and 18:00
+      [0, 6, 12, 18].forEach(hour => {
+        const marker = new Date(day);
+        marker.setHours(hour, 0, 0, 0);
+        
+        // Only add if within our chart boundaries
+        if (marker >= start && marker <= end) {
+          markers.push(marker.getTime());
+        }
+      });
+    }
     
     return markers;
-  }, [startOfDay]);
-  
-  // Generate fixed time markers for the chart
-  const fixedTimeMarkers = useMemo(generateFixedTimeMarkers, [generateFixedTimeMarkers]);
+  }, [chartBoundaries]);
 
   // Find max level for proper y-axis scale
   const maxLevel = useMemo(() => {
@@ -390,12 +379,12 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     return Math.max(...allLevels);
   }, [data, combinedFutureData, maxSafeLevel]);
 
-  // Create chart margins with extra space for labels at top and bottom
+  // Create chart margins with extra space for labels
   const chartMargins = useMemo(() => ({
-    top: 40,  // For labels above chart
+    top: 40,
     right: 30,
-    left: 10, 
-    bottom: 70  // Further increased for better day label separation
+    left: 10,
+    bottom: 70 
   }), []);
 
   // Custom tooltip component
@@ -448,9 +437,6 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
     );
   }
 
-  // Get the current day being viewed
-  const currentViewDay = formatDate(startOfDay);
-
   return (
     <Container fluid className="caffeine-dashboard p-0">
       <Row className="g-3">
@@ -479,45 +465,39 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                   Caffeine Levels Over Time
                 </h3>
                 
-                {/* Chart navigation controls */}
+                {/* Zoom controls */}
                 <ButtonGroup>
                   <Button 
-                    variant="outline-secondary" 
-                    size="sm" 
-                    onClick={() => navigateTime('prev')}
-                    title="View earlier time"
+                    variant="outline-secondary"
+                    size="sm"
+                    onClick={handleZoomIn}
+                    disabled={currentZoomIndex === 0}
+                    title="Zoom in (show less time)"
                   >
-                    <FontAwesomeIcon icon={faChevronLeft} />
+                    <FontAwesomeIcon icon={faSearchPlus} />
                   </Button>
-                  
-                  {timeOffset !== 0 && (
-                    <Button 
-                      variant="outline-primary" 
-                      size="sm" 
-                      onClick={() => navigateTime('today')}
-                      title="Return to current time"
-                    >
-                      <FontAwesomeIcon icon={faCalendarDay} className="me-1" />
-                      {labels.today}
-                    </Button>
-                  )}
-                  
                   <Button 
-                    variant="outline-secondary" 
-                    size="sm" 
-                    onClick={() => navigateTime('next')}
-                    title="View later time"
+                    variant="outline-secondary"
+                    size="sm"
+                    className="px-2"
+                    disabled
                   >
-                    <FontAwesomeIcon icon={faChevronRight} />
+                    {formatTimeSpan(ZOOM_LEVELS[currentZoomIndex].pastHours + ZOOM_LEVELS[currentZoomIndex].futureHours)}
+                  </Button>
+                  <Button 
+                    variant="outline-secondary"
+                    size="sm"
+                    onClick={handleZoomOut}
+                    disabled={currentZoomIndex === ZOOM_LEVELS.length - 1}
+                    title="Zoom out (show more time)"
+                  >
+                    <FontAwesomeIcon icon={faSearchMinus} />
                   </Button>
                 </ButtonGroup>
               </div>
               
               <div 
                 style={{ width: '100%', height: 350 }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
                 className="chart-container"
               >
                 <ResponsiveContainer>
@@ -530,11 +510,13 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       dataKey="time" 
                       tickFormatter={formatXAxis}
                       type="number"
-                      domain={[windowStartTime.getTime(), windowEndTime.getTime()]}
-                      ticks={fixedTimeMarkers}
-                      tick={{ fontSize: 10 }}
+                      domain={[chartBoundaries.startTime.getTime(), chartBoundaries.endTime.getTime()]}
+                      ticks={hourMarkers}
                       padding={{ left: 10, right: 10 }}
-                                          />
+                      tick={{ fontSize: 10 }}
+                      allowDataOverflow
+                      scale="time"
+                    />
                     <YAxis 
                       domain={[0, Math.ceil(maxLevel * 1.1 / 50) * 50]} 
                       padding={{ top: 15, bottom: 5 }}
@@ -547,7 +529,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       })} 
                     />
                     
-                    {/* Day boundary markers with clear positioning well below time labels */}
+                    {/* Day boundary markers with clear positioning below time labels */}
                     {dayBoundaries.map((day, index) => (
                       <ReferenceLine 
                         key={`day-${index}`}
@@ -556,17 +538,17 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                         strokeWidth={1}
                         strokeDasharray="5 5" 
                         label={{
-                          value: index === 0 ? formatDate(day) : "Next Day",
+                          value: formatDate(day),
                           position: 'bottom',
                           fill: '#6c757d',
-                          fontSize: 12,
-                          dy: 25, // Significantly increased to position well below time markers
+                          fontSize: 11,
+                          dy: 35,
                           offset: 0
                         }}
                       />
                     ))}
                     
-                    {/* Max safe level - with responsive label text and original positioning */}
+                    {/* Max safe level */}
                     <ReferenceLine 
                       y={maxSafeLevel} 
                       stroke="red" 
@@ -581,7 +563,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       />
                     </ReferenceLine>
                     
-                    {/* Sleep threshold - with responsive label text and original positioning */}
+                    {/* Sleep threshold */}
                     <ReferenceLine 
                       y={sleepThreshold} 
                       stroke="#FFA500" 
@@ -596,26 +578,25 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                       />
                     </ReferenceLine>
                     
-                    {/* Sleep time markers - always show for the current day */}
-                    {sleepStartTimes.map((sleepStart, index) => (
+                    {/* Sleep time markers for all days in view */}
+                    {sleepTimes.map((sleepTime, index) => (
                       <ReferenceLine 
                         key={`sleep-${index}`}
-                        x={sleepStart.getTime()} 
+                        x={sleepTime.getTime()} 
                         stroke="#6610f2" 
-                        strokeWidth={timeOffset !== 0 ? 2 : 1}
+                        strokeWidth={1}
                         strokeDasharray="3 3" 
                         label={{
-                          value: getSleepLabel(sleepStart),
+                          value: getSleepLabel(sleepTime),
                           position: 'top',
                           fill: '#6610f2',
                           fontSize: 12,
-                          fontWeight: timeOffset !== 0 ? 'bold' : 'normal',
                           offset: 15
                         }}
                       />
                     ))}
                     
-                    {/* Current time marker - always show regardless of navigation */}
+                    {/* Current time marker */}
                     <ReferenceLine 
                       x={now.getTime()} 
                       stroke="#28a745" 
@@ -680,7 +661,7 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
                   </small>
                 )}
                 <small className="text-muted">
-                  {isMobile ? "Swipe to navigate between days" : "Use the arrows to navigate between days"}
+                  {isMobile ? "Pinch to zoom" : "Use zoom controls to adjust time range"}
                 </small>
               </div>
             </Card.Body>
