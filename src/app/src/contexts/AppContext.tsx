@@ -22,6 +22,7 @@ const initialState: AppState = {
 // Create context
 type AppContextType = {
   state: AppState;
+  lastIntakeTimestamp: number;  // Add timestamp to track the last intake modification
   addCaffeineIntake: (intake: CaffeineIntake) => void;
   updateCaffeineIntake: (intake: CaffeineIntake) => void;
   removeCaffeineIntake: (id: string) => void;
@@ -43,6 +44,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   // Use localStorage for persistent state
   const [state, setState] = useLocalStorage<AppState>('half-life-caffeine-state', initialState);
   
+  // Add timestamp to track when intakes are modified
+  const [lastIntakeTimestamp, setLastIntakeTimestamp] = useState<number>(Date.now());
+  
   // Use theme hook for theme management
   const [theme, setTheme] = useTheme();
   
@@ -61,6 +65,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       ...state,
       caffeineIntakes: [...state.caffeineIntakes, intake],
     });
+    setLastIntakeTimestamp(Date.now());
   };
 
   // Update existing caffeine intake
@@ -71,6 +76,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
         intake.id === updatedIntake.id ? updatedIntake : intake
       ),
     });
+    setLastIntakeTimestamp(Date.now());
   };
 
   // Remove caffeine intake
@@ -79,6 +85,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       ...state,
       caffeineIntakes: state.caffeineIntakes.filter(intake => intake.id !== id),
     });
+    setLastIntakeTimestamp(Date.now());
   };
 
   // Clear all intakes
@@ -87,6 +94,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       ...state,
       caffeineIntakes: [],
     });
+    setLastIntakeTimestamp(Date.now());
   };
 
   // Add custom drink
@@ -131,6 +139,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
         ...(data.preferences || {}),
       },
     });
+    setLastIntakeTimestamp(Date.now());
   };
 
   // Export data
@@ -163,6 +172,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   const value = {
     state,
+    lastIntakeTimestamp, // Expose the timestamp to components
     addCaffeineIntake,
     updateCaffeineIntake,
     removeCaffeineIntake,

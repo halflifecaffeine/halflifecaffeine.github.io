@@ -22,6 +22,7 @@ interface CaffeineChartProps {
   sleepThreshold: number;
   sleepStartHour: number;
   halfLifeHours: number;
+  currentTime?: Date; // Add optional prop to pass in current time
 }
 
 // Define interfaces for tooltip payload
@@ -50,7 +51,8 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
   maxSafeLevel,
   sleepThreshold,
   sleepStartHour,
-  halfLifeHours
+  halfLifeHours,
+  currentTime
 }) => {
   // State to track viewport width for responsive labels
   const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
@@ -70,8 +72,9 @@ const CaffeineChart: React.FC<CaffeineChartProps> = ({
   // Determine if we're on a small screen device
   const isMobile = useMemo(() => viewportWidth < MOBILE_BREAKPOINT, [viewportWidth]);
 
-  // Initialize now and time window calculations
-  const now = useMemo(() => new Date(), []);
+  // Use provided currentTime or create a new Date - this will be reactive to props changes
+  const now = useMemo(() => currentTime || new Date(), [currentTime]);
+  
   const timeCalculations = useMemo(() => {
     const sixHoursBefore = new Date(now.getTime() - (6 * 60 * 60 * 1000));
     const twelveHoursAhead = new Date(now.getTime() + (12 * 60 * 60 * 1000));

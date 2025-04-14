@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -11,22 +11,34 @@ import { computeLevels, CaffeineEvent } from '../../engine/caffeineCalculator';
 import { Drink, CaffeineIntake } from '../../types';
 import drinksData from '../../data/drinks.json'; // Import default drinks
 
+// Update interval in milliseconds - set to 3 seconds for testing
+const UPDATE_INTERVAL = 3000; // Changed to 3 seconds for testing
+
 const HomePage: React.FC = () => {
-  const { state, addCaffeineIntake } = useAppContext();
+  const { state, addCaffeineIntake, lastIntakeTimestamp } = useAppContext();
   const [caffeineData, setCaffeineData] = useState<any[]>([]);
   const [showAddPanel, setShowAddPanel] = useState<boolean>(false);
+  const [lastUpdateTime, setLastUpdateTime] = useState<Date>(new Date());
+  const [currentTime, setCurrentTime] = useState<Date>(new Date()); // Track current time for chart
+  const timerRef = useRef<number | undefined>(undefined);
+  const isPageVisible = useRef<boolean>(true);
 
   // Combine default and custom drinks for the form
   const availableDrinks = [...(drinksData as Drink[]), ...state.customDrinks];
 
-  // Calculate caffeine levels for the chart
-  useEffect(() => {
+  // Memoized function to calculate and update caffeine levels
+  const updateCaffeineData = useCallback(() => {
+    const now = new Date();
+    console.log(`[Caffeine Update] Recalculating caffeine levels at ${now.toLocaleTimeString()}`);
+    
+    // Update the current time whenever we recalculate
+    setCurrentTime(now);
+    
     if (state.caffeineIntakes.length > 0) {
       const events: CaffeineEvent[] = state.caffeineIntakes.map(intake => ({
         datetime: intake.datetime,
         mg: intake.mg
       }));
-      const now = new Date();
       
       // Pass the custom half-life value to the computeLevels function
       const data = computeLevels(
@@ -38,15 +50,102 @@ const HomePage: React.FC = () => {
       );
       
       setCaffeineData(data);
+      setLastUpdateTime(now);
     } else {
       setCaffeineData([]); // Clear data if no intakes
     }
-  }, [state.caffeineIntakes, state.preferences.halfLifeHours]); // Re-run if intakes or half-life changes
+  }, [state.caffeineIntakes, state.preferences.halfLifeHours]);
+
+  // Start or stop the auto-refresh timer based on page visibility
+  const setupTimer = useCallback(() => {
+    // Clear any existing timer
+    if (timerRef.current !== undefined) {
+      window.clearInterval(timerRef.current);
+      timerRef.current = undefined;
+    }
+
+    // Only start timer if we have intake data and the page is visible
+    if (isPageVisible.current && state.caffeineIntakes.length > 0) {
+      console.log(`[Caffeine Update] Setting up timer to update every ${UPDATE_INTERVAL/1000} seconds`);
+      
+      timerRef.current = window.setInterval(() => {
+        updateCaffeineData();
+      }, UPDATE_INTERVAL);
+    }
+  }, [updateCaffeineData, state.caffeineIntakes.length]);
+
+  // Handle visibility change events
+  useEffect(() => {
+    // Function to handle visibility changes
+    const handleVisibilityChange = () => {
+      isPageVisible.current = !document.hidden;
+      
+      console.log(`[Caffeine Update] Page visibility changed - now ${isPageVisible.current ? 'visible' : 'hidden'}`);
+      
+      if (isPageVisible.current) {
+        // Page just became visible - update immediately then setup timer
+        updateCaffeineData();
+      }
+      
+      // Either start or stop the timer based on new visibility
+      setupTimer();
+    };
+
+    // Initial calculation
+    updateCaffeineData();
+    
+    // Set up visibility change listener
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Initial timer setup
+    setupTimer();
+    
+    console.log('[Caffeine Update] Component mounted - initial data loaded');
+    
+    // Cleanup function
+    return () => {
+      console.log('[Caffeine Update] Component unmounting - removing listeners and timers');
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (timerRef.current !== undefined) {
+        window.clearInterval(timerRef.current);
+        timerRef.current = undefined;
+      }
+    };
+  }, [updateCaffeineData, setupTimer]);
+  
+  // React to lastIntakeTimestamp changes to immediately update the data
+  // This ensures changes made on other pages (like IntakePage) are reflected here
+  useEffect(() => {
+    if (isPageVisible.current) {
+      console.log('[Caffeine Update] Detected caffeine intake change, updating chart');
+      updateCaffeineData();
+    }
+  }, [lastIntakeTimestamp, updateCaffeineData]);
+  
+  // Force refresh when viewed for more than 5 minutes without inputs changing
+  useEffect(() => {
+    if (state.caffeineIntakes.length === 0) return;
+    
+    const forceUpdateInterval = window.setInterval(() => {
+      // Only force update if it's been more than 5 minutes since the last update
+      const now = new Date();
+      const timeSinceLastUpdate = now.getTime() - lastUpdateTime.getTime();
+      if (timeSinceLastUpdate > 300000) { // 5 minutes
+        console.log('[Caffeine Update] Forcing refresh after inactivity');
+        updateCaffeineData();
+      }
+    }, 60000); // Check every minute
+    
+    return () => {
+      window.clearInterval(forceUpdateInterval);
+    };
+  }, [state.caffeineIntakes.length, lastUpdateTime, updateCaffeineData]);
 
   // Handler for adding a new intake
   const handleAddIntake = (intake: CaffeineIntake) => {
     addCaffeineIntake(intake);
     setShowAddPanel(false);
+    // Immediate update after adding new intake is now handled by the lastIntakeTimestamp effect
   };
 
   return (
@@ -57,7 +156,12 @@ const HomePage: React.FC = () => {
           {state.caffeineIntakes.length > 0 ? (
             <Card className="border-0 shadow-sm">
               <Card.Header className="border-bottom d-flex justify-content-between align-items-center">
-                <h3 className="mb-0">Caffeine Levels</h3>
+                <h3 className="mb-0">
+                  Caffeine Levels
+                  <small className="text-muted ms-2 fs-6 fw-normal" style={{ fontSize: '0.8rem' }}>
+                    (Last updated: {lastUpdateTime.toLocaleTimeString()})
+                  </small>
+                </h3>
                 <Button 
                   variant="primary" 
                   size="sm"
@@ -75,7 +179,8 @@ const HomePage: React.FC = () => {
                   maxSafeLevel={state.preferences.maxSafeCaffeineLevel}
                   sleepThreshold={state.preferences.sleepCaffeineThreshold}
                   sleepStartHour={state.preferences.sleepStartHour}
-                  halfLifeHours={state.preferences.halfLifeHours} // Pass the half-life hours to the chart
+                  halfLifeHours={state.preferences.halfLifeHours}
+                  currentTime={currentTime} // Pass the current time to the chart
                 />
               </Card.Body>
             </Card>
