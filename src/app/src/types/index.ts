@@ -4,12 +4,11 @@
 
 // Drink definition from drinks database
 export interface Drink {
-  manufacturer: string;
   product: string;
   category: string;
-  volume_oz: number;
-  caffeine_mg: number;
-  labels: string[];
+  brand: string;
+  default_size_in_oz: number;
+  caffeine_mg_per_oz: number;
 }
 
 // Custom drink added by user

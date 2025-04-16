@@ -110,7 +110,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     setState({
       ...state,
       customDrinks: state.customDrinks.map(drink =>
-        drink.manufacturer === updatedDrink.manufacturer && 
+        drink.brand === updatedDrink.brand && 
         drink.product === updatedDrink.product 
           ? updatedDrink 
           : drink
@@ -123,7 +123,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     setState({
       ...state,
       customDrinks: state.customDrinks.filter(
-        drink => !(drink.manufacturer === drinkToRemove.manufacturer && 
+        drink => !(drink.brand === drinkToRemove.brand && 
                    drink.product === drinkToRemove.product)
       ),
     });

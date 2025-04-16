@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencilAlt, faTrash, faPlusSquare, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import IntakeForm from '../../components/IntakeForm';
-import IntakeLogTable from '../../components/IntakeLogTable';
+import { IntakeLogTable } from '../../components/IntakeLogTable';
 import IntakeWelcome from '../../components/IntakeWelcome';
 import SlideoutPanel from '../../components/layout/SlideoutPanel';
 import DeleteConfirmation from '../../components/DeleteConfirmation';
 import { CaffeineIntake, Drink } from '../../types';
 import drinksData from '../../data/drinks.json'; // Import default drinks
+import { v4 as uuidv4 } from 'uuid'; // Import the UUID library
 
 /**
  * Page component for managing caffeine intake records.
@@ -66,12 +67,10 @@ const IntakePage: React.FC = () => {
 
   // Handler for opening the clone slideout
   const handleCloneClick = (intake: CaffeineIntake) => {
-    // Set the intake to be cloned, but update the datetime to current time
-    const now = new Date();
     setClonedIntake({
       ...intake,
-      // Don't copy the ID - a new one will be generated when saved
-      datetime: now.toISOString()
+      id: uuidv4(), // Generate a new UUID using the proper function
+      datetime: new Date().toISOString(), // Set date to now when cloning
     });
     setShowAddPanel(true);
   };
@@ -174,6 +173,7 @@ const IntakePage: React.FC = () => {
           drinks={availableDrinks}
           onSave={handleAddIntake}
           onCancel={handleAddPanelClose}
+          isClone={!!clonedIntake} // Pass true if this is a cloned intake
         />
       </SlideoutPanel>
 
@@ -192,6 +192,7 @@ const IntakePage: React.FC = () => {
             drinks={availableDrinks}
             onSave={handleUpdateIntake}
             onCancel={() => setShowEditPanel(false)}
+            isClone={false}
           />
         )}
       </SlideoutPanel>
@@ -218,3 +219,4 @@ const IntakePage: React.FC = () => {
 };
 
 export default IntakePage;
+

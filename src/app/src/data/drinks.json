@@ -1,1546 +1,4517 @@
 [
   {
-    "manufacturer": "Starbucks",
-    "product": "Pike Place Roast Coffee",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 310,
-    "labels": ["#coffee", "#brewed"]
+    "product": "28 Black Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
   },
   {
-    "manufacturer": "Starbucks",
-    "product": "Americano",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#espresso"]
+    "product": "3 Water",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 3.0
   },
   {
-    "manufacturer": "Starbucks",
-    "product": "Caffè Latte",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#espresso", "#milk"]
+    "product": "3D Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
   },
   {
-    "manufacturer": "Dunkin'",
-    "product": "Brewed Coffee",
-    "category": "coffee",
-    "volume_oz": 14,
-    "caffeine_mg": 210,
-    "labels": ["#coffee", "#brewed"]
+    "product": "4 Purpose Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 8.3
   },
   {
-    "manufacturer": "Red Bull",
-    "product": "Energy Drink",
-    "category": "energy_drink",
-    "volume_oz": 8.4,
-    "caffeine_mg": 80,
-    "labels": ["#energy", "#taurine"]
+    "product": "4C Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 10.1
   },
   {
-    "manufacturer": "Monster",
-    "product": "Energy Drink",
-    "category": "energy_drink",
-    "volume_oz": 16,
-    "caffeine_mg": 160,
-    "labels": ["#energy", "#taurine"]
+    "product": "5 Hour Energy",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 1.93,
+    "caffeine_mg_per_oz": 103.6
   },
   {
-    "manufacturer": "Coca-Cola",
-    "product": "Coca-Cola Classic",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 34,
-    "labels": ["#soda", "#cola"]
+    "product": "5 Hour Energy Extra Strength",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 1.93,
+    "caffeine_mg_per_oz": 119.2
   },
   {
-    "manufacturer": "Pepsi",
-    "product": "Pepsi",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 38,
-    "labels": ["#soda", "#cola"]
+    "product": "7 Eleven Brewed Coffee",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 17.5
   },
   {
-    "manufacturer": "Lipton",
-    "product": "Black Tea",
-    "category": "tea",
-    "volume_oz": 8,
-    "caffeine_mg": 47,
-    "labels": ["#tea", "#black"]
+    "product": "7-Eleven Energy Shot",
+    "category": "Energy Drink",
+    "brand": "7-Eleven",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 130.0
   },
   {
-    "manufacturer": "Celestial Seasonings",
-    "product": "Green Tea",
-    "category": "tea",
-    "volume_oz": 8,
-    "caffeine_mg": 25,
-    "labels": ["#tea", "#green"]
+    "product": "7-Up",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
   },
   {
-    "manufacturer": "Panera",
-    "product": "Green Tea",
-    "category": "tea",
-    "volume_oz": 20,
-    "caffeine_mg": 75,
-    "labels": ["#sweet", "#green-tea"]
+    "product": "A Shoc",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.6
   },
   {
-    "manufacturer": "5 Hour Energy",
-    "product": "Energy Shot",
-    "category": "energy_shot",
-    "volume_oz": 1.93,
-    "caffeine_mg": 200,
-    "labels": ["#energy", "#shot"]
+    "product": "A&W Cream Soda",
+    "category": "Soda",
+    "brand": "A&W",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
   },
   {
-    "manufacturer": "Swiss Miss",
-    "product": "Hot Chocolate",
-    "category": "chocolate",
-    "volume_oz": 8,
-    "caffeine_mg": 5,
-    "labels": ["#chocolate", "#cocoa"]
+    "product": "A&W Root Beer",
+    "category": "unknown",
+    "brand": "A&W",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
   },
   {
-    "manufacturer": "Hershey's",
-    "product": "Dark Chocolate Bar",
-    "category": "chocolate",
-    "volume_oz": 1.45,
-    "caffeine_mg": 20,
-    "labels": ["#chocolate", "#dark"]
+    "product": "A&W Zero Sugar Cream Soda",
+    "category": "Soda",
+    "brand": "A&W",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
   },
   {
-    "manufacturer": "Starbucks",
-    "product": "Espresso Shot",
-    "category": "coffee",
-    "volume_oz": 1,
-    "caffeine_mg": 75,
-    "labels": ["#coffee", "#espresso", "#shot"]
+    "product": "ABB Turbo Tea Zero",
+    "category": "Tea",
+    "brand": "ABB",
+    "default_size_in_oz": 18.0,
+    "caffeine_mg_per_oz": 6.7
   },
   {
-    "manufacturer": "Death Wish Coffee",
-    "product": "Death Wish Coffee",
-    "category": "coffee",
-    "volume_oz": 8,
-    "caffeine_mg": 472,
-    "labels": ["#coffee", "#strong"]
+    "product": "Accelerator",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.5
   },
   {
-    "manufacturer": "Rockstar",
-    "product": "Energy Drink",
-    "category": "energy_drink",
-    "volume_oz": 16,
-    "caffeine_mg": 160,
-    "labels": ["#energy", "#taurine"]
+    "product": "Advocare Slam Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Advocare",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 60.0
   },
   {
-    "manufacturer": "Bang",
-    "product": "Energy Drink",
-    "category": "energy_drink",
-    "volume_oz": 16,
-    "caffeine_mg": 300,
-    "labels": ["#energy", "#creatine"]
+    "product": "Advocare Slim",
+    "category": "unknown",
+    "brand": "Advocare",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 15.0
   },
   {
-    "manufacturer": "Crystal Light",
-    "product": "Energy Drink Mix",
-    "category": "energy_mix",
-    "volume_oz": 16,
-    "caffeine_mg": 60,
-    "labels": ["#energy", "#mix"]
+    "product": "Afri Cola",
+    "category": "Soda",
+    "brand": "Afri",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 7.4
   },
   {
-    "manufacturer": "Snapple",
-    "product": "Tea",
-    "category": "tea",
-    "volume_oz": 16,
-    "caffeine_mg": 42,
-    "labels": ["#tea", "#bottled"]
+    "product": "AHA Sparkling Water",
+    "category": "unknown",
+    "brand": "AHA",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.5
   },
   {
-    "manufacturer": "Diet Pepsi",
-    "product": "Diet Pepsi",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 35,
-    "labels": ["#soda", "#cola", "#diet"]
+    "product": "Alani Nu Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Alani",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
   },
   {
-    "manufacturer": "RC Cola",
-    "product": "RC Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 43,
-    "labels": ["#soda", "#cola"]
+    "product": "Ale 8 1",
+    "category": "unknown",
+    "brand": "Ale",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.1
   },
   {
-    "manufacturer": "Dr Pepper",
-    "product": "Dr Pepper",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 42,
-    "labels": ["#soda", "#dr-pepper"]
+    "product": "ALL IN Energy Drink",
+    "category": "Energy Drink",
+    "brand": "ALL",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 6.2
   },
   {
-    "manufacturer": "Mountain Dew",
-    "product": "MTN Dew",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 54,
-    "labels": ["#soda", "#citrus"]
+    "product": "Alpine Start Instant Coffee",
+    "category": "Coffee",
+    "brand": "Alpine",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 15.0
   },
   {
-    "manufacturer": "Red Bull",
-    "product": "Red Bull (12oz)",
-    "category": "energy_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 114,
-    "labels": ["#energy", "#taurine"]
+    "product": "Alsa Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Alsa",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 6.2
   },
   {
-    "manufacturer": "Monster Energy",
-    "product": "Monster Energy (12oz)",
-    "category": "energy_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 120,
-    "labels": ["#energy", "#taurine"]
+    "product": "Americano Coffee",
+    "category": "Coffee",
+    "brand": "Americano",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.8
   },
   {
-    "manufacturer": "Generic",
-    "product": "Brewed Coffee (12oz)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 136,
-    "labels": ["#coffee", "#brewed"]
+    "product": "AMIN.O. Energy Drink",
+    "category": "Energy Drink",
+    "brand": "AMIN.O.",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
   },
   {
-    "manufacturer": "Pepsi",
-    "product": "Pepsi One",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 57,
-    "labels": ["#soda", "#cola", "#diet"]
+    "product": "Amino Force Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Amino",
+    "default_size_in_oz": 22.0,
+    "caffeine_mg_per_oz": 9.1
   },
   {
-    "manufacturer": "Cheerwine",
-    "product": "Diet Cheerwine",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 48,
-    "labels": ["#soda", "#cherry", "#diet"]
+    "product": "Arbonne Energy Fizz Stck",
+    "category": "Energy Drink",
+    "brand": "Arbonne",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 6.9
   },
   {
-    "manufacturer": "Tab",
-    "product": "Tab",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 48,
-    "labels": ["#soda", "#cola", "#diet"]
+    "product": "Arby's Jamocha Shake",
+    "category": "Coffee",
+    "brand": "Arby's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 0.7
   },
   {
-    "manufacturer": "Cheerwine",
+    "product": "Arizona Arnold Palmer Half and Half",
+    "category": "unknown",
+    "brand": "Arizona",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 0.9
+  },
+  {
+    "product": "Arizona Energy Drink Rx",
+    "category": "Energy Drink",
+    "brand": "Arizona",
+    "default_size_in_oz": 11.5,
+    "caffeine_mg_per_oz": 11.0
+  },
+  {
+    "product": "Arizona Iced Tea",
+    "category": "Tea",
+    "brand": "Arizona",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 1.9
+  },
+  {
+    "product": "Arti Sparkling Water",
+    "category": "unknown",
+    "brand": "Arti",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "AXIO Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "AXIO",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Bai Antioxidant Infusion",
+    "category": "unknown",
+    "brand": "Bai",
+    "default_size_in_oz": 18.0,
+    "caffeine_mg_per_oz": 3.1
+  },
+  {
+    "product": "Bai Boost",
+    "category": "Energy Drink",
+    "brand": "Bai",
+    "default_size_in_oz": 11.47,
+    "caffeine_mg_per_oz": 9.6
+  },
+  {
+    "product": "Balance Active Shot",
+    "category": "Energy Drink",
+    "brand": "Balance",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 50.0
+  },
+  {
+    "product": "Balance Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Balance",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 75.0
+  },
+  {
+    "product": "Bang Energy",
+    "category": "Energy Drink",
+    "brand": "Bang",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Bang Keto Coffee",
+    "category": "Coffee",
+    "brand": "Bang",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Bang Natural",
+    "category": "unknown",
+    "brand": "Bang",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.6
+  },
+  {
+    "product": "Bang Shot",
+    "category": "Energy Drink",
+    "brand": "Bang",
+    "default_size_in_oz": 3.0,
+    "caffeine_mg_per_oz": 100.0
+  },
+  {
+    "product": "Bang Sweet Tea",
+    "category": "Tea",
+    "brand": "Bang",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Barista Bros Iced Coffee",
+    "category": "Coffee",
+    "brand": "Barista",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Barqs Red Creme Soda",
+    "category": "Soda",
+    "brand": "Barqs",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Barqs Root Beer",
+    "category": "unknown",
+    "brand": "Barqs",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 1.8
+  },
+  {
+    "product": "Baskin Robbins Cappuccino Blast",
+    "category": "Coffee",
+    "brand": "Baskin",
+    "default_size_in_oz": 24.0,
+    "caffeine_mg_per_oz": 9.8
+  },
+  {
+    "product": "Bawls",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 6.4
+  },
+  {
+    "product": "BE Beyond Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 13.3
+  },
+  {
+    "product": "Beaver Buzz Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Beaver",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 11.1
+  },
+  {
+    "product": "BEEBAD Energy Drink",
+    "category": "Energy Drink",
+    "brand": "BEEBAD",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Berocca",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 11.2
+  },
+  {
+    "product": "Berzerk Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Berzerk",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Best Choice Strawberry Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Best",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Big Red Soda",
+    "category": "Soda",
+    "brand": "Big",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Big Train Java Chip Ice Coffee",
+    "category": "Coffee",
+    "brand": "Big",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.1
+  },
+  {
+    "product": "Big Train Spiced Chai",
+    "category": "unknown",
+    "brand": "Big",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 8.1
+  },
+  {
+    "product": "Bigelow Tea",
+    "category": "Tea",
+    "brand": "Bigelow",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.6
+  },
+  {
+    "product": "Biggby Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Biggby",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Biggby Creamy Lattes",
+    "category": "Coffee",
+    "brand": "Biggby",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Biggby Espresso",
+    "category": "Coffee",
+    "brand": "Biggby",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 50.0
+  },
+  {
+    "product": "Biggby Iced Coffee",
+    "category": "Coffee",
+    "brand": "Biggby",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.7
+  },
+  {
+    "product": "Biggby Iced Tea",
+    "category": "Tea",
+    "brand": "Biggby",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 2.4
+  },
+  {
+    "product": "Bing Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Bing",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Biohazard Coffee",
+    "category": "Coffee",
+    "brand": "Biohazard",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 77.3
+  },
+  {
+    "product": "Bizzy Cold Brew",
+    "category": "Coffee",
+    "brand": "Bizzy",
+    "default_size_in_oz": 2.67,
+    "caffeine_mg_per_oz": 46.8
+  },
+  {
+    "product": "Black Bruin Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Black",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 4.4
+  },
+  {
+    "product": "Black Ink Coffee",
+    "category": "Coffee",
+    "brand": "Black",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.0
+  },
+  {
+    "product": "Black Insomnia Coffee",
+    "category": "Coffee",
+    "brand": "Black",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 92.1
+  },
+  {
+    "product": "Black Label Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Black",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 129.6
+  },
+  {
+    "product": "Bloom Energy",
+    "category": "Energy Drink",
+    "brand": "Bloom",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Blu Frog Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Blu",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Blue Bolt (UK)",
+    "category": "unknown",
+    "brand": "Blue",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Blue Charge (UK)",
+    "category": "unknown",
+    "brand": "Blue",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Blue Spark (UK)",
+    "category": "unknown",
+    "brand": "Blue",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 8.9
+  },
+  {
+    "product": "Bodyarmour Edge",
+    "category": "unknown",
+    "brand": "Bodyarmour",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 5.0
+  },
+  {
+    "product": "Bomb Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Bomb",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Bomba (EU)",
+    "category": "unknown",
+    "brand": "Bomba",
+    "default_size_in_oz": 8.4,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Boost Energy (UK)",
+    "category": "Energy Drink",
+    "brand": "Boost",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Boost Nutritional Drink",
+    "category": "Energy Drink",
+    "brand": "Boost",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.6
+  },
+  {
+    "product": "Bottled Iced Coffee Dunkin Donuts",
+    "category": "Coffee",
+    "brand": "Bottled",
+    "default_size_in_oz": 13.7,
+    "caffeine_mg_per_oz": 14.4
+  },
+  {
+    "product": "BPM Energy Drink",
+    "category": "Energy Drink",
+    "brand": "BPM",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 4.1
+  },
+  {
+    "product": "BreinFuel",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 30.0
+  },
+  {
+    "product": "Brew Dr Kombucha Uplift",
+    "category": "Coffee",
+    "brand": "Brew",
+    "default_size_in_oz": 14.0,
+    "caffeine_mg_per_oz": 9.3
+  },
+  {
+    "product": "Brisk Iced Tea",
+    "category": "Tea",
+    "brand": "Brisk",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.9
+  },
+  {
+    "product": "Brown Rice Tea",
+    "category": "Tea",
+    "brand": "Brown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.5
+  },
+  {
+    "product": "Bubbl'r Sparkling Water",
+    "category": "unknown",
+    "brand": "Bubbl'r",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 5.8
+  },
+  {
+    "product": "Bubly Bounce Sparkling Water",
+    "category": "unknown",
+    "brand": "Bubly",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.9
+  },
+  {
+    "product": "Bubly Sparkling Water",
+    "category": "unknown",
+    "brand": "Bubly",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Bucked Up",
+    "category": "unknown",
+    "brand": "Bucked",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Bulletproof Coffee",
+    "category": "Coffee",
+    "brand": "Bulletproof",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 18.1
+  },
+  {
+    "product": "Burn Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Burn",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 9.3
+  },
+  {
+    "product": "C4 On The Go",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
+  },
+  {
+    "product": "C4 Performance Energy",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "C4 Smart Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "C4 Ultimate Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Cafe Bustelo",
+    "category": "unknown",
+    "brand": "Cafe",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Cafe Con Leche",
+    "category": "unknown",
+    "brand": "Cafe",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 25.7
+  },
+  {
+    "product": "Caffe Mocha",
+    "category": "Coffee",
+    "brand": "Caffe",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.7
+  },
+  {
+    "product": "Caffe Nero Coffee",
+    "category": "Coffee",
+    "brand": "Caffe",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 13.3
+  },
+  {
+    "product": "Califia Farms Cold Brew Coffee",
+    "category": "Coffee",
+    "brand": "Califia",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 22.5
+  },
+  {
+    "product": "Canada Dry Green Tea Ginger Ale",
+    "category": "Tea",
+    "brand": "Canada",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.8
+  },
+  {
+    "product": "Cannonball Coffee Maximum Charge (UK)",
+    "category": "Coffee",
+    "brand": "Cannonball",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 91.8
+  },
+  {
+    "product": "Cappuccino",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.8
+  },
+  {
+    "product": "Carabao Energy Drink (UK)",
+    "category": "Energy Drink",
+    "brand": "Carabao",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Caribou BOUsted Sparkling Water",
+    "category": "unknown",
+    "brand": "Caribou",
+    "default_size_in_oz": 11.5,
+    "caffeine_mg_per_oz": 6.5
+  },
+  {
+    "product": "Caribou Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Caribou",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 19.1
+  },
+  {
+    "product": "Caribou Canned Cold Brew",
+    "category": "Coffee",
+    "brand": "Caribou",
+    "default_size_in_oz": 11.5,
+    "caffeine_mg_per_oz": 15.4
+  },
+  {
+    "product": "Cascara",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 4.5
+  },
+  {
+    "product": "CBD Coffee",
+    "category": "Coffee",
+    "brand": "CBD",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Celsius Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Celsius",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
+  },
+  {
+    "product": "Celsius Stevia",
+    "category": "unknown",
+    "brand": "Celsius",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
+  },
+  {
+    "product": "Chai Tea",
+    "category": "Tea",
+    "brand": "Chai",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Chameleon Cold Brew Coffee",
+    "category": "Coffee",
+    "brand": "Chameleon",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 26.2
+  },
+  {
+    "product": "Chameleon Cold Brew RTD",
+    "category": "Coffee",
+    "brand": "Chameleon",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 23.0
+  },
+  {
+    "product": "Chameleon Cold Brew With Milk",
+    "category": "Coffee",
+    "brand": "Chameleon",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 9.1
+  },
+  {
     "product": "Cheerwine",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 48,
-    "labels": ["#soda", "#cherry"]
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.9
   },
   {
-    "manufacturer": "RC Cola",
-    "product": "Diet RC",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 47,
-    "labels": ["#soda", "#cola", "#diet"]
+    "product": "Chick-fil-A Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Chick-fil-A",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 13.6
   },
   {
-    "manufacturer": "Coca-Cola",
+    "product": "Chick-fil-A Frosted Coffee",
+    "category": "Coffee",
+    "brand": "Chick-fil-A",
+    "default_size_in_oz": 14.0,
+    "caffeine_mg_per_oz": 9.3
+  },
+  {
+    "product": "Chick-fil-A Iced Coffee",
+    "category": "Coffee",
+    "brand": "Chick-fil-A",
+    "default_size_in_oz": 14.0,
+    "caffeine_mg_per_oz": 5.7
+  },
+  {
+    "product": "Chick-fil-A Iced Tea",
+    "category": "Tea",
+    "brand": "Chick-fil-A",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 3.9
+  },
+  {
+    "product": "Choffy (roasted cacao)",
+    "category": "unknown",
+    "brand": "Choffy",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Cintron Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Cintron",
+    "default_size_in_oz": 8.4,
+    "caffeine_mg_per_oz": 10.1
+  },
+  {
+    "product": "Clif Shot Energy Gel",
+    "category": "Energy Drink",
+    "brand": "Clif",
+    "default_size_in_oz": 1.2,
+    "caffeine_mg_per_oz": 83.3
+  },
+  {
+    "product": "Club Mate (EU)",
+    "category": "unknown",
+    "brand": "Club",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 5.9
+  },
+  {
+    "product": "Coca Cola Plus",
+    "category": "Soda",
+    "brand": "Coca",
+    "default_size_in_oz": 470.0,
+    "caffeine_mg_per_oz": 0.1
+  },
+  {
+    "product": "Coca-Cola Caffeine Free",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Coca-Cola Cherry",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Coca-Cola Cherry Vanilla",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Coca-Cola Cherry Zero Sugar",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Coca-Cola Classic",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Coca-Cola Energy",
+    "category": "Energy Drink",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Coca-Cola Orange Vanilla",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Coca-Cola Vanilla",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Coca-Cola Vanilla Zero Sugar",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Coca-Cola With Coffee",
+    "category": "Coffee",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 5.8
+  },
+  {
+    "product": "Coca-Cola Zero Sugar",
+    "category": "Soda",
+    "brand": "Coca-Cola",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Cocaine Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Cocaine",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 23.3
+  },
+  {
+    "product": "Coffee",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 20.4
+  },
+  {
+    "product": "Coffee (Decaf, Instant)",
+    "category": "Coffee",
+    "brand": "Coffee",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.3
+  },
+  {
+    "product": "Coffee (Instant)",
+    "category": "Coffee",
+    "brand": "Coffee",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 7.1
+  },
+  {
+    "product": "Coffee (Moka Pot)",
+    "category": "Coffee",
+    "brand": "Coffee",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 46.5
+  },
+  {
+    "product": "Coffee Bean & Tea leaf Coffee",
+    "category": "Coffee",
+    "brand": "Coffee",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 20.8
+  },
+  {
+    "product": "Coffee Friend Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Coffee",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 17.1
+  },
+  {
+    "product": "Coffee Leaf Tea",
+    "category": "Coffee",
+    "brand": "Coffee",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 2.5
+  },
+  {
+    "product": "COGO Caffeinated Hot Chocolate",
+    "category": "Soda",
+    "brand": "COGO",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 16.3
+  },
+  {
+    "product": "Cold Brew Tea",
+    "category": "Tea",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "CoolBrew Coffee",
+    "category": "Coffee",
+    "brand": "CoolBrew",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 6.0
+  },
+  {
+    "product": "Costa Coffee",
+    "category": "Coffee",
+    "brand": "Costa",
+    "default_size_in_oz": 10.14,
+    "caffeine_mg_per_oz": 23.8
+  },
+  {
+    "product": "Cran Energy Juice",
+    "category": "Energy Drink",
+    "brand": "Cran",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 7.0
+  },
+  {
+    "product": "Crave Energy Drink (UK)",
+    "category": "Energy Drink",
+    "brand": "Crave",
+    "default_size_in_oz": 8.43,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Crio Bru Brewed Cacao",
+    "category": "Coffee",
+    "brand": "Crio",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 1.2
+  },
+  {
+    "product": "Crunk Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Crunk",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.0
+  },
+  {
+    "product": "Crystal Light Energy Mix",
+    "category": "Energy Drink",
+    "brand": "Crystal",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Crystal Light Iced Tea",
+    "category": "Tea",
+    "brand": "Crystal",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 1.2
+  },
+  {
+    "product": "Dare Iced Coffee",
+    "category": "Coffee",
+    "brand": "Dare",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Dark Dog Organic Energy",
+    "category": "Energy Drink",
+    "brand": "Dark",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Death Wish Canned Cold Brew",
+    "category": "Coffee",
+    "brand": "Death",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 37.5
+  },
+  {
+    "product": "Death Wish Coffee",
+    "category": "Coffee",
+    "brand": "Death",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 60.7
+  },
+  {
+    "product": "Death Wish Latte",
+    "category": "Coffee",
+    "brand": "Death",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 37.5
+  },
+  {
+    "product": "Decaf Coffee",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.7
+  },
+  {
+    "product": "Demon Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Demon",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Diet Barqs Root Beer",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Diet Cheerwine",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.9
+  },
+  {
     "product": "Diet Coke",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 46,
-    "labels": ["#soda", "#cola", "#diet"]
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.8
   },
   {
-    "manufacturer": "Coca-Cola",
-    "product": "Diet Coke with Lime",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 46,
-    "labels": ["#soda", "#cola", "#diet", "#lime"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Diet Vanilla Coke",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 45,
-    "labels": ["#soda", "#cola", "#diet", "#vanilla"]
-  },
-  {
-    "manufacturer": "Shasta",
-    "product": "Shasta Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 43,
-    "labels": ["#soda", "#cola"]
-  },
-  {
-    "manufacturer": "Faygo",
-    "product": "Faygo Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 42,
-    "labels": ["#soda", "#cola"]
-  },
-  {
-    "manufacturer": "Pepsi",
-    "product": "Diet Cherry Pepsi",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 41,
-    "labels": ["#soda", "#cola", "#cherry", "#diet"]
-  },
-  {
-    "manufacturer": "Pepsi",
-    "product": "Cherry Pepsi",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 40,
-    "labels": ["#soda", "#cola", "#cherry"]
-  },
-  {
-    "manufacturer": "Pepsi",
-    "product": "Pepsi with Lime",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 38,
-    "labels": ["#soda", "#cola", "#lime"]
-  },
-  {
-    "manufacturer": "Pepsi",
-    "product": "Diet Vanilla Pepsi",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 38,
-    "labels": ["#soda", "#cola", "#vanilla", "#diet"]
-  },
-  {
-    "manufacturer": "Pepsi",
-    "product": "Vanilla Pepsi",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 37,
-    "labels": ["#soda", "#cola", "#vanilla"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Diet Coke Black Cherry Vanilla",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 37,
-    "labels": ["#soda", "#cola", "#cherry", "#vanilla", "#diet"]
-  },
-  {
-    "manufacturer": "Pepsi",
-    "product": "Diet Pepsi with Lime",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 36,
-    "labels": ["#soda", "#cola", "#lime", "#diet"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Coke Zero",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 36,
-    "labels": ["#soda", "#cola", "#diet"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Black Cherry Vanilla Coke",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 35,
-    "labels": ["#soda", "#cola", "#cherry", "#vanilla"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Diet Cherry Coke",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 35,
-    "labels": ["#soda", "#cola", "#cherry", "#diet"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Cherry Coke",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 34,
-    "labels": ["#soda", "#cola", "#cherry"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Coca-Cola C2",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 34,
-    "labels": ["#soda", "#cola"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
     "product": "Diet Coke with Splenda",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 34,
-    "labels": ["#soda", "#cola", "#diet"]
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.8
   },
   {
-    "manufacturer": "Coca-Cola",
-    "product": "Coke with Lime",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 34,
-    "labels": ["#soda", "#cola", "#lime"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Vanilla Coke",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 33,
-    "labels": ["#soda", "#cola", "#vanilla"]
-  },
-  {
-    "manufacturer": "Red Rock",
-    "product": "Red Rock Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 26,
-    "labels": ["#soda", "#cola"]
-  },
-  {
-    "manufacturer": "Ritz",
-    "product": "Ritz Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 10,
-    "labels": ["#soda", "#cola"]
-  },
-  {
-    "manufacturer": "Double Cola",
-    "product": "Double Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 36,
-    "labels": ["#soda", "#cola"]
-  },
-  {
-    "manufacturer": "Dr Pepper",
     "product": "Diet Dr Pepper",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 44,
-    "labels": ["#soda", "#dr-pepper", "#diet"]
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.4
   },
   {
-    "manufacturer": "Dr Pepper",
-    "product": "Diet Dr Pepper Berries & Cream",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 42,
-    "labels": ["#soda", "#dr-pepper", "#berry", "#diet"]
-  },
-  {
-    "manufacturer": "Dr Pepper",
-    "product": "Dr Pepper Berries & Cream",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 41,
-    "labels": ["#soda", "#dr-pepper", "#berry"]
-  },
-  {
-    "manufacturer": "Dr Pepper",
-    "product": "Diet Cherry Vanilla Dr Pepper",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 40,
-    "labels": ["#soda", "#dr-pepper", "#cherry", "#vanilla", "#diet"]
-  },
-  {
-    "manufacturer": "Dr Pepper",
-    "product": "Cherry Vanilla Dr Pepper",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 39,
-    "labels": ["#soda", "#dr-pepper", "#cherry", "#vanilla"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Pibb Zero",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 41,
-    "labels": ["#soda", "#dr-pepper-type", "#diet"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Pibb Xtra",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 40,
-    "labels": ["#soda", "#dr-pepper-type"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Vault Zero",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 74,
-    "labels": ["#soda", "#citrus", "#energy", "#diet"]
-  },
-  {
-    "manufacturer": "SunDrop",
-    "product": "Diet SunDrop",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 72,
-    "labels": ["#soda", "#citrus", "#diet"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Vault Citrus",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 71,
-    "labels": ["#soda", "#citrus", "#energy"]
-  },
-  {
-    "manufacturer": "SunDrop",
-    "product": "SunDrop",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 65,
-    "labels": ["#soda", "#citrus"]
-  },
-  {
-    "manufacturer": "Mountain Dew",
-    "product": "Diet Mountain Dew Code Red",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 55,
-    "labels": ["#soda", "#citrus", "#cherry", "#diet"]
-  },
-  {
-    "manufacturer": "Mountain Dew",
     "product": "Diet Mountain Dew",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 55,
-    "labels": ["#soda", "#citrus", "#diet"]
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.5
   },
-  {
-    "manufacturer": "Ski",
-    "product": "Ski Citrus Soda",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 69,
-    "labels": ["#soda", "#citrus"]
-  },
-  {
-    "manufacturer": "Mountain Dew",
-    "product": "Mountain Dew Code Red",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 54,
-    "labels": ["#soda", "#citrus", "#cherry"]
-  },
-  {
-    "manufacturer": "Coca-Cola",
-    "product": "Mello Yello",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 50,
-    "labels": ["#soda", "#citrus"]
-  },
-  {
-    "manufacturer": "Faygo",
-    "product": "Moon Mist",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 20,
-    "labels": ["#soda", "#citrus"]
-  },
-  {
-    "manufacturer": "Sunkist",
-    "product": "Diet Sunkist",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 19,
-    "labels": ["#soda", "#orange", "#diet"]
-  },
-  {
-    "manufacturer": "Sunkist",
-    "product": "Sunkist",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 19,
-    "labels": ["#soda", "#orange"]
-  },
-  {
-    "manufacturer": "Big Red",
-    "product": "Big Red",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 34,
-    "labels": ["#soda", "#cream"]
-  },
-  {
-    "manufacturer": "A&W",
-    "product": "Cream Soda",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 29,
-    "labels": ["#soda", "#cream"]
-  },
-  {
-    "manufacturer": "Barq's",
-    "product": "Root Beer",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 22,
-    "labels": ["#soda", "#root-beer"]
-  },
-  {
-    "manufacturer": "IGA",
-    "product": "Dr IGA",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 60,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Diet Dr Pop",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 57,
-    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Dr Pop",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 48,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Kroger",
-    "product": "Dr K",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 41,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Kroger",
-    "product": "Diet Dr K",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 41,
-    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Dr Topper",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 34,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Publix",
-    "product": "Dr Publix",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 32,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Dr Bob",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 31,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Piggly Wiggly",
-    "product": "Mr. Pigg",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 31,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Diet Dr Bob",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 31,
-    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Walmart",
-    "product": "Dr Thunder",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 31,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Dr Chilli",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 30,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Walmart",
-    "product": "Diet Dr Thunder",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 30,
-    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Chek",
-    "product": "Dr Chek",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 24,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Chek",
-    "product": "Diet Dr Chek",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 22,
-    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Laura Lynn",
-    "product": "Dr Lynn",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 19,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Food Lion",
-    "product": "Dr Perky",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 19,
-    "labels": ["#soda", "#dr-pepper-type", "#store-brand"]
-  },
-  {
-    "manufacturer": "Laura Lynn",
-    "product": "Diet Dr Lynn",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 18,
-    "labels": ["#soda", "#dr-pepper-type", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Chek",
-    "product": "Kountry Mist",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 55,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Ramp Red",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 55,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "IGA",
-    "product": "Spring Mist",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 54,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Publix",
-    "product": "Citrus Hit",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 54,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Ramp",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 54,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Mountain Chill",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 54,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Chek",
-    "product": "Red Alert",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 53,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Mountain Holler",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 53,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Mountain Yeller",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 53,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "CloverValley",
-    "product": "Citrus Drop",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 52,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Sam's",
-    "product": "Mountain Lightning",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 47,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Chek",
-    "product": "Diet Kountry Mist",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 46,
-    "labels": ["#soda", "#citrus", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Generic",
-    "product": "Mountain Lion",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 31,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Laura Lynn",
-    "product": "Mountain Moon Drops",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 28,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big K",
-    "product": "Citrus Drop",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 26,
-    "labels": ["#soda", "#citrus", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big K",
-    "product": "Diet Citrus Drop",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 25,
-    "labels": ["#soda", "#citrus", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big Fizz",
-    "product": "Big Fizz Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 46,
-    "labels": ["#soda", "#cola", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big Fizz",
-    "product": "Big Fizz Diet Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 62,
-    "labels": ["#soda", "#cola", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big K",
-    "product": "Big K Cherry Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 43,
-    "labels": ["#soda", "#cola", "#cherry", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big K",
-    "product": "Big K Diet Cherry Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 40,
-    "labels": ["#soda", "#cola", "#cherry", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Walgreens",
-    "product": "Walgreens Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 39,
-    "labels": ["#soda", "#cola", "#store-brand"]
-  },
-  {
-    "manufacturer": "Walgreens",
-    "product": "Walgreens Diet Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 45,
-    "labels": ["#soda", "#cola", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big K",
-    "product": "Big K Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 39,
-    "labels": ["#soda", "#cola", "#store-brand"]
-  },
-  {
-    "manufacturer": "Big K",
-    "product": "Big K Diet Cola",
-    "category": "soft_drink",
-    "volume_oz": 12,
-    "caffeine_mg": 30,
-    "labels": ["#soda", "#cola", "#diet", "#store-brand"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Caffè Americano (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 170,
-    "labels": ["#coffee", "#americano", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Caffè Americano (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 255,
-    "labels": ["#coffee", "#americano", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Caffè Americano (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 340,
-    "labels": ["#coffee", "#americano", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Caffè Latte (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 85,
-    "labels": ["#coffee", "#latte", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Caffè Latte (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 170,
-    "labels": ["#coffee", "#latte", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Cappuccino (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 85,
-    "labels": ["#coffee", "#cappuccino", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Cappuccino (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 170,
-    "labels": ["#coffee", "#cappuccino", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Espresso (Solo)",
-    "category": "coffee",
-    "volume_oz": 1,
-    "caffeine_mg": 85,
-    "labels": ["#coffee", "#espresso", "#blonde", "#shot"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Espresso (Doppio)",
-    "category": "coffee",
-    "volume_oz": 2,
-    "caffeine_mg": 170,
-    "labels": ["#coffee", "#espresso", "#blonde", "#shot"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Flat White (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#flat-white", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Flat White (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#flat-white", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Roast (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 270,
-    "labels": ["#coffee", "#brewed", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Roast (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 360,
-    "labels": ["#coffee", "#brewed", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Blonde Roast (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 475,
-    "labels": ["#coffee", "#brewed", "#blonde"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Pike Place Brewed Coffee (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 235,
-    "labels": ["#coffee", "#brewed", "#pike-place"]
-  },
-  {
-    "manufacturer": "Starbucks US",
-    "product": "Pike Place Brewed Coffee (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 310,
-    "labels": ["#coffee", "#brewed", "#pike-place"]
-  },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Pike Place Brewed Coffee (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 410,
-    "labels": ["#coffee", "#brewed", "#pike-place"]
+    "product": "Diet Pepsi",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.9
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Featured Dark Roast (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 195,
-    "labels": ["#coffee", "#brewed", "#dark-roast"]
+    "product": "Diet RC Cola",
+    "category": "Soda",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Featured Dark Roast (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 260,
-    "labels": ["#coffee", "#brewed", "#dark-roast"]
+    "product": "Diet Wild Cherry Pepsi",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.2
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Featured Dark Roast (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 340,
-    "labels": ["#coffee", "#brewed", "#dark-roast"]
+    "product": "doc Soda",
+    "category": "Soda",
+    "brand": "doc",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 5.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caffè Americano (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#americano"]
+    "product": "Double Cola",
+    "category": "Soda",
+    "brand": "Double",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caffè Americano (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#americano"]
+    "product": "Dr Pepper",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.5
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caffè Americano (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 300,
-    "labels": ["#coffee", "#americano"]
+    "product": "Dr Pepper 10",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.2
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caffè Latte (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 75,
-    "labels": ["#coffee", "#latte"]
+    "product": "Dr Pepper Zero Sugar",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.4
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caffè Latte (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#latte"]
+    "product": "Dr Shasta Soda",
+    "category": "Soda",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.4
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caffè Mocha (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 95,
-    "labels": ["#coffee", "#mocha", "#chocolate"]
+    "product": "Driftaway Coffee",
+    "category": "Coffee",
+    "brand": "Driftaway",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 20.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caffè Mocha (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 175,
-    "labels": ["#coffee", "#mocha", "#chocolate"]
+    "product": "Dripdash Kyoto Coffee",
+    "category": "Coffee",
+    "brand": "Dripdash",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 37.5
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caramel Macchiato (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 75,
-    "labels": ["#coffee", "#macchiato", "#caramel"]
+    "product": "Duff Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Duff",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Caramel Macchiato (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#macchiato", "#caramel"]
+    "product": "Dunkin Donuts Shot In The Dark",
+    "category": "Energy Drink",
+    "brand": "Dunkin",
+    "default_size_in_oz": 8.1,
+    "caffeine_mg_per_oz": 16.5
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "White Chocolate Mocha (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 75,
-    "labels": ["#coffee", "#mocha", "#white-chocolate"]
+    "product": "Dunkin Sparkd Energy",
+    "category": "Energy Drink",
+    "brand": "Dunkin",
+    "default_size_in_oz": 32.0,
+    "caffeine_mg_per_oz": 6.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "White Chocolate Mocha (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#mocha", "#white-chocolate"]
+    "product": "Dunkin' Cold Brew",
+    "category": "Coffee",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 24.0,
+    "caffeine_mg_per_oz": 10.8
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Espresso (Solo)",
-    "category": "coffee",
-    "volume_oz": 1,
-    "caffeine_mg": 75,
-    "labels": ["#coffee", "#espresso", "#shot"]
+    "product": "Dunkin' Donuts Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 14.0,
+    "caffeine_mg_per_oz": 15.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Espresso (Doppio)",
-    "category": "coffee",
-    "volume_oz": 2,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#espresso", "#shot"]
+    "product": "Dunkin' Donuts Dunkaccino",
+    "category": "unknown",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 14.0,
+    "caffeine_mg_per_oz": 5.9
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Classic Chai Tea Latte (Tall)",
-    "category": "tea",
-    "volume_oz": 12,
-    "caffeine_mg": 70,
-    "labels": ["#tea", "#chai", "#latte"]
+    "product": "Dunkin' Donuts Extra Charged Coffee",
+    "category": "Coffee",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 14.0,
+    "caffeine_mg_per_oz": 18.0
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Classic Chai Tea Latte (Grande)",
-    "category": "tea",
-    "volume_oz": 16,
-    "caffeine_mg": 95,
-    "labels": ["#tea", "#chai", "#latte"]
+    "product": "Dunkin' Donuts Iced Coffee",
+    "category": "Coffee",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 24.0,
+    "caffeine_mg_per_oz": 12.2
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Classic Chai Tea Latte (Venti)",
-    "category": "tea",
-    "volume_oz": 20,
-    "caffeine_mg": 120,
-    "labels": ["#tea", "#chai", "#latte"]
+    "product": "Dunkin' Donuts Iced Latte",
+    "category": "Coffee",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 24.0,
+    "caffeine_mg_per_oz": 6.9
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Teavana Earl Grey (Tall)",
-    "category": "tea",
-    "volume_oz": 12,
-    "caffeine_mg": 40,
-    "labels": ["#tea", "#earl-grey"]
+    "product": "Dunkin' Donuts Iced Tea",
+    "category": "Tea",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 24.0,
+    "caffeine_mg_per_oz": 2.6
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Teavana Earl Grey (Grande)",
-    "category": "tea",
-    "volume_oz": 16,
-    "caffeine_mg": 80,
-    "labels": ["#tea", "#earl-grey"]
+    "product": "Dunkin' Donuts Latte",
+    "category": "Coffee",
+    "brand": "Dunkin'",
+    "default_size_in_oz": 14.0,
+    "caffeine_mg_per_oz": 11.9
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Teavana Green Tea Latte (Tall)",
-    "category": "tea",
-    "volume_oz": 12,
-    "caffeine_mg": 55,
-    "labels": ["#tea", "#green-tea", "#latte"]
+    "product": "Dutch Bros Blue Rebel Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Dutch",
+    "default_size_in_oz": 8.4,
+    "caffeine_mg_per_oz": 9.5
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Teavana Green Tea Latte (Grande)",
-    "category": "tea",
-    "volume_oz": 16,
-    "caffeine_mg": 80,
-    "labels": ["#tea", "#green-tea", "#latte"]
+    "product": "Dutch Bros Coffee (Classic)",
+    "category": "Coffee",
+    "brand": "Dutch",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 9.3
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Teavana Jade Citrus Mint (Grande)",
-    "category": "tea",
-    "volume_oz": 16,
-    "caffeine_mg": 40,
-    "labels": ["#tea", "#green-tea", "#mint"]
+    "product": "DynaPep",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 0.14,
+    "caffeine_mg_per_oz": 714.3
   },
   {
-    "manufacturer": "Starbucks US",
-    "product": "Hot Chocolate (Grande)",
-    "category": "chocolate",
-    "volume_oz": 16,
-    "caffeine_mg": 25,
-    "labels": ["#chocolate", "#hot-chocolate"]
+    "product": "E6 Energy Shot",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 1.93,
+    "caffeine_mg_per_oz": 121.8
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Brewed Coffee (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 229,
-    "labels": ["#coffee", "#brewed", "#uk"]
+    "product": "EBOOST Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "EBOOST",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 13.8
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Brewed Coffee (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 308,
-    "labels": ["#coffee", "#brewed", "#uk"]
+    "product": "EBOOST Super Fuel",
+    "category": "Energy Drink",
+    "brand": "EBOOST",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 9.2
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Brewed Coffee (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 387,
-    "labels": ["#coffee", "#brewed", "#uk"]
+    "product": "EBOOST Workout Crusher Mix",
+    "category": "Energy Drink",
+    "brand": "EBOOST",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 21.9
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Americano (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#americano", "#uk"]
+    "product": "Eight O'Clock Coffee",
+    "category": "Coffee",
+    "brand": "Eight",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 14.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Americano (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#americano", "#uk"]
+    "product": "Einstein Bros Coffee",
+    "category": "Coffee",
+    "brand": "Einstein",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.9
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Americano (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 300,
-    "labels": ["#coffee", "#americano", "#uk"]
+    "product": "Electric Monkey Wild Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Electric",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Latte (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#latte", "#uk"]
+    "product": "EnerBee Energy Drink",
+    "category": "Energy Drink",
+    "brand": "EnerBee",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Latte (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#latte", "#uk"]
+    "product": "Equip Pure Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Equip",
+    "default_size_in_oz": 1.8,
+    "caffeine_mg_per_oz": 55.6
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Latte (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#latte", "#uk"]
+    "product": "Espresso Monster",
+    "category": "Coffee",
+    "brand": "Espresso",
+    "default_size_in_oz": 8.4,
+    "caffeine_mg_per_oz": 19.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Mocha (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 165,
-    "labels": ["#coffee", "#mocha", "#chocolate", "#uk"]
+    "product": "Espresso Shot",
+    "category": "Coffee",
+    "brand": "Espresso",
+    "default_size_in_oz": 1.5,
+    "caffeine_mg_per_oz": 51.3
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Mocha (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 170,
-    "labels": ["#coffee", "#mocha", "#chocolate", "#uk"]
+    "product": "Eternal Energy Extra Strength",
+    "category": "Energy Drink",
+    "brand": "Eternal",
+    "default_size_in_oz": 1.93,
+    "caffeine_mg_per_oz": 145.1
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caffè Mocha (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 250,
-    "labels": ["#coffee", "#mocha", "#chocolate", "#uk"]
+    "product": "Eternal Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Eternal",
+    "default_size_in_oz": 1.93,
+    "caffeine_mg_per_oz": 119.2
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Cappuccino (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#cappuccino", "#uk"]
+    "product": "Euro Shopper Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "Euro",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Cappuccino (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#cappuccino", "#uk"]
+    "product": "Fakeer Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "Fakeer",
+    "default_size_in_oz": 12.52,
+    "caffeine_mg_per_oz": 9.4
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Cappuccino (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#cappuccino", "#uk"]
+    "product": "Fanta",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caramel Macchiato (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#macchiato", "#caramel", "#uk"]
+    "product": "Fast Lane Black Tea",
+    "category": "Tea",
+    "brand": "Fast",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 13.8
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caramel Macchiato (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#macchiato", "#caramel", "#uk"]
+    "product": "Faygo Cola",
+    "category": "Soda",
+    "brand": "Faygo",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.6
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Caramel Macchiato (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#macchiato", "#caramel", "#uk"]
+    "product": "Faygo Moon Mist",
+    "category": "unknown",
+    "brand": "Faygo",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 1.6
   },
   {
-    "manufacturer": "Starbucks UK",
     "product": "Flat White",
-    "category": "coffee",
-    "volume_oz": 8,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#flat-white", "#uk"]
+    "category": "unknown",
+    "brand": "Flat",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.8
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Espresso (Solo)",
-    "category": "coffee",
-    "volume_oz": 1,
-    "caffeine_mg": 75,
-    "labels": ["#coffee", "#espresso", "#shot", "#uk"]
+    "product": "Folgers Coffee",
+    "category": "Coffee",
+    "brand": "Folgers",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 14.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Espresso (Doppio)",
-    "category": "coffee",
-    "volume_oz": 2,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#espresso", "#shot", "#uk"]
+    "product": "Forto Organic Coffee Shot",
+    "category": "Coffee",
+    "brand": "Forto",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 112.5
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "White Chocolate Mocha (Tall)",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#mocha", "#white-chocolate", "#uk"]
+    "product": "Freeway Cola",
+    "category": "Soda",
+    "brand": "Freeway",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 2.9
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "White Chocolate Mocha (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#mocha", "#white-chocolate", "#uk"]
+    "product": "Fresca",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "White Chocolate Mocha (Venti)",
-    "category": "coffee",
-    "volume_oz": 20,
-    "caffeine_mg": 225,
-    "labels": ["#coffee", "#mocha", "#white-chocolate", "#uk"]
+    "product": "Fritz Kola (EU)",
+    "category": "unknown",
+    "brand": "Fritz",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 7.4
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Chai Tea Latte (Grande)",
-    "category": "tea",
-    "volume_oz": 16,
-    "caffeine_mg": 92,
-    "labels": ["#tea", "#chai", "#latte", "#uk"]
+    "product": "Full Throttle Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Full",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Chai Tea Latte (Venti)",
-    "category": "tea",
-    "volume_oz": 20,
-    "caffeine_mg": 115,
-    "labels": ["#tea", "#chai", "#latte", "#uk"]
+    "product": "Fuze Iced Tea",
+    "category": "Tea",
+    "brand": "Fuze",
+    "default_size_in_oz": 24.0,
+    "caffeine_mg_per_oz": 1.0
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Matcha Tea Latte (Tall)",
-    "category": "tea",
-    "volume_oz": 12,
-    "caffeine_mg": 60,
-    "labels": ["#tea", "#matcha", "#green-tea", "#latte", "#uk"]
+    "product": "Gatorade Bolt 24 Energize",
+    "category": "unknown",
+    "brand": "Gatorade",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 4.4
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Matcha Tea Latte (Grande)",
-    "category": "tea",
-    "volume_oz": 16,
-    "caffeine_mg": 90,
-    "labels": ["#tea", "#matcha", "#green-tea", "#latte", "#uk"]
+    "product": "Gatorade Fast Twitch",
+    "category": "unknown",
+    "brand": "Gatorade",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Matcha Tea Latte (Venti)",
-    "category": "tea",
-    "volume_oz": 20,
-    "caffeine_mg": 120,
-    "labels": ["#tea", "#matcha", "#green-tea", "#latte", "#uk"]
+    "product": "GFuel Cans",
+    "category": "unknown",
+    "brand": "GFuel",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Cortado",
-    "category": "coffee",
-    "volume_oz": 12,
-    "caffeine_mg": 157,
-    "labels": ["#coffee", "#cortado", "#uk"]
+    "product": "GFuel Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "GFuel",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Salted Caramel Mocha (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 199,
-    "labels": ["#coffee", "#mocha", "#caramel", "#uk"]
+    "product": "Ghost Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Ghost",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
   },
   {
-    "manufacturer": "Starbucks UK",
-    "product": "Pumpkin Spice Latte (Grande)",
-    "category": "coffee",
-    "volume_oz": 16,
-    "caffeine_mg": 150,
-    "labels": ["#coffee", "#latte", "#pumpkin-spice", "#seasonal", "#uk"]
+    "product": "Ginger Ale",
+    "category": "unknown",
+    "brand": "Ginger",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Gloria Jean's Coffee",
+    "category": "Coffee",
+    "brand": "Gloria",
+    "default_size_in_oz": 2.028,
+    "caffeine_mg_per_oz": 33.0
+  },
+  {
+    "product": "Go Fast Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Go Fast High Octane Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Go Girl Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Goat Fuel",
+    "category": "unknown",
+    "brand": "Goat",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
+  },
+  {
+    "product": "Gold Peak Coffee",
+    "category": "Coffee",
+    "brand": "Gold",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 15.8
+  },
+  {
+    "product": "Gold Peak Tea",
+    "category": "Tea",
+    "brand": "Gold",
+    "default_size_in_oz": 18.5,
+    "caffeine_mg_per_oz": 2.6
+  },
+  {
+    "product": "Gothrider Gasoline Coffee",
+    "category": "Coffee",
+    "brand": "Gothrider",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 25.0
+  },
+  {
+    "product": "Gourmesso Coffee Pods",
+    "category": "Coffee",
+    "brand": "Gourmesso",
+    "default_size_in_oz": 1.35,
+    "caffeine_mg_per_oz": 48.1
+  },
+  {
+    "product": "Great Value Energy Drink Enhancers",
+    "category": "Energy Drink",
+    "brand": "Great",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Great Value Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Great",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 7.5
+  },
+  {
+    "product": "Greek Coffee (Metrios)",
+    "category": "Coffee",
+    "brand": "Greek",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 25.0
+  },
+  {
+    "product": "Green Cola",
+    "category": "Soda",
+    "brand": "Green",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.1
+  },
+  {
+    "product": "Gridlock Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Gridlock",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Guayaki Canned Yerba Mate",
+    "category": "unknown",
+    "brand": "Guayaki",
+    "default_size_in_oz": 15.5,
+    "caffeine_mg_per_oz": 9.7
+  },
+  {
+    "product": "Guayaki Yerba Mate Bottled Tea",
+    "category": "Tea",
+    "brand": "Guayaki",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Guayusa Tea",
+    "category": "Tea",
+    "brand": "Guayusa",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.1
+  },
+  {
+    "product": "GURU Energy Drink",
+    "category": "Energy Drink",
+    "brand": "GURU",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 11.7
+  },
+  {
+    "product": "GURU Sparkling Energy Water",
+    "category": "Energy Drink",
+    "brand": "GURU",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "GymBrew Coffee",
+    "category": "Coffee",
+    "brand": "GymBrew",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 27.8
+  },
+  {
+    "product": "Hell Energy Coffee",
+    "category": "Coffee",
+    "brand": "Hell",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 11.8
+  },
+  {
+    "product": "Hell Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "Hell",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Heroec Energy Water",
+    "category": "Energy Drink",
+    "brand": "Heroec",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 3.6
+  },
+  {
+    "product": "Hi Ball Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "HICAF Tea",
+    "category": "Tea",
+    "brand": "HICAF",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 13.8
+  },
+  {
+    "product": "High Brew Coffee",
+    "category": "Coffee",
+    "brand": "High",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 17.5
+  },
+  {
+    "product": "High Voltage Coffee (AU)",
+    "category": "Coffee",
+    "brand": "High",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 95.8
+  },
+  {
+    "product": "Hint Caffeine Kick Water",
+    "category": "unknown",
+    "brand": "Hint",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Honest Iced Tea",
+    "category": "Tea",
+    "brand": "Honest",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 3.7
+  },
+  {
+    "product": "Hyde Xtreme",
+    "category": "unknown",
+    "brand": "Hyde",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 33.3
+  },
+  {
+    "product": "Hype Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "Hype",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "IBC Root Beer",
+    "category": "unknown",
+    "brand": "IBC",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Illy Issimo Cafe",
+    "category": "unknown",
+    "brand": "Illy",
+    "default_size_in_oz": 6.8,
+    "caffeine_mg_per_oz": 22.8
+  },
+  {
+    "product": "Inca Kola",
+    "category": "unknown",
+    "brand": "Inca",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.2
+  },
+  {
+    "product": "Indulgio Cappuccino",
+    "category": "Coffee",
+    "brand": "Indulgio",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 2.5
+  },
+  {
+    "product": "Inko's White Tea Energy",
+    "category": "Tea",
+    "brand": "Inko's",
+    "default_size_in_oz": 15.5,
+    "caffeine_mg_per_oz": 10.6
+  },
+  {
+    "product": "International Delight Iced Coffee",
+    "category": "Coffee",
+    "brand": "International",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 7.3
+  },
+  {
+    "product": "Irn Bru (UK)",
+    "category": "unknown",
+    "brand": "Irn",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 2.7
+  },
+  {
+    "product": "Java Kick Coffee Cola",
+    "category": "Coffee",
+    "brand": "Java",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Java Monster",
+    "category": "unknown",
+    "brand": "Java",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 13.3
+  },
+  {
+    "product": "Java Monster 300",
+    "category": "unknown",
+    "brand": "Java",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 20.0
+  },
+  {
+    "product": "Javvy Coffee Concentrate",
+    "category": "Coffee",
+    "brand": "Javvy",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 13.3
+  },
+  {
+    "product": "Joker Mad Energy",
+    "category": "Energy Drink",
+    "brand": "Joker",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Juice Monster",
+    "category": "unknown",
+    "brand": "Juice",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Juvee",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.7
+  },
+  {
+    "product": "K Cup Decaf",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.5
+  },
+  {
+    "product": "K Cup Tea",
+    "category": "Tea",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.1
+  },
+  {
+    "product": "K-Cup Coffee",
+    "category": "Coffee",
+    "brand": "K-Cup",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Kaffn8 Liquified Caffeine",
+    "category": "unknown",
+    "brand": "Kaffn8",
+    "default_size_in_oz": 0.25,
+    "caffeine_mg_per_oz": 300.0
+  },
+  {
+    "product": "Kickapoo Soda: Joy Juice & Fruit Shine",
+    "category": "Soda",
+    "brand": "Kickapoo",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.3
+  },
+  {
+    "product": "Kill Cliff Energy X Recover",
+    "category": "Energy Drink",
+    "brand": "Kill",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.1
+  },
+  {
+    "product": "Kill Cliff Ignite",
+    "category": "unknown",
+    "brand": "Kill",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Killer Coffee (AU)",
+    "category": "Coffee",
+    "brand": "Killer",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 50.8
+  },
+  {
+    "product": "Kin Spritz",
+    "category": "unknown",
+    "brand": "Kin",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Kirkland Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Kirkland",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 90.0
+  },
+  {
+    "product": "KOE Kombucha",
+    "category": "unknown",
+    "brand": "KOE",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 1.2
+  },
+  {
+    "product": "Kombucha Tea",
+    "category": "Tea",
+    "brand": "Kombucha",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 3.0
+  },
+  {
+    "product": "Kona Gold Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Kona",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 9.6
+  },
+  {
+    "product": "La Colombe Cold Brew",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 9.0,
+    "caffeine_mg_per_oz": 20.0
+  },
+  {
+    "product": "La Colombe Draft Latte",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 9.0,
+    "caffeine_mg_per_oz": 13.3
+  },
+  {
+    "product": "La Croix Sparkling Water",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Latte",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.6
+  },
+  {
+    "product": "LevlUp Gaming Booster",
+    "category": "Energy Drink",
+    "brand": "LevlUp",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 14.8
+  },
+  {
+    "product": "Limitless Sparkling Water",
+    "category": "unknown",
+    "brand": "Limitless",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.9
+  },
+  {
+    "product": "Lipton Iced Tea",
+    "category": "Tea",
+    "brand": "Lipton",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 1.2
+  },
+  {
+    "product": "Lipton Natural Energy Tea",
+    "category": "Tea",
+    "brand": "Lipton",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "Lipton Tea",
+    "category": "Tea",
+    "brand": "Lipton",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 6.9
+  },
+  {
+    "product": "Liquid Death Iced Tea",
+    "category": "Tea",
+    "brand": "Liquid",
+    "default_size_in_oz": 19.2,
+    "caffeine_mg_per_oz": 1.6
+  },
+  {
+    "product": "Liquid Help Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Liquid",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Liquid Ice Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Liquid",
+    "default_size_in_oz": 8.3,
+    "caffeine_mg_per_oz": 9.6
+  },
+  {
+    "product": "Live+  Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Live+",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 8.9
+  },
+  {
+    "product": "Long Black",
+    "category": "unknown",
+    "brand": "Long",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 25.7
+  },
+  {
+    "product": "Lucozade",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.85,
+    "caffeine_mg_per_oz": 3.6
+  },
+  {
+    "product": "LYFT Energy Mix",
+    "category": "Energy Drink",
+    "brand": "LYFT",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 15.6
+  },
+  {
+    "product": "M-150 Energy Drink",
+    "category": "Energy Drink",
+    "brand": "M-150",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Mamma Chia Energy",
+    "category": "Energy Drink",
+    "brand": "Mamma",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 9.0
+  },
+  {
+    "product": "Mana Energy Potion",
+    "category": "Energy Drink",
+    "brand": "Mana",
+    "default_size_in_oz": 1.69,
+    "caffeine_mg_per_oz": 44.4
+  },
+  {
+    "product": "Marquis Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Marquis",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Master Brew Kombucha",
+    "category": "Coffee",
+    "brand": "Master",
+    "default_size_in_oz": 15.2,
+    "caffeine_mg_per_oz": 5.0
+  },
+  {
+    "product": "Matcha Tea",
+    "category": "Tea",
+    "brand": "Matcha",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 8.0
+  },
+  {
+    "product": "MATI Energy Drink",
+    "category": "Energy Drink",
+    "brand": "MATI",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 9.2
+  },
+  {
+    "product": "Maxwell House Coffee",
+    "category": "Coffee",
+    "brand": "Maxwell",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 14.0
+  },
+  {
+    "product": "Maxwell House Max Boost Coffee",
+    "category": "Coffee",
+    "brand": "Maxwell",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 24.5
+  },
+  {
+    "product": "McDonalds (McCafe) Latte",
+    "category": "Coffee",
+    "brand": "McDonalds",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.9
+  },
+  {
+    "product": "McDonalds (McCafe) Mocha",
+    "category": "Coffee",
+    "brand": "McDonalds",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.4
+  },
+  {
+    "product": "McDonalds Coffee",
+    "category": "Coffee",
+    "brand": "McDonalds",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.1
+  },
+  {
+    "product": "McDonalds Iced Coffee",
+    "category": "Coffee",
+    "brand": "McDonalds",
+    "default_size_in_oz": 11.5,
+    "caffeine_mg_per_oz": 11.6
+  },
+  {
+    "product": "McDonalds Sweet Tea",
+    "category": "Tea",
+    "brand": "McDonalds",
+    "default_size_in_oz": 32.0,
+    "caffeine_mg_per_oz": 3.1
+  },
+  {
+    "product": "Mega Monster Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Mega",
+    "default_size_in_oz": 24.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Mello Yello",
+    "category": "unknown",
+    "brand": "Mello",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.2
+  },
+  {
+    "product": "Meltdown Ketone Drink",
+    "category": "unknown",
+    "brand": "Meltdown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "MiO Energy Water Enhancer",
+    "category": "Energy Drink",
+    "brand": "MiO",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 7.5
+  },
+  {
+    "product": "Monster Assault",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Monster Dragon Tea",
+    "category": "Tea",
+    "brand": "Monster",
+    "default_size_in_oz": 23.0,
+    "caffeine_mg_per_oz": 2.6
+  },
+  {
+    "product": "Monster Energy",
+    "category": "Energy Drink",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Monster Hydro",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 25.4,
+    "caffeine_mg_per_oz": 7.4
+  },
+  {
+    "product": "Monster Import",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 18.6,
+    "caffeine_mg_per_oz": 9.6
+  },
+  {
+    "product": "Monster Killer Brew",
+    "category": "Coffee",
+    "brand": "Monster",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 20.0
+  },
+  {
+    "product": "Monster Lo-Carb",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Monster Mango Loco",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Monster Mule",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Monster Nitro",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Monster Pipeline Punch",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Monster Rehab",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 15.5,
+    "caffeine_mg_per_oz": 10.3
+  },
+  {
+    "product": "Monster Reserve",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Monster Ripper Energy Juice (UK)",
+    "category": "Energy Drink",
+    "brand": "Monster",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Monster The Doctor VR46 (UK)",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Monster Tour Water",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Monster Ultra",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "Monster Zero Sugar",
+    "category": "unknown",
+    "brand": "Monster",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Moose Juice Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Moose",
+    "default_size_in_oz": 16.94,
+    "caffeine_mg_per_oz": 11.8
+  },
+  {
+    "product": "Morning Thunder Tea",
+    "category": "Tea",
+    "brand": "Morning",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.6
+  },
+  {
+    "product": "Mother Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Mother",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Mount Hagen Instant Coffee",
+    "category": "Coffee",
+    "brand": "Mount",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Mountain Dew",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.5
+  },
+  {
+    "product": "Mountain Dew Amp",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.9
+  },
+  {
+    "product": "Mountain Dew Baja Blast",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.5
+  },
+  {
+    "product": "Mountain Dew Code Red",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.5
+  },
+  {
+    "product": "Mountain Dew Energy",
+    "category": "Energy Drink",
+    "brand": "Mountain",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 11.2
+  },
+  {
+    "product": "Mountain Dew Game Fuel",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 5.6
+  },
+  {
+    "product": "Mountain Dew Kickstart",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 5.6
+  },
+  {
+    "product": "Mountain Dew Live Wire",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.5
+  },
+  {
+    "product": "Mountain Dew Major Melon",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.6
+  },
+  {
+    "product": "Mountain Dew Spark",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Mountain Dew Voltage",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.6
+  },
+  {
+    "product": "Mountain Dew Zero Sugar",
+    "category": "unknown",
+    "brand": "Mountain",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 5.7
+  },
+  {
+    "product": "Moxie Soda",
+    "category": "Soda",
+    "brand": "Moxie",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.0
+  },
+  {
+    "product": "Mucho Mango Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Mucho",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Mug Root Beer",
+    "category": "unknown",
+    "brand": "Mug",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Muscle Milk Coffee House",
+    "category": "Coffee",
+    "brand": "Muscle",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 10.9
+  },
+  {
+    "product": "Muscle Monster",
+    "category": "unknown",
+    "brand": "Muscle",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 10.5
+  },
+  {
+    "product": "Mushroom Coffee",
+    "category": "Coffee",
+    "brand": "Mushroom",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Nerd Focus",
+    "category": "unknown",
+    "brand": "Nerd",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.7
+  },
+  {
+    "product": "Nescafe 3 in 1 Instant Coffee",
+    "category": "Coffee",
+    "brand": "Nescafe",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Nescafe Dolce Gusto",
+    "category": "unknown",
+    "brand": "Nescafe",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 13.2
+  },
+  {
+    "product": "Nescafe Gold",
+    "category": "unknown",
+    "brand": "Nescafe",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 7.8
+  },
+  {
+    "product": "Nescafe Ice Java",
+    "category": "unknown",
+    "brand": "Nescafe",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Nescafe Ricoffy",
+    "category": "unknown",
+    "brand": "Nescafe",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.8
+  },
+  {
+    "product": "Nespresso Coffee Capsules",
+    "category": "Coffee",
+    "brand": "Nespresso",
+    "default_size_in_oz": 1.35,
+    "caffeine_mg_per_oz": 44.4
+  },
+  {
+    "product": "Nestea Iced Tea",
+    "category": "Tea",
+    "brand": "Nestea",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 1.4
+  },
+  {
+    "product": "Nestle Milo",
+    "category": "unknown",
+    "brand": "Nestle",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.4
+  },
+  {
+    "product": "Neu Nootropic Shot",
+    "category": "Energy Drink",
+    "brand": "Neu",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 175.0
+  },
+  {
+    "product": "Neuro Sonic",
+    "category": "unknown",
+    "brand": "Neuro",
+    "default_size_in_oz": 14.5,
+    "caffeine_mg_per_oz": 6.9
+  },
+  {
+    "product": "NOCCO Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "NOCCO",
+    "default_size_in_oz": 11.17,
+    "caffeine_mg_per_oz": 16.1
+  },
+  {
+    "product": "Noocaf Smart Coffee",
+    "category": "Coffee",
+    "brand": "Noocaf",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 20.0
+  },
+  {
+    "product": "NOS Energy Drink",
+    "category": "Energy Drink",
+    "brand": "NOS",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Nutramint Smart Serum",
+    "category": "unknown",
+    "brand": "Nutramint",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 100.0
+  },
+  {
+    "product": "Nuun Sport",
+    "category": "unknown",
+    "brand": "Nuun",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 2.5
+  },
+  {
+    "product": "OCA Energy Drink",
+    "category": "Energy Drink",
+    "brand": "OCA",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Ocean Spray Brew",
+    "category": "Coffee",
+    "brand": "Ocean",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.0
+  },
+  {
+    "product": "Octane Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Octane",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Oi Ocha Green Tea",
+    "category": "Tea",
+    "brand": "unknown",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 3.6
+  },
+  {
+    "product": "Oikos Pro Fuel",
+    "category": "unknown",
+    "brand": "Oikos",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "OK Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.45,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "OLIPOP Vintage Cola",
+    "category": "Soda",
+    "brand": "OLIPOP",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.2
+  },
+  {
+    "product": "Orange Crush",
+    "category": "unknown",
+    "brand": "Orange",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Oregon Chai Tea",
+    "category": "Tea",
+    "brand": "Oregon",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 7.5
+  },
+  {
+    "product": "Pacific Chai",
+    "category": "unknown",
+    "brand": "Pacific",
+    "default_size_in_oz": 6.0,
+    "caffeine_mg_per_oz": 4.8
+  },
+  {
+    "product": "Panera Bread Coffee",
+    "category": "Coffee",
+    "brand": "Panera",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 11.8
+  },
+  {
+    "product": "PC Cola",
+    "category": "Soda",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 1.0
+  },
+  {
+    "product": "PC Cola Diet",
+    "category": "Soda",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 1.1
+  },
+  {
+    "product": "Peace Tea",
+    "category": "Tea",
+    "brand": "Peace",
+    "default_size_in_oz": 23.0,
+    "caffeine_mg_per_oz": 1.0
+  },
+  {
+    "product": "Peet's Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 16.7
+  },
+  {
+    "product": "Peet's Caffe Americano",
+    "category": "unknown",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Peet's Caffe Latte",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Peet's Caffe Mocha",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.3
+  },
+  {
+    "product": "Peet's Cappuccino",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Peet's Coffee Espresso",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 1.5,
+    "caffeine_mg_per_oz": 46.7
+  },
+  {
+    "product": "Peet's Decaf Espresso",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 1.5,
+    "caffeine_mg_per_oz": 6.7
+  },
+  {
+    "product": "Peet's Iced Coffee",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "Peet's Iced Latte",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Peet's Iced Mocha",
+    "category": "Coffee",
+    "brand": "Peet's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.3
+  },
+  {
+    "product": "Pep Talk Sparkling Water",
+    "category": "unknown",
+    "brand": "Pep",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.6
+  },
+  {
+    "product": "Pepsi",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.2
+  },
+  {
+    "product": "Pepsi Caffeine Free",
+    "category": "unknown",
+    "brand": "Pepsi",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Pepsi Made With Sugar",
+    "category": "unknown",
+    "brand": "Pepsi",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.2
+  },
+  {
+    "product": "Pepsi Max (UK)",
+    "category": "unknown",
+    "brand": "Pepsi",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Pepsi Zero Sugar",
+    "category": "unknown",
+    "brand": "Pepsi",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.2
+  },
+  {
+    "product": "Performance Caffeine",
+    "category": "unknown",
+    "brand": "Performance",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 90.0
+  },
+  {
+    "product": "PerformElite Pre-Workout",
+    "category": "unknown",
+    "brand": "PerformElite",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 28.1
+  },
+  {
+    "product": "Perk Energy Beverage",
+    "category": "Energy Drink",
+    "brand": "Perk",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Perrier Energize",
+    "category": "unknown",
+    "brand": "Perrier",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 11.7
+  },
+  {
+    "product": "Perrier Sparkling Water",
+    "category": "unknown",
+    "brand": "Perrier",
+    "default_size_in_oz": 11.15,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "PG Tips Black Tea",
+    "category": "Tea",
+    "brand": "unknown",
+    "default_size_in_oz": 6.78,
+    "caffeine_mg_per_oz": 7.4
+  },
+  {
+    "product": "Phocus Sparkling Water",
+    "category": "unknown",
+    "brand": "Phocus",
+    "default_size_in_oz": 11.5,
+    "caffeine_mg_per_oz": 6.5
+  },
+  {
+    "product": "Phoenix Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Phoenix",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 140.0
+  },
+  {
+    "product": "Pibb Xtra",
+    "category": "unknown",
+    "brand": "Pibb",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.3
+  },
+  {
+    "product": "Poland Spring Sparkling Energy Water",
+    "category": "Energy Drink",
+    "brand": "Poland",
+    "default_size_in_oz": 11.5,
+    "caffeine_mg_per_oz": 6.5
+  },
+  {
+    "product": "Polar Frost Plus Energy",
+    "category": "Energy Drink",
+    "brand": "Polar",
+    "default_size_in_oz": 17.0,
+    "caffeine_mg_per_oz": 3.9
+  },
+  {
+    "product": "Polar Seltzer Water",
+    "category": "unknown",
+    "brand": "Polar",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Poppi Soda Classic Cola",
+    "category": "Soda",
+    "brand": "Poppi",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.7
+  },
+  {
+    "product": "Power Horse Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "Power",
+    "default_size_in_oz": 8.45,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Premier Protein Cafe Latte",
+    "category": "Coffee",
+    "brand": "Premier",
+    "default_size_in_oz": 11.5,
+    "caffeine_mg_per_oz": 10.4
+  },
+  {
+    "product": "Premium Cola (EU)",
+    "category": "Soda",
+    "brand": "Premium",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 7.4
+  },
+  {
+    "product": "Prime Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Prime",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
+  },
+  {
+    "product": "Private Selection Canned Espresso",
+    "category": "Coffee",
+    "brand": "Private",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 9.7
+  },
+  {
+    "product": "Propel Zero Powder",
+    "category": "unknown",
+    "brand": "Propel",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Proper Wild Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Proper",
+    "default_size_in_oz": 2.5,
+    "caffeine_mg_per_oz": 72.0
+  },
+  {
+    "product": "Protein2O + Energy",
+    "category": "Energy Drink",
+    "brand": "Protein2O",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 7.4
+  },
+  {
+    "product": "Pure Boost Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Pure",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Pure Cofain 699 (EU)",
+    "category": "unknown",
+    "brand": "Pure",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 20.7
+  },
+  {
+    "product": "Pure Kick Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Pure",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 4.7
+  },
+  {
+    "product": "Pure Leaf Iced Tea",
+    "category": "Tea",
+    "brand": "Pure",
+    "default_size_in_oz": 18.5,
+    "caffeine_mg_per_oz": 3.7
+  },
+  {
+    "product": "Purity Coffee",
+    "category": "Coffee",
+    "brand": "Purity",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 20.4
+  },
+  {
+    "product": "Quake Energy Berry Blast Slurpee",
+    "category": "Energy Drink",
+    "brand": "Quake",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 5.8
+  },
+  {
+    "product": "Quake Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Quake",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.6
+  },
+  {
+    "product": "Rambler Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Rambler",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 7.5
+  },
+  {
+    "product": "Raze Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Raze",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "RC (Royal Crown) Cola",
+    "category": "Soda",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.6
+  },
+  {
+    "product": "Red Bull",
+    "category": "unknown",
+    "brand": "Red",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Red Bull Editions",
+    "category": "unknown",
+    "brand": "Red",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Red Bull Simply Cola",
+    "category": "Soda",
+    "brand": "Red",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Red Bull Sugarfree",
+    "category": "unknown",
+    "brand": "Red",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Red Bull Zero",
+    "category": "unknown",
+    "brand": "Red",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Red Devil Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Red",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Red Eye Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Red",
+    "default_size_in_oz": 11.1,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Red Power Elixir",
+    "category": "unknown",
+    "brand": "Red",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 13.3
+  },
+  {
+    "product": "Red Thunder Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Red",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Red Thunder Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Red",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 69.0
+  },
+  {
+    "product": "Red Thunder Extra Strength",
+    "category": "unknown",
+    "brand": "Red",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 115.0
+  },
+  {
+    "product": "Redline Max 300",
+    "category": "unknown",
+    "brand": "Redline",
+    "default_size_in_oz": 2.5,
+    "caffeine_mg_per_oz": 120.0
+  },
+  {
+    "product": "Redline Princess",
+    "category": "unknown",
+    "brand": "Redline",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 37.5
+  },
+  {
+    "product": "Redline Xtreme Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Redline",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 39.5
+  },
+  {
+    "product": "Redline Xtreme Shot",
+    "category": "Energy Drink",
+    "brand": "Redline",
+    "default_size_in_oz": 3.0,
+    "caffeine_mg_per_oz": 100.0
+  },
+  {
+    "product": "Reed's Ginger Energize Shot",
+    "category": "Energy Drink",
+    "brand": "Reed's",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 50.0
+  },
+  {
+    "product": "Reign Storm",
+    "category": "unknown",
+    "brand": "Reign",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 16.7
+  },
+  {
+    "product": "Reign Total Body Fuel",
+    "category": "unknown",
+    "brand": "Reign",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Revv Coffee Pods",
+    "category": "Coffee",
+    "brand": "Revv",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 15.9
+  },
+  {
+    "product": "Riot Energy",
+    "category": "Energy Drink",
+    "brand": "Riot",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rip It Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Rip",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rip It Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Rip",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 60.0
+  },
+  {
+    "product": "Rise Nitro Cold Brew Coffee",
+    "category": "Coffee",
+    "brand": "Rise",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 25.0
+  },
+  {
+    "product": "Ritz Cola",
+    "category": "Soda",
+    "brand": "Ritz",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.9
+  },
+  {
+    "product": "Roaring Lion Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Roaring",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 9.6
+  },
+  {
+    "product": "Robusta Coffee",
+    "category": "Coffee",
+    "brand": "Robusta",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 33.1
+  },
+  {
+    "product": "Rockstar Boom",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rockstar Energy Drink (Original)",
+    "category": "Energy Drink",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rockstar Halo Infinite",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Rockstar Juiced",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.6
+  },
+  {
+    "product": "Rockstar Organic Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Rockstar",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 10.7
+  },
+  {
+    "product": "Rockstar Punched",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Rockstar Pure Zero",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Rockstar Recovery",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rockstar Sugar Free",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rockstar Thermo",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Rockstar Unplugged",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rockstar XDurance",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Rockstar Zero Carb",
+    "category": "unknown",
+    "brand": "Rockstar",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Rogue Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Rogue",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Rogue Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Rogue",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.9
+  },
+  {
+    "product": "RootJack Caffeinated Pirate Root Beer",
+    "category": "unknown",
+    "brand": "RootJack",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Rowdy Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Rowdy",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Ruby Red Squirt",
+    "category": "unknown",
+    "brand": "Ruby",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.2
+  },
+  {
+    "product": "Runa",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Rush! Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Rush!",
+    "default_size_in_oz": 8.3,
+    "caffeine_mg_per_oz": 9.6
+  },
+  {
+    "product": "Ryse Fuel",
+    "category": "unknown",
+    "brand": "Ryse",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Sambazon Amazon Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Sambazon",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Sarsaparilla",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Scheckters Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Scheckters",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Screamin Energy Max Hit",
+    "category": "Energy Drink",
+    "brand": "Screamin",
+    "default_size_in_oz": 0.61,
+    "caffeine_mg_per_oz": 303.3
+  },
+  {
+    "product": "Seattle's Best Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Seattle's",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 21.7
+  },
+  {
+    "product": "Sencha Green Tea Shot",
+    "category": "Tea",
+    "brand": "Sencha",
+    "default_size_in_oz": 6.4,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Shasta Cola",
+    "category": "Soda",
+    "brand": "Shasta",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.6
+  },
+  {
+    "product": "Shasta Diet Cola",
+    "category": "Soda",
+    "brand": "Shasta",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.9
+  },
+  {
+    "product": "Shasta Mountain Rush",
+    "category": "unknown",
+    "brand": "Shasta",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.5
+  },
+  {
+    "product": "Ski Soda",
+    "category": "Soda",
+    "brand": "Ski",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 5.8
+  },
+  {
+    "product": "Slammers Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "Slammers",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "SlimFast Shake - Cappuccino",
+    "category": "Coffee",
+    "brand": "SlimFast",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 9.1
+  },
+  {
+    "product": "Slurpee",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 2.5
+  },
+  {
+    "product": "Snapple Tea",
+    "category": "Tea",
+    "brand": "Snapple",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 2.3
+  },
+  {
+    "product": "Sneak Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Sneak",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "SoBe Energy Citrus",
+    "category": "Energy Drink",
+    "brand": "SoBe",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 4.0
+  },
+  {
+    "product": "SoBe Green Tea",
+    "category": "Tea",
+    "brand": "SoBe",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 0.3
+  },
+  {
+    "product": "Soda Stream",
+    "category": "Soda",
+    "brand": "Soda",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 3.9
+  },
+  {
+    "product": "Solimo Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Solimo",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Source 1899 (UK)",
+    "category": "unknown",
+    "brand": "Source",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Southern Sweet Tea",
+    "category": "Tea",
+    "brand": "Southern",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 2.6
+  },
+  {
+    "product": "Soylent Stacked",
+    "category": "unknown",
+    "brand": "Soylent",
+    "default_size_in_oz": 11.16,
+    "caffeine_mg_per_oz": 9.0
+  },
+  {
+    "product": "Spark Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Spark",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Sparkling Ice Caffeine",
+    "category": "unknown",
+    "brand": "Sparkling",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 4.4
+  },
+  {
+    "product": "Speed Energy Fuel",
+    "category": "Energy Drink",
+    "brand": "Speed",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 11.6
+  },
+  {
+    "product": "Spider Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Spider",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Spike Energy Double Shot",
+    "category": "Energy Drink",
+    "brand": "Spike",
+    "default_size_in_oz": 4.26,
+    "caffeine_mg_per_oz": 82.2
+  },
+  {
+    "product": "Spike Hardcore Energy",
+    "category": "Energy Drink",
+    "brand": "Spike",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 21.9
+  },
+  {
+    "product": "Spike Shooter",
+    "category": "unknown",
+    "brand": "Spike",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 25.0
+  },
+  {
+    "product": "Sprecher Cherry Cola",
+    "category": "Soda",
+    "brand": "Sprecher",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Sprite",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Squirt Soda",
+    "category": "Soda",
+    "brand": "Squirt",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Stacker Extreme Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Stacker",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 102.5
+  },
+  {
+    "product": "Starbucks 2X Coffee Pods",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 32.5
+  },
+  {
+    "product": "Starbucks Bottled Iced Coffee",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 48.0,
+    "caffeine_mg_per_oz": 13.3
+  },
+  {
+    "product": "Starbucks Canned Nitro Cold Brew",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 21.4
+  },
+  {
+    "product": "Starbucks Caramel Macchiato",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "Starbucks Cold & Crafted",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 12.3
+  },
+  {
+    "product": "Starbucks Cold Brew Bottled",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 16.4
+  },
+  {
+    "product": "Starbucks Cold Brew Canned",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Starbucks Cold Brew Coffee",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.8
+  },
+  {
+    "product": "Starbucks Cordusio Mocha",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 19.4
+  },
+  {
+    "product": "Starbucks Decaf Coffee",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 1.6
+  },
+  {
+    "product": "Starbucks Doubleshot Energy",
+    "category": "Energy Drink",
+    "brand": "Starbucks",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 9.0
+  },
+  {
+    "product": "Starbucks Doubleshot Espresso",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 6.5,
+    "caffeine_mg_per_oz": 18.5
+  },
+  {
+    "product": "Starbucks Frappuccino (Bottled)",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 13.7,
+    "caffeine_mg_per_oz": 8.0
+  },
+  {
+    "product": "Starbucks Grande Caffe Americano",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 14.1
+  },
+  {
+    "product": "Starbucks Grande Caffe Latte",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "Starbucks Grande Caffe Mocha",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.9
+  },
+  {
+    "product": "Starbucks Grande Cappuccino",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "Starbucks Grande Coffee",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 19.4
+  },
+  {
+    "product": "Starbucks Iced Americano",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 14.1
+  },
+  {
+    "product": "Starbucks Iced Espresso Classics",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.4
+  },
+  {
+    "product": "Starbucks Nitro Cold Brew Coffee",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 17.5
+  },
+  {
+    "product": "Starbucks Pink Drink",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Starbucks Pumpkin Cream Cold Brew",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 11.6
+  },
+  {
+    "product": "Starbucks Refreshers",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 2.8
+  },
+  {
+    "product": "Starbucks Refreshers Canned",
+    "category": "unknown",
+    "brand": "Starbucks",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.2
+  },
+  {
+    "product": "Starbucks Triple Shot Energy",
+    "category": "Energy Drink",
+    "brand": "Starbucks",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 15.0
+  },
+  {
+    "product": "Starbucks Verismo Coffee Pods",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 7.5
+  },
+  {
+    "product": "Starbucks Via Ready Brew",
+    "category": "Coffee",
+    "brand": "Starbucks",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 16.9
+  },
+  {
+    "product": "Steaz Energy",
+    "category": "Tea",
+    "brand": "Steaz",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Steep 18 Cold Brew",
+    "category": "Coffee",
+    "brand": "Steep",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 11.2
+  },
+  {
+    "product": "Sting Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Sting",
+    "default_size_in_oz": 8.455,
+    "caffeine_mg_per_oz": 8.5
+  },
+  {
+    "product": "Stipe Miocic Extra Strength Coffee",
+    "category": "Coffee",
+    "brand": "Stipe",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 41.7
+  },
+  {
+    "product": "Stok Coffee Shots",
+    "category": "Coffee",
+    "brand": "Stok",
+    "default_size_in_oz": 0.43,
+    "caffeine_mg_per_oz": 93.0
+  },
+  {
+    "product": "Stok Cold Brew",
+    "category": "Coffee",
+    "brand": "Stok",
+    "default_size_in_oz": 13.7,
+    "caffeine_mg_per_oz": 10.6
+  },
+  {
+    "product": "Strike Force Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "Strike",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Stumptown Cold Brew Coffee",
+    "category": "Coffee",
+    "brand": "Stumptown",
+    "default_size_in_oz": 10.5,
+    "caffeine_mg_per_oz": 26.6
+  },
+  {
+    "product": "Stumptown Nitro Cold Brew",
+    "category": "Coffee",
+    "brand": "Stumptown",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 30.0
+  },
+  {
+    "product": "Sudden Instant Coffee",
+    "category": "Coffee",
+    "brand": "Sudden",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 7.9
+  },
+  {
+    "product": "Sun Drop Soda",
+    "category": "Soda",
+    "brand": "Sun",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 5.3
+  },
+  {
+    "product": "Sunkist Orange Soda",
+    "category": "Soda",
+    "brand": "Sunkist",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 1.6
+  },
+  {
+    "product": "Sunup Pure Green Coffee",
+    "category": "Coffee",
+    "brand": "Sunup",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 18.2
+  },
+  {
+    "product": "T-Virus Antidote",
+    "category": "unknown",
+    "brand": "T-Virus",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "Taft Coffee (EU)",
+    "category": "Coffee",
+    "brand": "Taft",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 98.5
+  },
+  {
+    "product": "Taiwanese Milk Tea",
+    "category": "Tea",
+    "brand": "Taiwanese",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 9.4
+  },
+  {
+    "product": "Taster's Choice Instant Coffee",
+    "category": "Coffee",
+    "brand": "Taster's",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 6.1
+  },
+  {
+    "product": "Taurus Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Taurus",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 5.9
+  },
+  {
+    "product": "Tazo Chai",
+    "category": "unknown",
+    "brand": "Tazo",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.9
+  },
+  {
+    "product": "Tea (Black)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.2
+  },
+  {
+    "product": "Tea (Decaf)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.5
+  },
+  {
+    "product": "Tea (Green)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 2.2
+  },
+  {
+    "product": "Tea (Herbal)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Tea (Iced)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.9
+  },
+  {
+    "product": "Tea (Instant)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.0
+  },
+  {
+    "product": "Tea (Jasmine)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 3.1
+  },
+  {
+    "product": "Tea (Oolong)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 4.6
+  },
+  {
+    "product": "Tea (White)",
+    "category": "Tea",
+    "brand": "Tea",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 3.5
+  },
+  {
+    "product": "Teas' Tea Oolong",
+    "category": "Tea",
+    "brand": "Teas'",
+    "default_size_in_oz": 16.9,
+    "caffeine_mg_per_oz": 4.1
+  },
+  {
+    "product": "Teavana Tea",
+    "category": "Tea",
+    "brand": "Teavana",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.1
+  },
+  {
+    "product": "Tejava Iced Tea",
+    "category": "Tea",
+    "brand": "Tejava",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 4.2
+  },
+  {
+    "product": "TENZING Natural Energy",
+    "category": "Energy Drink",
+    "brand": "TENZING",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Tiger Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Tiger",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Tim Hortons Large Brewed Coffee",
+    "category": "Coffee",
+    "brand": "Tim",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 13.5
+  },
+  {
+    "product": "Tim Hortons Small French Vanilla Coffee",
+    "category": "Coffee",
+    "brand": "Tim",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 6.0
+  },
+  {
+    "product": "Tonic Water",
+    "category": "unknown",
+    "brand": "Tonic",
+    "default_size_in_oz": 10.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Triton Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Triton",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Tropicana Twister Soda",
+    "category": "Soda",
+    "brand": "Tropicana",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Tru Energy Wakeup",
+    "category": "Energy Drink",
+    "brand": "Tru",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "TruBrain Extra",
+    "category": "unknown",
+    "brand": "TruBrain",
+    "default_size_in_oz": 1.0,
+    "caffeine_mg_per_oz": 100.0
+  },
+  {
+    "product": "True Lemon Energy Mix",
+    "category": "Energy Drink",
+    "brand": "True",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 7.5
+  },
+  {
+    "product": "TrueStart Performance Coffee",
+    "category": "Coffee",
+    "brand": "TrueStart",
+    "default_size_in_oz": 5.1,
+    "caffeine_mg_per_oz": 18.6
+  },
+  {
+    "product": "Turkey Hill Iced Tea",
+    "category": "Tea",
+    "brand": "Turkey",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 5.3
+  },
+  {
+    "product": "Turkish Coffee",
+    "category": "Coffee",
+    "brand": "Turkish",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 25.0
+  },
+  {
+    "product": "Tweaker Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Tweaker",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Tweaker Shot",
+    "category": "Energy Drink",
+    "brand": "Tweaker",
+    "default_size_in_oz": 2.0,
+    "caffeine_mg_per_oz": 137.5
+  },
+  {
+    "product": "Twig Tea (Kukicha)",
+    "category": "Tea",
+    "brand": "Twig",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 3.1
+  },
+  {
+    "product": "Ugly Energy Water",
+    "category": "Energy Drink",
+    "brand": "Ugly",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "UPTIME Energy Drink",
+    "category": "Energy Drink",
+    "brand": "UPTIME",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 11.8
+  },
+  {
+    "product": "USANA Rev3 Energy Drink",
+    "category": "Energy Drink",
+    "brand": "USANA",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "V  Iced Coffee",
+    "category": "Coffee",
+    "brand": "unknown",
+    "default_size_in_oz": 16.91,
+    "caffeine_mg_per_oz": 9.2
+  },
+  {
+    "product": "V Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.45,
+    "caffeine_mg_per_oz": 9.2
+  },
+  {
+    "product": "V8 +Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Venom Death Adder",
+    "category": "unknown",
+    "brand": "Venom",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Vernors Ginger Ale",
+    "category": "unknown",
+    "brand": "Vernors",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 0.0
+  },
+  {
+    "product": "Very Strong Coffee",
+    "category": "Coffee",
+    "brand": "Very",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 112.5
+  },
+  {
+    "product": "Virtue Clean Energy Beverage",
+    "category": "Energy Drink",
+    "brand": "Virtue",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Viso Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Viso",
+    "default_size_in_oz": 17.0,
+    "caffeine_mg_per_oz": 17.6
+  },
+  {
+    "product": "Vital 4U Liquid Energy",
+    "category": "Energy Drink",
+    "brand": "Vital",
+    "default_size_in_oz": 0.5,
+    "caffeine_mg_per_oz": 310.0
+  },
+  {
+    "product": "VitaminWater Energy",
+    "category": "Energy Drink",
+    "brand": "VitaminWater",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 2.5
+  },
+  {
+    "product": "VitaRain Zero Enhanced Water",
+    "category": "unknown",
+    "brand": "VitaRain",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 2.1
+  },
+  {
+    "product": "Voila Instant Coffee",
+    "category": "Coffee",
+    "brand": "Voila",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 12.5
+  },
+  {
+    "product": "Vuum",
+    "category": "unknown",
+    "brand": "unknown",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 11.2
+  },
+  {
+    "product": "Waka Decaf Instant Coffee",
+    "category": "Coffee",
+    "brand": "Waka",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 0.5
+  },
+  {
+    "product": "Waka Indian Instant Coffee",
+    "category": "Coffee",
+    "brand": "Waka",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Waka Instant Coffee",
+    "category": "Coffee",
+    "brand": "Waka",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 8.8
+  },
+  {
+    "product": "Waka Instant Tea",
+    "category": "Tea",
+    "brand": "Waka",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Water Joe",
+    "category": "unknown",
+    "brand": "Water",
+    "default_size_in_oz": 20.0,
+    "caffeine_mg_per_oz": 3.5
+  },
+  {
+    "product": "Wave Soda",
+    "category": "Soda",
+    "brand": "Wave",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.5
+  },
+  {
+    "product": "Wawa Coffee",
+    "category": "Coffee",
+    "brand": "Wawa",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 18.1
+  },
+  {
+    "product": "Wendy's Iced Tea",
+    "category": "Tea",
+    "brand": "Wendy's",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 2.0
+  },
+  {
+    "product": "Whipped (Dalgona) Coffee",
+    "category": "Coffee",
+    "brand": "Whipped",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 13.1
+  },
+  {
+    "product": "Wide Awake Coffee Cold Brew",
+    "category": "Coffee",
+    "brand": "Wide",
+    "default_size_in_oz": 11.0,
+    "caffeine_mg_per_oz": 10.9
+  },
+  {
+    "product": "Wide Awake Energy Coffee",
+    "category": "Coffee",
+    "brand": "Wide",
+    "default_size_in_oz": 15.0,
+    "caffeine_mg_per_oz": 12.0
+  },
+  {
+    "product": "Wide Awake Iced Coffee Drinks",
+    "category": "Coffee",
+    "brand": "Wide",
+    "default_size_in_oz": 13.7,
+    "caffeine_mg_per_oz": 2.2
+  },
+  {
+    "product": "Wild Cherry Pepsi",
+    "category": "unknown",
+    "brand": "Wild",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.2
+  },
+  {
+    "product": "Wild Tiger Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Wild",
+    "default_size_in_oz": 8.36,
+    "caffeine_mg_per_oz": 9.0
+  },
+  {
+    "product": "Wildcat Energy Drink (UK)",
+    "category": "Energy Drink",
+    "brand": "Wildcat",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Wired X 3000 Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Wired",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 11.6
+  },
+  {
+    "product": "Wired X Berry Rush",
+    "category": "unknown",
+    "brand": "Wired",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 5.9
+  },
+  {
+    "product": "Wired X344 Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Wired",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 21.5
+  },
+  {
+    "product": "Woke Up Energy Shot",
+    "category": "Energy Drink",
+    "brand": "Woke",
+    "default_size_in_oz": 1.93,
+    "caffeine_mg_per_oz": 116.6
+  },
+  {
+    "product": "X Ray Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.46,
+    "caffeine_mg_per_oz": 9.3
+  },
+  {
+    "product": "X-Mode Energy Shot",
+    "category": "Energy Drink",
+    "brand": "X-Mode",
+    "default_size_in_oz": 1.0,
+    "caffeine_mg_per_oz": 150.0
+  },
+  {
+    "product": "Xing Craft Brew",
+    "category": "Coffee",
+    "brand": "Xing",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 7.5
+  },
+  {
+    "product": "Xingtea Iced Green Tea",
+    "category": "Tea",
+    "brand": "Xingtea",
+    "default_size_in_oz": 23.5,
+    "caffeine_mg_per_oz": 4.7
+  },
+  {
+    "product": "XL Energy Drink (EU)",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.45,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "XS Energy Drink",
+    "category": "Energy Drink",
+    "brand": "unknown",
+    "default_size_in_oz": 8.4,
+    "caffeine_mg_per_oz": 9.5
+  },
+  {
+    "product": "Xyience Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Xyience",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Yellow Tea",
+    "category": "Tea",
+    "brand": "Yellow",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 7.9
+  },
+  {
+    "product": "Yerba Mate Tea",
+    "category": "Tea",
+    "brand": "Yerba",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 5.0
+  },
+  {
+    "product": "Yerbae Sparkling Water",
+    "category": "unknown",
+    "brand": "Yerbae",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 8.3
+  },
+  {
+    "product": "YMateina Yerba Mate",
+    "category": "unknown",
+    "brand": "YMateina",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Zest Highly Caffeinated Tea",
+    "category": "Tea",
+    "brand": "Zest",
+    "default_size_in_oz": 8.0,
+    "caffeine_mg_per_oz": 18.8
+  },
+  {
+    "product": "Zest Sparkling Tea",
+    "category": "Tea",
+    "brand": "Zest",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 11.2
+  },
+  {
+    "product": "Zevia Cola",
+    "category": "Soda",
+    "brand": "Zevia",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 3.8
+  },
+  {
+    "product": "Zevia Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Zevia",
+    "default_size_in_oz": 12.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "ZipFizz Energy Drink Mix",
+    "category": "Energy Drink",
+    "brand": "ZipFizz",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 6.2
+  },
+  {
+    "product": "Zoa Energy Drink",
+    "category": "Energy Drink",
+    "brand": "Zoa",
+    "default_size_in_oz": 16.0,
+    "caffeine_mg_per_oz": 10.0
+  },
+  {
+    "product": "Zola Coconut Water Espresso",
+    "category": "Coffee",
+    "brand": "Zola",
+    "default_size_in_oz": 17.5,
+    "caffeine_mg_per_oz": 7.1
+  },
+  {
+    "product": "Zombie Blood Energy Potion",
+    "category": "Energy Drink",
+    "brand": "Zombie",
+    "default_size_in_oz": 3.4,
+    "caffeine_mg_per_oz": 23.5
   }
 ]

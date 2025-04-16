@@ -39,7 +39,9 @@ const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({
       
       <div className="record-details p-3 mb-4 border rounded bg-light">
         <p className="mb-1"><strong>Date & Time:</strong> {formatDateTime(intake.datetime)}</p>
-        <p className="mb-1"><strong>Drink:</strong> {intake.drink.manufacturer} {intake.drink.product}</p>
+        <p className="mb-1">
+          <strong>Drink:</strong> {intake.drink.brand !== 'unknown' ? `${intake.drink.brand} ` : ''}{intake.drink.product}
+        </p>
         <p className="mb-1"><strong>Caffeine Amount:</strong> {intake.mg.toFixed(1)}mg</p>
         {intake.notes && <p className="mb-0"><strong>Notes:</strong> {intake.notes}</p>}
       </div>
