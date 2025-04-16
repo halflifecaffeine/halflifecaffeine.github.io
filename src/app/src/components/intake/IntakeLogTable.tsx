@@ -8,11 +8,11 @@ import {
   faTrash, faPencilAlt, faCopy,
   faSortUp, faSortDown, faSort 
 } from '@fortawesome/free-solid-svg-icons';
-import { CaffeineIntake } from '../types';
-import { formatVolume } from '../utils/conversions';
-import { formatDisplayDateTime } from '../utils/dateUtils';
-import { useAppContext } from '../contexts/AppContext';
-import { ThemeAwarePagination } from './ThemeAwarePagination';
+import { CaffeineIntake } from '../../types';
+import { formatVolume } from '../../utils/conversions';
+import { formatDisplayDateTime } from '../../utils/dateUtils';
+import { useAppContext } from '../../contexts/AppContext';
+import { ThemeAwarePagination } from '../common/displays/ThemeAwarePagination';
 
 // Add a style block to override Bootstrap pagination active colors with our brand colors
 const paginationStyle = {
@@ -238,12 +238,12 @@ export const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
                 <tr key={intake.id}>
                   <td>{formatDisplayDateTime(intake.datetime)}</td>
                   <td>
-                    {intake.drink.brand !== 'unknown' && (
-                      <div className="fw-medium">{intake.drink.brand}</div>
+                    {intake.drink.product !== 'unknown' && (
+                      <div className="fw-medium">{intake.drink.product}</div>
                     )}
-                    <div className={intake.drink.brand !== 'unknown' ? "text-muted small" : "fw-medium"}>
-                      {intake.drink.product}
-                    </div>
+                    {intake.drink.brand !== 'unknown' && (
+                      <div className="fw-medium text-muted small">{intake.drink.brand}</div>
+                    )}
                   </td>
                   <td>{formatVolume(intake.volume, intake.unit)}</td>
                   <td>

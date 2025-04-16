@@ -1,4 +1,4 @@
-import { faCheckCircle, faExclamationTriangle, faHeartPulse } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faExclamationTriangle, faHeartCrack, faHeartPulse, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, Row, Col, Badge, ProgressBar } from 'react-bootstrap';
@@ -23,7 +23,7 @@ const CaffeineHealthInfo: React.FC<CaffeineHealthInfoProps> = ({
   // Determine status badges based on current level
   const getSafeLevelStatus = () => {
     if (currentLevel > maxSafeLevel) {
-      return <Badge bg="danger">Exceeded</Badge>;
+      return <Badge bg="danger"><FontAwesomeIcon icon={faHeartCrack} className="me-2" />Exceeded</Badge>;
     } else if (currentLevel > maxSafeLevel * 0.75) {
       return <Badge bg="warning" text="dark"><FontAwesomeIcon icon={faExclamationTriangle} className="me-2" />Approaching Limit</Badge>;
     } else {

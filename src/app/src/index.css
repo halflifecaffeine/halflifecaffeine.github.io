@@ -1,0 +1,35 @@
+/* Apply Google Fonts globally */
+:root {
+  /* Font families */
+  --font-primary: 'Jura', sans-serif;
+  --font-display: 'Saira', sans-serif;
+  /* --font-display: 'Smooch Sans', sans-serif; */
+}
+
+/* Apply fonts to the entire document */
+body {
+  font-family: var(--font-primary);
+}
+
+/* Apply display font to headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600; /* Medium-bold weight for headings */
+}
+
+/* Ensure the font variables are available in the dark mode as well */
+[data-bs-theme="dark"] {
+  --font-primary: 'Jura', sans-serif;
+  --font-display: 'Saira', sans-serif;
+}
+
+/* Theming for custom form switch */
+.custom-switch-brand .form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.custom-switch-brand .form-check-input:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}

@@ -4,7 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faPlusSquare, faGlassWhiskey, faGear } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
-import SettingsPanel from './SettingsPanel';
+import SettingsPanel from '../settings/SettingsPanel';
 
 /**
  * Application header component with navigation and settings

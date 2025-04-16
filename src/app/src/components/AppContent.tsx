@@ -9,7 +9,7 @@ import CaffeineTable from './CaffeineTable';
 import IntakeTextForm from './IntakeTextForm';
 import DrinkLookup from './DrinkLookup';
 import TimeGridPicker from './TimeGridPicker';
-import SettingsPanel from './layout/SettingsPanel';
+import SettingsPanel from './settings/SettingsPanel';
 
 // Import engine
 import { computeLevels, CaffeineEvent } from '../engine/caffeineCalculator';

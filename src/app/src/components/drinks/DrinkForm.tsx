@@ -4,9 +4,9 @@
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import { CustomDrink } from '../types';
+import { CustomDrink } from '../../types';
 import { v4 as uuidv4 } from 'uuid';
-import { useAppContext } from '../contexts/AppContext';
+import { useAppContext } from '../../contexts/AppContext';
 
 interface DrinkFormProps {
   drink?: CustomDrink; // For editing or cloning existing drink, undefined for new drink

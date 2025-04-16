@@ -51,7 +51,7 @@
   {
     "product": "7 Eleven Brewed Coffee",
     "category": "Coffee",
-    "brand": "unknown",
+    "brand": "7-Eleven",
     "default_size_in_oz": 16.0,
     "caffeine_mg_per_oz": 17.5
   },
@@ -1142,64 +1142,64 @@
   },
   {
     "product": "Diet Barqs Root Beer",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Barqs",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
   {
     "product": "Diet Cheerwine",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Cheerwine",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.9
   },
   {
     "product": "Diet Coke",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Coke",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.8
   },
   {
     "product": "Diet Coke with Splenda",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Coke",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.8
   },
   {
     "product": "Diet Dr Pepper",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Coke",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.4
   },
   {
     "product": "Diet Mountain Dew",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 4.5
   },
   {
     "product": "Diet Pepsi",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 2.9
   },
   {
     "product": "Diet RC Cola",
     "category": "Soda",
-    "brand": "unknown",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 4.0
   },
   {
     "product": "Diet Wild Cherry Pepsi",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.2
   },
@@ -1219,29 +1219,29 @@
   },
   {
     "product": "Dr Pepper",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.5
   },
   {
     "product": "Dr Pepper 10",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 4.2
   },
   {
     "product": "Dr Pepper Zero Sugar",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.4
   },
   {
     "product": "Dr Shasta Soda",
     "category": "Soda",
-    "brand": "unknown",
+    "brand": "National Beverage",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 2.4
   },
@@ -2801,36 +2801,36 @@
   },
   {
     "product": "Pepsi",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.2
   },
   {
     "product": "Pepsi Caffeine Free",
-    "category": "unknown",
-    "brand": "Pepsi",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
   {
     "product": "Pepsi Made With Sugar",
-    "category": "unknown",
-    "brand": "Pepsi",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.2
   },
   {
     "product": "Pepsi Max (UK)",
-    "category": "unknown",
-    "brand": "Pepsi",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 11.16,
     "caffeine_mg_per_oz": 3.8
   },
   {
     "product": "Pepsi Zero Sugar",
-    "category": "unknown",
-    "brand": "Pepsi",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.2
   },
@@ -3425,21 +3425,21 @@
   {
     "product": "Shasta Cola",
     "category": "Soda",
-    "brand": "Shasta",
+    "brand": "National Beverage",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.6
   },
   {
     "product": "Shasta Diet Cola",
     "category": "Soda",
-    "brand": "Shasta",
+    "brand": "National Beverage",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.9
   },
   {
     "product": "Shasta Mountain Rush",
     "category": "unknown",
-    "brand": "Shasta",
+    "brand": "National Beverage",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 4.5
   },

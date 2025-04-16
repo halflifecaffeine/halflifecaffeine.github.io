@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSave } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
-import CaffeineChart from '../../components/CaffeineChart';
-import WelcomeJumbotron from '../../components/WelcomeJumbotron';
-import IntakeForm from '../../components/IntakeForm';
-import SlideoutPanel from '../../components/layout/SlideoutPanel';
+import CaffeineChart from '../../components/dashboard/CaffeineChart';
+import WelcomeJumbotron from '../../components/layout/WelcomeJumbotron';
+import IntakeForm from '../../components/intake/IntakeForm';
+import SlideoutPanel from '../../components/common/layout/SlideoutPanel';
 import { computeLevels, CaffeineEvent } from '../../engine/caffeineCalculator';
 import { Drink, CaffeineIntake } from '../../types';
 import drinksData from '../../data/drinks.json'; // Import default drinks
@@ -207,6 +207,15 @@ const HomePage: React.FC = () => {
             >
               &lt; Back
             </Button>
+            <Button 
+              variant="primary" 
+              type="submit"
+              form="homePageIntakeForm"
+              className="d-flex align-items-center"
+            >
+              <FontAwesomeIcon icon={faSave} className="me-2" />
+              Save Changes
+            </Button>
           </div>
         }
       >
@@ -214,6 +223,7 @@ const HomePage: React.FC = () => {
           drinks={availableDrinks}
           onSave={handleAddIntake}
           onCancel={() => setShowAddPanel(false)}
+          id="homePageIntakeForm"
         />
       </SlideoutPanel>
     </Container>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Button, Modal, Form, Alert } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
-import { CaffeineIntake, Drink, CustomDrink, VolumeUnit } from '../types';
-import { calculateCaffeineAmount, formatVolume, getVolumeUnits } from '../utils/conversions';
-import { validateVolumeInput } from '../utils/validators';
+import { CaffeineIntake, Drink, CustomDrink, VolumeUnit } from '../../types';
+import { calculateCaffeineAmount, formatVolume, getVolumeUnits } from '../../utils/conversions';
+import { validateVolumeInput } from '../../utils/validators';
 
 interface TimeGridEntry {
   hour: number;

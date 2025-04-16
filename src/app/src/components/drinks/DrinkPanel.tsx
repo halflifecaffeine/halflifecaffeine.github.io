@@ -1,14 +1,14 @@
 /**
  * DrinkPanel - Slide-out panel for adding, editing, or cloning custom drinks
- * Similar in function to SettingsPanel but specific to drinks management
  */
 import React from 'react';
-import { Offcanvas, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faFloppyDisk, faPlus, faPencilAlt, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import { CustomDrink, Drink } from '../../types';
-import DrinkForm from '../DrinkForm';
+import DrinkForm from '../drinks/DrinkForm';
+import SlideoutPanel from '../common/layout/SlideoutPanel';
 
 interface DrinkPanelProps {
   show: boolean;
@@ -18,7 +18,7 @@ interface DrinkPanelProps {
 }
 
 /**
- * Slide-out panel for drink management
+ * DrinkPanel component using the common SlideoutPanel for consistency
  */
 const DrinkPanel: React.FC<DrinkPanelProps> = ({
   show,
@@ -74,54 +74,45 @@ const DrinkPanel: React.FC<DrinkPanelProps> = ({
   // The form ID to use for this panel
   const formId = mode === 'edit' ? 'drinkEditForm' : 'drinkAddForm';
 
+  // Create the footer with standardized buttons
+  const footer = (
+    <div className="d-flex justify-content-between w-100">
+      <Button 
+        variant="outline-secondary" 
+        onClick={onHide}
+        className="d-flex align-items-center gap-2"
+      >
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <span>Back</span>
+      </Button>
+      <Button 
+        variant="primary" 
+        type="submit"
+        form={formId}
+        className="d-flex align-items-center gap-2"
+      >
+        <FontAwesomeIcon icon={faFloppyDisk} />
+        <span>Save Changes</span>
+      </Button>
+    </div>
+  );
+
   return (
-    <Offcanvas 
-      show={show} 
-      onHide={onHide} 
-      placement="end"
-      className="drink-panel d-flex flex-column"
+    <SlideoutPanel
+      show={show}
+      onHide={onHide}
+      title={title}
+      description={description}
+      icon={icon}
+      footer={footer}
     >
-      <Offcanvas.Header closeButton className="border-bottom pb-3">
-        <Offcanvas.Title className="w-100">
-          <div className="d-flex align-items-center">
-            <FontAwesomeIcon icon={icon} className="me-2" />
-            <span>{title}</span>
-          </div>
-          <small className="text-muted d-block mt-1 fs-6 fw-light lh-sm">{description}</small>
-        </Offcanvas.Title>
-      </Offcanvas.Header>
-      <Offcanvas.Body className="flex-grow-1 overflow-auto">
-        <div className="flex-grow-1 overflow-auto">
-          <DrinkForm 
-            drink={selectedDrink as CustomDrink}
-            onSave={handleSave}
-            onCancel={onHide}
-            isClone={mode === 'clone'}
-          />
-        </div>
-      </Offcanvas.Body>
-      <div className="p-3 border-top">
-        <div className="d-flex justify-content-between w-100">
-          <Button 
-            variant="outline-secondary" 
-            onClick={onHide}
-            className="d-flex align-items-center gap-2"
-          >
-            <FontAwesomeIcon icon={faChevronLeft} />
-            <span>Back</span>
-          </Button>
-          <Button 
-            variant="primary" 
-            type="submit"
-            form={formId}
-            className="d-flex align-items-center gap-2"
-          >
-            <FontAwesomeIcon icon={faFloppyDisk} />
-            <span>Save Changes</span>
-          </Button>
-        </div>
-      </div>
-    </Offcanvas>
+      <DrinkForm 
+        drink={selectedDrink as CustomDrink}
+        onSave={handleSave}
+        onCancel={onHide}
+        isClone={mode === 'clone'}
+      />
+    </SlideoutPanel>
   );
 };
 

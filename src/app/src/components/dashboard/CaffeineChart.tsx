@@ -10,7 +10,7 @@ import {
   ReferenceLine,
   Label
 } from 'recharts';
-import { TimeSeriesData, calculateRemainingCaffeine } from '../engine/caffeineCalculator';
+import { TimeSeriesData, calculateRemainingCaffeine } from '../../engine/caffeineCalculator';
 import CurrentCaffeineDonut from './CurrentCaffeineDonut';
 import CaffeineHealthInfo from './CaffeineHealthInfo';
 import { Card, Row, Col, Container, ButtonGroup, Button } from 'react-bootstrap';

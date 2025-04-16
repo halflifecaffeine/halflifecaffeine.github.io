@@ -2,20 +2,21 @@
  * DrinksPage - Shows a searchable, filterable list of drinks with caffeine content
  */
 import React, { useState, useMemo } from 'react';
-import { Container, Row, Col, Form, InputGroup, Table, Pagination, Card, Button, ButtonGroup } from 'react-bootstrap';
+import { Container, Row, Col, Form, InputGroup, Table, Card, Button, ButtonGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faSearch, faMugHot, faCoffee, faBolt, 
   faPlus, faEdit, faTrash, faCopy, 
-  faWhiskeyGlass, faChevronLeft
+  faWhiskeyGlass, faChevronLeft,
+  faSort, faSortUp, faSortDown
 } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
 import { useAppContext } from '../../contexts/AppContext';
 import { Drink, CustomDrink } from '../../types';
-import DrinkPanel from '../../components/layout/DrinkPanel';
-import DeleteConfirmation from '../../components/DeleteConfirmation';
-import SlideoutPanel from '../../components/layout/SlideoutPanel';
-import { ThemeAwarePagination } from '../../components/ThemeAwarePagination';
+import DrinkPanel from '../../components/drinks/DrinkPanel';
+import DeleteConfirmation from '../../components/common/modals/DeleteConfirmation';
+import SlideoutPanel from '../../components/common/layout/SlideoutPanel';
+import { ThemeAwarePagination } from '../../components/common/displays/ThemeAwarePagination';
 
 // Import drinks data
 import drinksData from '../../data/drinks.json';
@@ -24,6 +25,12 @@ import drinksData from '../../data/drinks.json';
  * Number of drinks to display per page
  */
 const DRINKS_PER_PAGE = 15;
+
+/**
+ * Sortable fields for the drinks table
+ */
+type SortField = 'product' | 'brand' | 'category' | 'default_size_in_oz' | 'caffeine_mg_per_oz' | 'total_caffeine';
+type SortDirection = 'asc' | 'desc';
 
 /**
  * DrinksPage component
@@ -37,6 +44,10 @@ export const DrinksPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
   const [showUserDrinksOnly, setShowUserDrinksOnly] = useState(false);
+  
+  // Sorting state
+  const [sortField, setSortField] = useState<SortField>('product');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
   // Custom drink management state
   const [showDrinkPanel, setShowDrinkPanel] = useState(false);
@@ -44,6 +55,28 @@ export const DrinksPage: React.FC = () => {
   const [panelMode, setPanelMode] = useState<'add' | 'edit' | 'clone'>('add');
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [drinkToDelete, setDrinkToDelete] = useState<CustomDrink | null>(null);
+  
+  // Handle sort column click
+  const handleSortClick = (field: SortField) => {
+    if (sortField === field) {
+      // Toggle direction if clicking the same field
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      // Set new field and default to ascending
+      setSortField(field);
+      setSortDirection('asc');
+    }
+  };
+  
+  // Get sort icon based on current sort state
+  const getSortIcon = (field: SortField) => {
+    if (sortField !== field) {
+      return <FontAwesomeIcon icon={faSort} className="ms-1 text-muted" />;
+    }
+    return sortDirection === 'asc' 
+      ? <FontAwesomeIcon icon={faSortUp} className="ms-1" /> 
+      : <FontAwesomeIcon icon={faSortDown} className="ms-1" />;
+  };
 
   // Combine built-in drinks and custom drinks for display
   const allDrinks = useMemo(() => {
@@ -90,16 +123,67 @@ export const DrinksPage: React.FC = () => {
     });
   }, [searchTerm, categoryFilter, allDrinks]);
   
+  // Sort drinks based on search term and category
+  const sortedDrinks = useMemo(() => {
+    return [...filteredDrinks].sort((a, b) => {
+      let aValue: string | number;
+      let bValue: string | number;
+      
+      // Extract the correct field values based on sortField
+      switch (sortField) {
+        case 'product':
+          aValue = a.product.toLowerCase();
+          bValue = b.product.toLowerCase();
+          break;
+        case 'brand':
+          aValue = (a.brand || '').toLowerCase();
+          bValue = (b.brand || '').toLowerCase();
+          break;
+        case 'category':
+          aValue = (a.category || '').toLowerCase();
+          bValue = (b.category || '').toLowerCase();
+          break;
+        case 'default_size_in_oz':
+          // Ensure we're using numeric values for size comparison
+          aValue = Number(a.default_size_in_oz) || 0;
+          bValue = Number(b.default_size_in_oz) || 0;
+          break;
+        case 'caffeine_mg_per_oz':
+          // Ensure we're using numeric values for caffeine per oz comparison
+          aValue = Number(a.caffeine_mg_per_oz) || 0;
+          bValue = Number(b.caffeine_mg_per_oz) || 0;
+          break;
+        case 'total_caffeine':
+          // Calculate total caffeine properly for sorting
+          aValue = (Number(a.default_size_in_oz) * Number(a.caffeine_mg_per_oz)) || 0;
+          bValue = (Number(b.default_size_in_oz) * Number(b.caffeine_mg_per_oz)) || 0;
+          break;
+        default:
+          aValue = a.product.toLowerCase();
+          bValue = b.product.toLowerCase();
+      }
+      
+      // Compare the values based on sort direction
+      if (aValue < bValue) {
+        return sortDirection === 'asc' ? -1 : 1;
+      }
+      if (aValue > bValue) {
+        return sortDirection === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+  }, [filteredDrinks, sortField, sortDirection]);
+  
   // Calculate pagination values
-  const totalPages = Math.max(1, Math.ceil(filteredDrinks.length / DRINKS_PER_PAGE));
+  const totalPages = Math.max(1, Math.ceil(sortedDrinks.length / DRINKS_PER_PAGE));
   const validPage = Math.min(Math.max(1, currentPage), totalPages);
   
   // Get current page of data
   const paginatedDrinks = useMemo(() => {
     const startIndex = (validPage - 1) * DRINKS_PER_PAGE;
     const endIndex = startIndex + DRINKS_PER_PAGE;
-    return filteredDrinks.slice(startIndex, endIndex);
-  }, [filteredDrinks, validPage]);
+    return sortedDrinks.slice(startIndex, endIndex);
+  }, [sortedDrinks, validPage]);
   
   // Reset to first page when filtering changes
   React.useEffect(() => {
@@ -110,41 +194,41 @@ export const DrinksPage: React.FC = () => {
   const selectStyles = {
     control: (base: any) => ({
       ...base,
-      background: theme === 'dark' ? '#212529' : '#fff',
-      borderColor: theme === 'dark' ? '#495057' : '#ced4da',
+      background: 'var(--bs-body-bg)',
+      borderColor: 'var(--bs-border-color)',
       boxShadow: null,
       '&:hover': {
-        borderColor: theme === 'dark' ? '#6c757d' : '#b3d7ff'
+        borderColor: 'var(--bs-primary)'
       }
     }),
     menu: (base: any) => ({
       ...base,
-      background: theme === 'dark' ? '#212529' : '#fff',
-      border: theme === 'dark' ? '1px solid #495057' : '1px solid #ced4da'
+      background: 'var(--bs-body-bg)',
+      border: '1px solid var(--bs-border-color)'
     }),
     option: (base: any, state: any) => ({
       ...base,
       backgroundColor: state.isFocused 
-        ? (theme === 'dark' ? '#495057' : '#e9ecef')
+        ? 'var(--bs-tertiary-bg)'
         : state.isSelected
-        ? (theme === 'dark' ? '#343a40' : '#007bff')
+        ? 'var(--bs-primary)'
         : undefined,
-      color: state.isSelected && theme !== 'dark' ? 'white' : undefined,
+      color: state.isSelected ? 'var(--bs-primary-fg)' : 'var(--bs-body-color)',
       '&:active': {
-        backgroundColor: theme === 'dark' ? '#6c757d' : '#007bff'
+        backgroundColor: 'var(--bs-primary)'
       }
     }),
     singleValue: (base: any) => ({
       ...base,
-      color: theme === 'dark' ? '#f8f9fa' : '#212529'
+      color: 'var(--bs-body-color)'
     }),
     input: (base: any) => ({
       ...base,
-      color: theme === 'dark' ? '#f8f9fa' : '#212529'
+      color: 'var(--bs-body-color)'
     }),
     placeholder: (base: any) => ({
       ...base,
-      color: theme === 'dark' ? '#6c757d' : '#6c757d'
+      color: 'var(--bs-secondary-color)'
     })
   };
 
@@ -238,10 +322,12 @@ export const DrinksPage: React.FC = () => {
                     ...theme,
                     colors: {
                       ...theme.colors,
-                      primary: '#0d6efd',
-                      primary75: '#3d8bfd',
-                      primary50: '#6ea8fe',
-                      primary25: '#b6d4fe',
+                      // Use semantic brand colors instead of hardcoded values
+                      // These will respect the current theme and brand colors
+                      primary: 'var(--bs-primary)',
+                      primary75: 'var(--bs-primary-rgb, 13, 110, 253)',
+                      primary50: 'var(--bs-primary-rgb, 13, 110, 253)',
+                      primary25: 'var(--bs-primary-rgb, 13, 110, 253)',
                     }
                   })}
                 />
@@ -257,6 +343,7 @@ export const DrinksPage: React.FC = () => {
                 label="Show my custom drinks only"
                 checked={showUserDrinksOnly}
                 onChange={(e) => setShowUserDrinksOnly(e.target.checked)}
+                className="form-check-primary" // Use Bootstrap's built-in theming
               />
             </Col>
             <Col xs={12} sm={6} className="text-sm-end mt-2 mt-sm-0">
@@ -277,7 +364,7 @@ export const DrinksPage: React.FC = () => {
       <div>
         <p>
           {paginatedDrinks.length > 0 
-            ? `Showing ${paginatedDrinks.length} of ${filteredDrinks.length} drinks` 
+            ? `Showing ${paginatedDrinks.length} of ${sortedDrinks.length} drinks` 
             : searchTerm 
               ? `No drinks found matching "${searchTerm}"` 
               : 'No drinks found'
@@ -286,19 +373,48 @@ export const DrinksPage: React.FC = () => {
         
         <div className="table-responsive">
           <Table hover>
-            <thead>
+            <thead className="table-dark">
               <tr>
-                <th>Product</th>
-                <th>Brand</th>
-                <th>Category</th>
-                <th className="text-end">Size (oz)</th>
-                <th className="text-end">Caffeine per oz</th>
-                <th className="text-end">Total Caffeine (mg)</th>
-                <th className="text-end">Actions</th>
+                <th 
+                  onClick={() => handleSortClick('product')}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Product {getSortIcon('product')}
+                </th>
+                <th 
+                  onClick={() => handleSortClick('brand')}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Brand {getSortIcon('brand')}
+                </th>
+                <th 
+                  onClick={() => handleSortClick('category')}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Category {getSortIcon('category')}
+                </th>
+                <th 
+                  onClick={() => handleSortClick('default_size_in_oz')}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Size (oz) {getSortIcon('default_size_in_oz')}
+                </th>
+                <th 
+                  onClick={() => handleSortClick('caffeine_mg_per_oz')}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Caffeine (mg/oz) {getSortIcon('caffeine_mg_per_oz')}
+                </th>
+                <th 
+                  onClick={() => handleSortClick('total_caffeine')}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Total Caffeine (mg) {getSortIcon('total_caffeine')}
+                </th>
               </tr>
             </thead>
             <tbody>
-              {filteredDrinks.length === 0 ? (
+              {sortedDrinks.length === 0 ? (
                 <tr>
                   <td colSpan={7} className="text-center py-4">
                     <p className="text-muted mb-0">

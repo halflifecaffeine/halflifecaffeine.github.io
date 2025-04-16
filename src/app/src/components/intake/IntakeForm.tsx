@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useMemo, ReactNode } from 'react';
-import { Form, Button, InputGroup, Row, Col } from 'react-bootstrap';
-import Select, { components, OptionProps } from 'react-select';
-import { CaffeineIntake, Drink, VolumeUnit } from '../types';
-import { validateVolumeInput } from '../utils/validators';
-import { formatDateTimeForInput, getCurrentDateTimeForInput, parseInputToISOString } from '../utils/dateUtils';
-import { v4 as uuidv4 } from 'uuid';
-import { useAppContext } from '../contexts/AppContext';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Form, InputGroup, Row, Col } from "react-bootstrap";
+import Select, { components, OptionProps, SingleValueProps, SingleValue } from "react-select";
+import { validateVolumeInput } from "../../utils/validators";
+import { formatDateTimeForInput, getCurrentDateTimeForInput, parseInputToISOString } from "../../utils/dateUtils";
+import { v4 as uuidv4 } from "uuid";
+import { CaffeineIntake, Drink, VolumeUnit } from '../../types';
+import { useAppContext } from '../../contexts/AppContext';
 
 interface IntakeFormProps {
   intake?: CaffeineIntake; // For editing existing intake, undefined for new intake
@@ -13,6 +13,7 @@ interface IntakeFormProps {
   onSave: (intake: CaffeineIntake) => void;
   onCancel: () => void;
   isClone?: boolean; // Default to false if not provided
+  id?: string; // Optional form ID for accessibility and form submission targeting
 }
 
 // Option type for the React Select component
@@ -27,14 +28,14 @@ interface DrinkOption {
  * product name, caffeine content, and brand name in a styled format.
  */
 const CustomOption = (props: OptionProps<DrinkOption>) => {
-  const { data, innerProps } = props;
+  const { data } = props; // Removed unused innerProps
   const drink = data.drink;
   
   // Calculate total caffeine in the default serving
   const totalCaffeine = (drink.caffeine_mg_per_oz * drink.default_size_in_oz).toFixed(1);
   
-  // Check if it's a custom drink
-  const isCustom = 'user_entered' in drink && drink.user_entered;
+  // Check if it's a custom drink with proper type guard
+  const isCustom = 'user_entered' in drink && drink.user_entered === true;
   
   return (
     <components.Option {...props}>
@@ -60,15 +61,15 @@ const CustomOption = (props: OptionProps<DrinkOption>) => {
  * Custom single value component for React Select to display the selected drink
  * in the same format as the options.
  */
-const CustomSingleValue = (props: any) => {
+const CustomSingleValue = (props: SingleValueProps<DrinkOption>) => {
   const { data } = props;
   const drink = data.drink;
   
   // Calculate total caffeine in the default serving
   const totalCaffeine = (drink.caffeine_mg_per_oz * drink.default_size_in_oz).toFixed(1);
   
-  // Check if it's a custom drink
-  const isCustom = 'user_entered' in drink && drink.user_entered;
+  // Check if it's a custom drink with proper type guard
+  const isCustom = 'user_entered' in drink && drink.user_entered === true;
   
   return (
     <components.SingleValue {...props}>
@@ -98,10 +99,13 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
   intake, 
   drinks, 
   onSave, 
-  onCancel,
-  isClone = false // Default to false if not provided
+  onCancel: _, // Renamed to underscore to indicate it's intentionally unused
+  isClone = false, // Default to false if not provided
+  id // Optional form ID for accessibility and form submission targeting
 }) => {
-  const { theme } = useAppContext(); // Get current theme
+  // Move useAppContext to the top level to follow React Hooks rules
+  const { theme, state } = useAppContext(); // Get current theme and state
+  
   const [selectedDrink, setSelectedDrink] = useState<string>('');
   const [selectedOption, setSelectedOption] = useState<DrinkOption | null>(null);
   const [volume, setVolume] = useState<string>('1');
@@ -112,7 +116,6 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
   
   // Format drinks for React Select - combine standard drinks with custom drinks
   const drinkOptions: DrinkOption[] = useMemo(() => {
-    const { state } = useAppContext();
     const allOptions: DrinkOption[] = [];
     
     // Track products we've added to avoid duplicates
@@ -152,7 +155,7 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
     });
     
     return allOptions;
-  }, [drinks, useAppContext().state.customDrinks]);
+  }, [drinks, state.customDrinks]); // Fixed dependency array to use state.customDrinks directly
   
   // Track if we're in edit mode to prevent overriding user values
   // Treat clones as add mode, not edit mode (to ensure drink selection works properly)
@@ -278,13 +281,16 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
     onSave(intakeData);
   };
 
-  const handleDrinkChange = (option: DrinkOption | null) => {
-    if (option) {
-      setSelectedOption(option);
-      setSelectedDrink(option.value);
+  const handleDrinkChange = (
+    newValue: SingleValue<DrinkOption>,
+    // Removed unused actionMeta parameter
+  ) => {
+    if (newValue) {
+      setSelectedOption(newValue);
+      setSelectedDrink(newValue.value);
       
       // Store the selected drink directly, rather than looking it up again later
-      const selectedDrink = option.drink;
+      const selectedDrink = newValue.drink;
       
       // Update volume based on selected drink's default size (for new or cloned intakes)
       if (!isEditMode) {
@@ -364,10 +370,10 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
   };
 
   return (
-    <Form onSubmit={handleSubmit} id={intake && !isClone ? "intakeEditForm" : "intakeAddForm"}>
+    <Form onSubmit={handleSubmit} id={id || (intake && !isClone ? "intakeEditForm" : "intakeAddForm")}>
       <Form.Group className="mb-3" controlId="formIntakeDrink">
         <Form.Label>Drink</Form.Label>
-        <Select
+        <Select<DrinkOption, false> // Added explicit type parameters to Select component
           value={selectedOption}
           onChange={handleDrinkChange}
           options={drinkOptions}

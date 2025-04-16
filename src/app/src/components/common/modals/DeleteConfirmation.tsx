@@ -1,6 +1,5 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
-import { CaffeineIntake } from '../types';
 
 interface DeleteConfirmationProps {
   show: boolean;
@@ -36,7 +35,7 @@ const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({
     <div className="delete-confirmation">
       <Alert variant="warning">
         <Alert.Heading>{title}</Alert.Heading>
-        <p>{displayText}</p>
+        <p className="fs-6 fw-light lh-sm">{displayText}</p>
       </Alert>
       
       {itemDetails && (

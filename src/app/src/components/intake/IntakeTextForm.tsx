@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
-import { CaffeineIntake } from '../types';
-import { validateIntakeTextLine } from '../utils/validators';
+import { CaffeineIntake } from '../../types';
+import { validateIntakeTextLine } from '../../utils/validators';
 
 interface IntakeTextFormProps {
   onAddIntakes: (intakes: CaffeineIntake[]) => void;
@@ -62,7 +62,7 @@ const IntakeTextForm: React.FC<IntakeTextFormProps> = ({ onAddIntakes }) => {
           id: uuidv4(),
           datetime: intakeDate.toISOString(),
           drink: {
-            manufacturer: 'Manual Entry',
+            brand: 'Manual Entry',
             product: `${amount}mg at ${time}`,
             category: 'manual_entry',
             volume_oz: 1,
