@@ -20,22 +20,22 @@ const initialState: AppState = {
 };
 
 // Create context
-type AppContextType = {
+interface AppContextType {
   state: AppState;
-  lastIntakeTimestamp: number;  // Add timestamp to track the last intake modification
+  lastIntakeTimestamp: string | null;
   addCaffeineIntake: (intake: CaffeineIntake) => void;
   updateCaffeineIntake: (intake: CaffeineIntake) => void;
-  removeCaffeineIntake: (id: string) => void;
+  removeCaffeineIntake: (intake: CaffeineIntake) => void;
   clearAllIntakes: () => void;
   addCustomDrink: (drink: CustomDrink) => void;
   updateCustomDrink: (drink: CustomDrink) => void;
   removeCustomDrink: (drink: CustomDrink) => void;
-  importData: (data: Partial<AppState>) => void;
+  importData: (data: AppState) => void;
   exportData: () => AppState;
-  updatePreferences: (preferences: Partial<UserPreferences>) => void;
+  updatePreferences: (partialPreferences: Partial<UserPreferences>) => void;
   resetPreferences: () => void;
   theme: 'light' | 'dark';
-};
+}
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
@@ -80,10 +80,10 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   };
 
   // Remove caffeine intake
-  const removeCaffeineIntake = (id: string) => {
+  const removeCaffeineIntake = (intakeToRemove: CaffeineIntake) => {
     setState({
       ...state,
-      caffeineIntakes: state.caffeineIntakes.filter(intake => intake.id !== id),
+      caffeineIntakes: state.caffeineIntakes.filter(intake => intake.id !== intakeToRemove.id),
     });
     setLastIntakeTimestamp(Date.now());
   };
@@ -110,10 +110,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     setState({
       ...state,
       customDrinks: state.customDrinks.map(drink =>
-        drink.brand === updatedDrink.brand && 
-        drink.product === updatedDrink.product 
-          ? updatedDrink 
-          : drink
+        drink.id === updatedDrink.id ? updatedDrink : drink
       ),
     });
   };
@@ -122,10 +119,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const removeCustomDrink = (drinkToRemove: CustomDrink) => {
     setState({
       ...state,
-      customDrinks: state.customDrinks.filter(
-        drink => !(drink.brand === drinkToRemove.brand && 
-                   drink.product === drinkToRemove.product)
-      ),
+      customDrinks: state.customDrinks.filter(drink => drink.id !== drinkToRemove.id),
     });
   };
 

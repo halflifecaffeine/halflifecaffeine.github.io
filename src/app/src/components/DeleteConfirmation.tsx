@@ -1,61 +1,44 @@
 import React from 'react';
-import { Alert, Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import { CaffeineIntake } from '../types';
 
 interface DeleteConfirmationProps {
-  intake: CaffeineIntake;
+  show: boolean;
+  onHide: () => void;
   onConfirm: () => void;
-  onCancel: () => void;
+  title?: string;
+  message?: string;
+  itemDetails?: React.ReactNode;
 }
 
 /**
- * Component that displays a confirmation message before deleting a caffeine intake record.
- * Used within the delete slideout panel.
+ * Generic confirmation component for deleting items.
+ * Can be used for any type of deletion confirmation, not just caffeine intakes.
+ * This component is designed to be used within a parent container that provides
+ * its own footer with action buttons (like SlideoutPanel).
  */
 const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({ 
-  intake, 
-  onConfirm, 
-  onCancel 
+  show,
+  onHide,
+  onConfirm,
+  title = "Confirm Deletion",
+  message = "Are you sure you want to delete this item?",
+  itemDetails
 }) => {
-  const formatDateTime = (isoString: string): string => {
-    const date = new Date(isoString);
-    return date.toLocaleString([], {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
+  if (!show) return null;
 
   return (
     <div className="delete-confirmation">
       <Alert variant="warning">
-        <Alert.Heading>Warning: This action cannot be undone</Alert.Heading>
-        <p>
-          You are about to delete the following caffeine intake record:
-        </p>
+        <Alert.Heading>{title}</Alert.Heading>
+        <p>{message}</p>
       </Alert>
       
-      <div className="record-details p-3 mb-4 border rounded bg-light">
-        <p className="mb-1"><strong>Date & Time:</strong> {formatDateTime(intake.datetime)}</p>
-        <p className="mb-1">
-          <strong>Drink:</strong> {intake.drink.brand !== 'unknown' ? `${intake.drink.brand} ` : ''}{intake.drink.product}
-        </p>
-        <p className="mb-1"><strong>Caffeine Amount:</strong> {intake.mg.toFixed(1)}mg</p>
-        {intake.notes && <p className="mb-0"><strong>Notes:</strong> {intake.notes}</p>}
-      </div>
-      
-      <p>Are you sure you want to delete this record?</p>
-      
-      <div className="d-flex justify-content-end gap-2 mt-4">
-        <Button variant="outline-secondary" onClick={onCancel}>
-          Cancel
-        </Button>
-        <Button variant="danger" onClick={onConfirm}>
-          Delete Record
-        </Button>
-      </div>
+      {itemDetails && (
+        <div className="record-details p-3 mb-4 border rounded bg-light">
+          {itemDetails}
+        </div>
+      )}
     </div>
   );
 };

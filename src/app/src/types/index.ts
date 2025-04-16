@@ -2,18 +2,19 @@
  * Core type definitions for Half-Life Caffeine Tracker
  */
 
-// Drink definition from drinks database
+// Drink related types
 export interface Drink {
+  brand: string;
   product: string;
   category: string;
-  brand: string;
   default_size_in_oz: number;
   caffeine_mg_per_oz: number;
 }
 
-// Custom drink added by user
+// Custom drink extends Drink with user-entered flag and ID
 export interface CustomDrink extends Drink {
-  isCustom: boolean;
+  id: string;
+  user_entered: boolean;
 }
 
 // Unit conversion options for volume input

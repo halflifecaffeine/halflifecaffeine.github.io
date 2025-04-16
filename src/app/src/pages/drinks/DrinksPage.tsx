@@ -2,23 +2,22 @@
  * DrinksPage - Shows a searchable, filterable list of drinks with caffeine content
  */
 import React, { useState, useMemo } from 'react';
-import { Container, Row, Col, Form, InputGroup, Table, Pagination, Card } from 'react-bootstrap';
+import { Container, Row, Col, Form, InputGroup, Table, Pagination, Card, Button, ButtonGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faMugHot, faCoffee, faBolt } from '@fortawesome/free-solid-svg-icons';
-import { useTheme } from '../../hooks/useTheme';
+import { 
+  faSearch, faMugHot, faCoffee, faBolt, 
+  faPlus, faEdit, faTrash, faCopy 
+} from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
+import { useAppContext } from '../../contexts/AppContext';
+import { Drink, CustomDrink } from '../../types';
+import DrinkPanel from '../../components/layout/DrinkPanel';
+import DeleteConfirmation from '../../components/DeleteConfirmation';
+import SlideoutPanel from '../../components/layout/SlideoutPanel';
+import { ThemeAwarePagination } from '../../components/ThemeAwarePagination';
 
 // Import drinks data
 import drinksData from '../../data/drinks.json';
-
-// Define drink type based on data structure
-interface Drink {
-  product: string;
-  category: string;
-  brand: string;
-  default_size_in_oz: number;
-  caffeine_mg_per_oz: number;
-}
 
 /**
  * Number of drinks to display per page
@@ -29,23 +28,43 @@ const DRINKS_PER_PAGE = 15;
  * DrinksPage component
  */
 export const DrinksPage: React.FC = () => {
-  const [theme] = useTheme();
+  const { state, removeCustomDrink } = useAppContext();
+  const { theme } = useAppContext();
+
+  // UI state
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+  const [showUserDrinksOnly, setShowUserDrinksOnly] = useState(false);
+
+  // Custom drink management state
+  const [showDrinkPanel, setShowDrinkPanel] = useState(false);
+  const [selectedDrink, setSelectedDrink] = useState<Drink | CustomDrink | null>(null);
+  const [panelMode, setPanelMode] = useState<'add' | 'edit' | 'clone'>('add');
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [drinkToDelete, setDrinkToDelete] = useState<CustomDrink | null>(null);
+
+  // Combine built-in drinks and custom drinks for display
+  const allDrinks = useMemo(() => {
+    // Combine standard drinks with user's custom drinks
+    const standardDrinks = drinksData as Drink[];
+    return showUserDrinksOnly 
+      ? state.customDrinks
+      : [...standardDrinks, ...state.customDrinks];
+  }, [state.customDrinks, showUserDrinksOnly]);
 
   // Get unique categories for the filter dropdown
   const categories = useMemo(() => {
     const uniqueCategories = new Set<string>();
     
-    drinksData.forEach((drink: Drink) => {
+    allDrinks.forEach((drink) => {
       if (drink.category && drink.category !== 'unknown') {
         uniqueCategories.add(drink.category);
       }
     });
     
     return Array.from(uniqueCategories).sort();
-  }, []);
+  }, [allDrinks]);
   
   // Create options for react-select
   const categoryOptions = useMemo(() => {
@@ -57,7 +76,7 @@ export const DrinksPage: React.FC = () => {
   
   // Filter drinks based on search term and category
   const filteredDrinks = useMemo(() => {
-    return drinksData.filter((drink: Drink) => {
+    return allDrinks.filter((drink) => {
       // Match search term
       const searchMatch = searchTerm === '' || 
         drink.product.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -68,7 +87,7 @@ export const DrinksPage: React.FC = () => {
       
       return searchMatch && categoryMatch;
     });
-  }, [searchTerm, categoryFilter]);
+  }, [searchTerm, categoryFilter, allDrinks]);
   
   // Calculate pagination values
   const totalPages = Math.max(1, Math.ceil(filteredDrinks.length / DRINKS_PER_PAGE));
@@ -84,49 +103,7 @@ export const DrinksPage: React.FC = () => {
   // Reset to first page when filtering changes
   React.useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, categoryFilter]);
-  
-  // Generate pagination items
-  const paginationItems = useMemo(() => {
-    const items = [];
-    
-    for (let i = 0; i < totalPages; i++) {
-      const pageNum = i + 1;
-      
-      // Show all pages if fewer than 8, otherwise show smart pagination
-      const showPageNum = 
-        totalPages <= 7 || // Show all if 7 or fewer pages
-        pageNum === 1 || // Always show first page
-        pageNum === totalPages || // Always show last page
-        Math.abs(pageNum - currentPage) <= 2; // Show pages near current
-        
-      // Show ellipsis when skipping pages
-      const showPrevEllipsis = pageNum === 2 && currentPage > 4;
-      const showNextEllipsis = pageNum === totalPages - 1 && currentPage < totalPages - 3;
-      
-      if (showPrevEllipsis) {
-        items.push(<Pagination.Ellipsis key="prev-ellipsis" disabled />);
-      }
-      
-      if (showNextEllipsis) {
-        items.push(<Pagination.Ellipsis key="next-ellipsis" disabled />);
-      }
-      
-      if (showPageNum) {
-        items.push(
-          <Pagination.Item
-            key={pageNum}
-            active={currentPage === pageNum}
-            onClick={() => setCurrentPage(pageNum)}
-          >
-            {pageNum}
-          </Pagination.Item>
-        );
-      }
-    }
-    
-    return items;
-  }, [currentPage, totalPages]);
+  }, [searchTerm, categoryFilter, showUserDrinksOnly]);
   
   // Custom styles for React Select to match current theme
   const selectStyles = {
@@ -181,13 +158,50 @@ export const DrinksPage: React.FC = () => {
     }
   };
 
+  // Handle drink actions
+  const handleAddDrink = () => {
+    setSelectedDrink(null);
+    setPanelMode('add');
+    setShowDrinkPanel(true);
+  };
+
+  const handleEditDrink = (drink: CustomDrink) => {
+    setSelectedDrink(drink);
+    setPanelMode('edit');
+    setShowDrinkPanel(true);
+  };
+
+  const handleCloneDrink = (drink: Drink | CustomDrink) => {
+    setSelectedDrink(drink);
+    setPanelMode('clone');
+    setShowDrinkPanel(true);
+  };
+
+  const handleDeleteDrink = (drink: CustomDrink) => {
+    setDrinkToDelete(drink);
+    setShowDeleteConfirmation(true);
+  };
+
+  const confirmDeleteDrink = () => {
+    if (drinkToDelete) {
+      removeCustomDrink(drinkToDelete);
+      setShowDeleteConfirmation(false);
+      setDrinkToDelete(null);
+    }
+  };
+
+  // Check if a drink is a custom user drink
+  const isCustomDrink = (drink: Drink | CustomDrink): drink is CustomDrink => {
+    return 'user_entered' in drink && drink.user_entered === true;
+  };
+
   return (
     <Container className="py-4">
       <h1 className="mb-4">Drinks Database</h1>
       <Card className="mb-4">
         <Card.Body>
           <Row className="g-3">
-            <Col md={8} lg={9}>
+            <Col md={7} lg={8}>
               <InputGroup>
                 <InputGroup.Text>
                   <FontAwesomeIcon icon={faSearch} />
@@ -201,32 +215,65 @@ export const DrinksPage: React.FC = () => {
                 />
               </InputGroup>
             </Col>
-            <Col md={4} lg={3}>
-              <Select
-                options={categoryOptions}
-                placeholder="Filter by category"
-                isClearable
-                onChange={(option) => setCategoryFilter(option?.value || null)}
-                aria-label="Filter by category"
-                styles={selectStyles}
-                theme={(theme) => ({
-                  ...theme,
-                  colors: {
-                    ...theme.colors,
-                    primary: '#0d6efd',
-                    primary75: '#3d8bfd',
-                    primary50: '#6ea8fe',
-                    primary25: '#b6d4fe',
-                  }
-                })}
+            <Col md={5} lg={4}>
+              <div className="d-flex gap-2">
+                <Select
+                  options={categoryOptions}
+                  placeholder="Filter by category"
+                  isClearable
+                  onChange={(option) => setCategoryFilter(option?.value || null)}
+                  aria-label="Filter by category"
+                  styles={selectStyles}
+                  className="flex-grow-1"
+                  theme={(theme) => ({
+                    ...theme,
+                    colors: {
+                      ...theme.colors,
+                      primary: '#0d6efd',
+                      primary75: '#3d8bfd',
+                      primary50: '#6ea8fe',
+                      primary25: '#b6d4fe',
+                    }
+                  })}
+                />
+              </div>
+            </Col>
+          </Row>
+          
+          <Row className="mt-3">
+            <Col xs={12} sm={6}>
+              <Form.Check 
+                type="switch"
+                id="custom-switch"
+                label="Show my custom drinks only"
+                checked={showUserDrinksOnly}
+                onChange={(e) => setShowUserDrinksOnly(e.target.checked)}
               />
+            </Col>
+            <Col xs={12} sm={6} className="text-sm-end mt-2 mt-sm-0">
+              <Button 
+                variant="primary" 
+                onClick={handleAddDrink}
+                className="d-flex align-items-center gap-2"
+                style={{ marginLeft: 'auto' }}
+              >
+                <FontAwesomeIcon icon={faPlus} />
+                <span>Add Custom Drink</span>
+              </Button>
             </Col>
           </Row>
         </Card.Body>
       </Card>
       
       <div>
-        <p>Showing {paginatedDrinks.length} of {filteredDrinks.length} drinks</p>
+        <p>
+          {paginatedDrinks.length > 0 
+            ? `Showing ${paginatedDrinks.length} of ${filteredDrinks.length} drinks` 
+            : searchTerm 
+              ? `No drinks found matching "${searchTerm}"` 
+              : 'No drinks found'
+          }
+        </p>
         
         <div className="table-responsive">
           <Table hover>
@@ -238,59 +285,144 @@ export const DrinksPage: React.FC = () => {
                 <th className="text-end">Size (oz)</th>
                 <th className="text-end">Caffeine per oz</th>
                 <th className="text-end">Total Caffeine (mg)</th>
+                <th className="text-end">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {paginatedDrinks.map((drink: Drink, index: number) => (
-                <tr key={`${drink.product}-${index}`}>
-                  <td className="fw-medium">{drink.product}</td>
-                  <td>{drink.brand !== 'unknown' ? drink.brand : ''}</td>
-                  <td>
-                    {drink.category !== 'unknown' && (
-                      <>
-                        <FontAwesomeIcon 
-                          icon={getCategoryIcon(drink.category)} 
-                          className="me-2 text-secondary" 
-                        />
-                        {drink.category}
-                      </>
-                    )}
-                  </td>
-                  <td className="text-end">{drink.default_size_in_oz.toFixed(1)}</td>
-                  <td className="text-end">{drink.caffeine_mg_per_oz.toFixed(1)}</td>
-                  <td className="text-end fw-bold">
-                    {(drink.default_size_in_oz * drink.caffeine_mg_per_oz).toFixed(1)}
+              {filteredDrinks.length === 0 ? (
+                <tr>
+                  <td colSpan={7} className="text-center py-4">
+                    <p className="text-muted mb-0">
+                      {searchTerm ? `No matching drinks found for "${searchTerm}"` : 'No drinks found'}
+                    </p>
                   </td>
                 </tr>
-              ))}
+              ) : (
+                paginatedDrinks.map((drink, index) => (
+                  <tr key={`${drink.product}-${index}`} className={isCustomDrink(drink) ? 'table-primary' : ''}>
+                    <td className="fw-medium">
+                      {drink.product}
+                      {isCustomDrink(drink) && (
+                        <span className="badge bg-primary ms-2">Custom</span>
+                      )}
+                    </td>
+                    <td>{drink.brand !== 'unknown' ? drink.brand : ''}</td>
+                    <td>
+                      {drink.category !== 'unknown' && (
+                        <>
+                          <FontAwesomeIcon 
+                            icon={getCategoryIcon(drink.category)} 
+                            className="me-2 text-secondary" 
+                          />
+                          {drink.category}
+                        </>
+                      )}
+                    </td>
+                    <td className="text-end">{drink.default_size_in_oz.toFixed(1)}</td>
+                    <td className="text-end">{drink.caffeine_mg_per_oz.toFixed(1)}</td>
+                    <td className="text-end fw-bold">
+                      {(drink.default_size_in_oz * drink.caffeine_mg_per_oz).toFixed(1)}
+                    </td>
+                    <td>
+                      <ButtonGroup size="sm" className="float-end">
+                        <Button
+                          variant="outline-secondary"
+                          onClick={() => handleCloneDrink(drink)}
+                          title="Clone drink"
+                          aria-label={`Clone ${drink.product}`}
+                        >
+                          <FontAwesomeIcon icon={faCopy} />
+                        </Button>
+                        
+                        {isCustomDrink(drink) && (
+                          <>
+                            <Button
+                              variant="outline-primary"
+                              onClick={() => handleEditDrink(drink)}
+                              title="Edit drink"
+                              aria-label={`Edit ${drink.product}`}
+                            >
+                              <FontAwesomeIcon icon={faEdit} />
+                            </Button>
+                            <Button
+                              variant="outline-danger"
+                              onClick={() => handleDeleteDrink(drink)}
+                              title="Delete drink"
+                              aria-label={`Delete ${drink.product}`}
+                            >
+                              <FontAwesomeIcon icon={faTrash} />
+                            </Button>
+                          </>
+                        )}
+                      </ButtonGroup>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </Table>
         </div>
         
         {totalPages > 1 && (
-          <Pagination className="justify-content-center mt-4">
-            <Pagination.First
-              onClick={() => setCurrentPage(1)}
-              disabled={currentPage === 1}
-            />
-            <Pagination.Prev
-              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-              disabled={currentPage === 1}
-            />
-            
-            {paginationItems}
-            
-            <Pagination.Next
-              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-              disabled={currentPage >= totalPages}
-            />
-            <Pagination.Last
-              onClick={() => setCurrentPage(totalPages)}
-              disabled={currentPage >= totalPages}
-            />
-          </Pagination>
+          <ThemeAwarePagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         )}
       </div>
+
+      {/* Slide-out panel for adding/editing drinks */}
+      <DrinkPanel
+        show={showDrinkPanel}
+        onHide={() => setShowDrinkPanel(false)}
+        selectedDrink={selectedDrink as CustomDrink}
+        mode={panelMode}
+      />
+      
+      {/* Delete confirmation slideout panel */}
+      <SlideoutPanel
+        show={showDeleteConfirmation}
+        onHide={() => setShowDeleteConfirmation(false)}
+        title="Delete Custom Drink"
+        icon={faTrash}
+        footer={
+          <div className="d-flex justify-content-between w-100">
+            <Button 
+              variant="outline-secondary" 
+              onClick={() => setShowDeleteConfirmation(false)}
+              className="d-flex align-items-center"
+            >
+              &lt; Back
+            </Button>
+            <Button 
+              variant="danger" 
+              onClick={confirmDeleteDrink}
+            >
+              Delete
+            </Button>
+          </div>
+        }
+        size="sm"
+      >
+        {drinkToDelete && (
+          <DeleteConfirmation
+            show={true}
+            onHide={() => setShowDeleteConfirmation(false)}
+            onConfirm={confirmDeleteDrink}
+            title="Delete Custom Drink"
+            message={`Are you sure you want to delete "${drinkToDelete.product}"? This action cannot be undone.`}
+            itemDetails={
+              <>
+                <p className="mb-1"><strong>Product:</strong> {drinkToDelete.product}</p>
+                <p className="mb-1"><strong>Brand:</strong> {drinkToDelete.brand !== 'unknown' ? drinkToDelete.brand : 'Unknown'}</p>
+                <p className="mb-1"><strong>Category:</strong> {drinkToDelete.category}</p>
+                <p className="mb-1"><strong>Caffeine:</strong> {(drinkToDelete.caffeine_mg_per_oz * drinkToDelete.default_size_in_oz).toFixed(1)}mg</p>
+              </>
+            }
+          />
+        )}
+      </SlideoutPanel>
     </Container>
   );
 };

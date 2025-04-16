@@ -47,7 +47,7 @@ const IntakePage: React.FC = () => {
   // Handler for deleting an intake
   const handleDeleteIntake = () => {
     if (selectedIntake) {
-      removeCaffeineIntake(selectedIntake.id);
+      removeCaffeineIntake(selectedIntake);
       setShowDeletePanel(false);
       setSelectedIntake(null);
     }
@@ -91,6 +91,13 @@ const IntakePage: React.FC = () => {
       >
         &lt; Back
       </Button>
+      <Button 
+        variant="primary" 
+        type="submit"
+        form="intakeAddForm"
+      >
+        Save Changes
+      </Button>
     </div>
   );
 
@@ -104,6 +111,13 @@ const IntakePage: React.FC = () => {
       >
         &lt; Back
       </Button>
+      <Button 
+        variant="primary" 
+        type="submit"
+        form="intakeEditForm"
+      >
+        Save Changes
+      </Button>
     </div>
   );
 
@@ -116,6 +130,12 @@ const IntakePage: React.FC = () => {
         className="d-flex align-items-center"
       >
         &lt; Back
+      </Button>
+      <Button 
+        variant="danger" 
+        onClick={handleDeleteIntake}
+      >
+        Delete
       </Button>
     </div>
   );
@@ -208,9 +228,27 @@ const IntakePage: React.FC = () => {
       >
         {selectedIntake && (
           <DeleteConfirmation
-            intake={selectedIntake}
+            show={true}
+            onHide={() => setShowDeletePanel(false)}
             onConfirm={handleDeleteIntake}
-            onCancel={() => setShowDeletePanel(false)}
+            title="Delete Caffeine Intake"
+            message="You are about to delete the following caffeine intake record:"
+            itemDetails={
+              <>
+                <p className="mb-1"><strong>Date & Time:</strong> {new Date(selectedIntake.datetime).toLocaleString([], {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })}</p>
+                <p className="mb-1">
+                  <strong>Drink:</strong> {selectedIntake.drink.brand !== 'unknown' ? `${selectedIntake.drink.brand} ` : ''}{selectedIntake.drink.product}
+                </p>
+                <p className="mb-1"><strong>Caffeine Amount:</strong> {selectedIntake.mg.toFixed(1)}mg</p>
+                {selectedIntake.notes && <p className="mb-0"><strong>Notes:</strong> {selectedIntake.notes}</p>}
+              </>
+            }
           />
         )}
       </SlideoutPanel>

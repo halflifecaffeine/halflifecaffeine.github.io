@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, ReactNode } from 'react';
 import { Form, Button, InputGroup, Row, Col } from 'react-bootstrap';
-import Select from 'react-select';
+import Select, { components, OptionProps } from 'react-select';
 import { CaffeineIntake, Drink, VolumeUnit } from '../types';
 import { validateVolumeInput } from '../utils/validators';
 import { formatDateTimeForInput, getCurrentDateTimeForInput, parseInputToISOString } from '../utils/dateUtils';
@@ -23,6 +23,74 @@ interface DrinkOption {
 }
 
 /**
+ * Custom option component for React Select to display drink options with
+ * product name, caffeine content, and brand name in a styled format.
+ */
+const CustomOption = (props: OptionProps<DrinkOption>) => {
+  const { data, innerProps } = props;
+  const drink = data.drink;
+  
+  // Calculate total caffeine in the default serving
+  const totalCaffeine = (drink.caffeine_mg_per_oz * drink.default_size_in_oz).toFixed(1);
+  
+  // Check if it's a custom drink
+  const isCustom = 'user_entered' in drink && drink.user_entered;
+  
+  return (
+    <components.Option {...props}>
+      <div className="d-flex justify-content-between align-items-center">
+        <div className="drink-name fw-medium">
+          {drink.product}
+          {isCustom && <span className="badge bg-primary ms-1" style={{ fontSize: '10px' }}>Custom</span>}
+        </div>
+        <div className="caffeine-content text-muted" style={{ fontSize: '0.85em' }}>
+          {totalCaffeine}mg
+        </div>
+      </div>
+      {drink.brand && drink.brand !== 'unknown' && (
+        <div className="brand-name text-muted mt-1" style={{ fontSize: '0.85em' }}>
+          {drink.brand}
+        </div>
+      )}
+    </components.Option>
+  );
+};
+
+/**
+ * Custom single value component for React Select to display the selected drink
+ * in the same format as the options.
+ */
+const CustomSingleValue = (props: any) => {
+  const { data } = props;
+  const drink = data.drink;
+  
+  // Calculate total caffeine in the default serving
+  const totalCaffeine = (drink.caffeine_mg_per_oz * drink.default_size_in_oz).toFixed(1);
+  
+  // Check if it's a custom drink
+  const isCustom = 'user_entered' in drink && drink.user_entered;
+  
+  return (
+    <components.SingleValue {...props}>
+      <div className="d-flex justify-content-between align-items-center">
+        <div className="drink-name">
+          {drink.product}
+          {isCustom && <span className="badge bg-primary ms-1" style={{ fontSize: '10px' }}>Custom</span>}
+        </div>
+        <div className="caffeine-content text-muted" style={{ fontSize: '0.85em' }}>
+          {totalCaffeine}mg
+        </div>
+      </div>
+      {drink.brand && drink.brand !== 'unknown' && (
+        <div className="brand-name text-muted" style={{ fontSize: '0.85em' }}>
+          {drink.brand}
+        </div>
+      )}
+    </components.SingleValue>
+  );
+};
+
+/**
  * Reusable form component for adding or editing caffeine intake records.
  * Uses local time consistently for better user experience.
  */
@@ -42,12 +110,49 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
   const [notes, setNotes] = useState<string>('');
   const [errors, setErrors] = useState<Record<string, string>>({});
   
-  // Format drinks for React Select
-  const drinkOptions: DrinkOption[] = drinks.map((drink) => ({
-    value: `${drink.brand}|${drink.product}`,
-    label: `${drink.brand !== 'unknown' ? drink.brand : ''} ${drink.product} (${(drink.caffeine_mg_per_oz * drink.default_size_in_oz).toFixed(1)}mg)`,
-    drink: drink
-  }));
+  // Format drinks for React Select - combine standard drinks with custom drinks
+  const drinkOptions: DrinkOption[] = useMemo(() => {
+    const { state } = useAppContext();
+    const allOptions: DrinkOption[] = [];
+    
+    // Track products we've added to avoid duplicates
+    const addedProductKeys = new Set<string>();
+    
+    // Add custom drinks first (they take priority)
+    state.customDrinks.forEach(drink => {
+      // Create a unique key for this drink
+      const productKey = `${drink.brand.toLowerCase()}|${drink.product.toLowerCase()}`;
+      
+      // Add to our options and track that we've added it
+      allOptions.push({
+        value: `custom|${drink.id}`,
+        label: `${drink.brand !== 'unknown' ? drink.brand : ''} ${drink.product} (${(drink.caffeine_mg_per_oz * drink.default_size_in_oz).toFixed(1)}mg) [Custom]`,
+        drink: drink
+      });
+      
+      addedProductKeys.add(productKey);
+    });
+    
+    // Add standard drinks, but skip any that would be duplicates of custom drinks
+    drinks.forEach(drink => {
+      // Create same key format to check for duplicates
+      const productKey = `${drink.brand.toLowerCase()}|${drink.product.toLowerCase()}`;
+      
+      // Only add if we haven't already added this drink
+      if (!addedProductKeys.has(productKey)) {
+        allOptions.push({
+          value: `standard|${drink.brand}|${drink.product}`,
+          label: `${drink.brand !== 'unknown' ? drink.brand : ''} ${drink.product} (${(drink.caffeine_mg_per_oz * drink.default_size_in_oz).toFixed(1)}mg)`,
+          drink: drink
+        });
+        
+        // Track that we've added this drink
+        addedProductKeys.add(productKey);
+      }
+    });
+    
+    return allOptions;
+  }, [drinks, useAppContext().state.customDrinks]);
   
   // Track if we're in edit mode to prevent overriding user values
   // Treat clones as add mode, not edit mode (to ensure drink selection works properly)
@@ -56,14 +161,35 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
   // Initialize form with existing data when editing or cloning
   useEffect(() => {
     if (intake) {
-      const drinkValue = `${intake.drink.brand}|${intake.drink.product}`;
+      let drinkValue = '';
+      
+      // Determine the correct value format based on the drink type
+      if ('id' in intake.drink && intake.drink.user_entered) {
+        // It's a custom drink
+        drinkValue = `custom|${intake.drink.id}`;
+      } else {
+        // It's a standard drink
+        drinkValue = `standard|${intake.drink.brand}|${intake.drink.product}`;
+      }
+      
       // Set the selected drink value
       setSelectedDrink(drinkValue);
       
       // Find the corresponding React Select option
-      const option = drinkOptions.find(opt => opt.value === drinkValue) || null;
-      setSelectedOption(option);
+      const option = drinkOptions.find(opt => {
+        // For custom drinks, match by ID
+        if (opt.value.startsWith('custom|') && 'id' in intake.drink) {
+          const customId = opt.value.split('|')[1];
+          return customId === intake.drink.id;
+        }
+        // For standard drinks, match by brand and product
+        else {
+          return opt.drink.brand === intake.drink.brand && 
+                 opt.drink.product === intake.drink.product;
+        }
+      }) || null;
       
+      setSelectedOption(option);
       setVolume(intake.volume.toString());
       setVolumeUnit(intake.unit);
       
@@ -79,9 +205,7 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
         setDateTime(getCurrentDateTimeForInput());
       }
     }
-    // Only include dependencies that should trigger a re-initialization
-    // Exclude drinkOptions which changes frequently
-  }, [intake]);
+  }, [intake, drinkOptions]);
 
   // Set default volume based on selected drink's default_size_in_oz, but only in Add mode
   useEffect(() => {
@@ -131,14 +255,13 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
       return;
     }
     
-    const [brand, product] = selectedDrink.split('|');
-    const drink = drinks.find(d => d.brand === brand && d.product === product);
-    
-    if (!drink) {
+    // Use the drink directly from the selected option instead of trying to find it
+    if (!selectedOption || !selectedOption.drink) {
       setErrors({ ...errors, drink: 'Selected drink not found' });
       return;
     }
     
+    const drink = selectedOption.drink;
     const volumeNum = parseFloat(volume);
     const caffeineAmount = drink.caffeine_mg_per_oz * volumeNum;
     
@@ -159,7 +282,15 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
     if (option) {
       setSelectedOption(option);
       setSelectedDrink(option.value);
-      // Volume will be updated by the effect for new intakes
+      
+      // Store the selected drink directly, rather than looking it up again later
+      const selectedDrink = option.drink;
+      
+      // Update volume based on selected drink's default size (for new or cloned intakes)
+      if (!isEditMode) {
+        setVolume(selectedDrink.default_size_in_oz.toString());
+        setVolumeUnit('oz');
+      }
     } else {
       setSelectedOption(null);
       setSelectedDrink('');
@@ -233,7 +364,7 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} id={intake && !isClone ? "intakeEditForm" : "intakeAddForm"}>
       <Form.Group className="mb-3" controlId="formIntakeDrink">
         <Form.Label>Drink</Form.Label>
         <Select
@@ -245,6 +376,7 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
           isClearable
           isSearchable
           className={errors.drink ? 'is-invalid' : ''}
+          components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
         />
         {errors.drink && (
           <div className="invalid-feedback d-block">
@@ -307,15 +439,8 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
           placeholder="Add any notes about this intake"
         />
       </Form.Group>
-
-      <div className="d-flex justify-content-end gap-2 mt-4">
-        <Button variant="outline-secondary" onClick={onCancel}>
-          Cancel
-        </Button>
-        <Button variant="primary" type="submit">
-          Save Changes
-        </Button>
-      </div>
+      
+      {/* Buttons are now handled by the parent slideout panel's footer */}
     </Form>
   );
 };
