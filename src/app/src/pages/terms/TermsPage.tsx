@@ -87,7 +87,7 @@ const TermsPage: React.FC = () => {
           <Card.Text className="text-muted">
             Last Updated: April 13, 2025
             {versionInfo.show && (
-              <span className="d-none d-sm-inline">
+              <span>
                 <span className="mx-2">|</span>
                 <span>{versionInfo.text}</span>
               </span>
