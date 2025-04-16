@@ -13,6 +13,7 @@ import IntakePage from './pages/intake/IntakePage';
 import DrinksPage from './pages/drinks/DrinksPage';
 import PrivacyPage from './pages/privacy/PrivacyPage';
 import TermsPage from './pages/terms/TermsPage';
+import FAQPage from './pages/faq/FAQPage';
 
 // Import context provider
 import { AppProvider } from './contexts/AppContext';
@@ -65,6 +66,8 @@ const App: React.FC = () => {
               <Route path="/drinks" element={<DrinksPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              {/* Add other routes as needed */}
               {/* Add other routes as needed, e.g., a 404 page */}
             </Routes>
           </div>

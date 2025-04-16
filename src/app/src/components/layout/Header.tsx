@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPlusSquare, faGlassWhiskey, faGear } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPlusSquare, faGlassWhiskey, faGear, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import SettingsPanel from '../settings/SettingsPanel';
 
@@ -70,7 +70,12 @@ const Header: React.FC = () => {
                 backgroundColor: 'rgba(255, 255, 255, 0.3)' 
               }}
             ></div>
-            
+
+            <LinkContainer to="/faq" onClick={closeNavMenu}>
+              <Nav.Link aria-label="Open FAQ">
+              <FontAwesomeIcon icon={faInfoCircle} className="me-1" /> FAQ
+              </Nav.Link>
+            </LinkContainer>
             <Nav.Link onClick={handleSettingsClick} aria-label="Open Settings">
               <FontAwesomeIcon icon={faGear} className="me-1" /> Settings
             </Nav.Link>
