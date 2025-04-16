@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
-import { IntakeLogTable } from '../../components/intake/IntakeLogTable';
-import IntakeWelcome from '../../components/intake/IntakeWelcome';
-import IntakePanel from '../../components/intake/IntakePanel';
-import DeleteConfirmation from '../../components/common/modals/DeleteConfirmation';
-import SlideoutPanel from '../../components/common/layout/SlideoutPanel';
+import IntakeBrowser from '../../components/intake/IntakeBrowser';
+import IntakeWelcomeCard from '../../components/intake/IntakeWelcomeCard';
+import IntakeAddSlideout from '../../components/intake/IntakeAddSlideout';
+import IntakeEditSlideout from '../../components/intake/IntakeEditSlideout';
+import IntakeCloneSlideout from '../../components/intake/IntakeCloneSlideout';
+import IntakeDeleteConfirmation from '../../components/intake/IntakeDeleteConfirmation';
 import { CaffeineIntake, Drink } from '../../types';
-import drinksData from '../../data/drinks.json'; // Import default drinks
-import { v4 as uuidv4 } from 'uuid'; // Import the UUID library
+import drinksData from '../../data/drinks.json';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Page component for managing caffeine intake records.
@@ -109,96 +110,56 @@ const IntakePage: React.FC = () => {
         </Button>
       </div>
 
-      {/* Show welcome component if no data, otherwise show intake table */}
+      {/* Show welcome component if no data, otherwise show intake browser */}
       {hasIntakeData ? (
-        <IntakeLogTable
+        <IntakeBrowser
           intakes={state.caffeineIntakes}
           onEditIntake={handleEditClick}
           onDeleteIntake={handleDeleteClick}
           onCloneIntake={handleCloneClick}
         />
       ) : (
-        <IntakeWelcome onAddClick={() => setShowAddPanel(true)} />
+        <IntakeWelcomeCard onAddClick={() => setShowAddPanel(true)} />
       )}
 
-      {/* Add intake panel */}
-      <IntakePanel
+      {/* Add intake slideout */}
+      <IntakeAddSlideout
         show={showAddPanel}
         onHide={() => setShowAddPanel(false)}
         drinks={availableDrinks}
         onSave={handleAddIntake}
-        mode="add"
       />
 
-      {/* Edit intake panel */}
-      <IntakePanel
-        show={showEditPanel}
-        onHide={() => setShowEditPanel(false)}
-        intake={selectedIntake || undefined}
-        drinks={availableDrinks}
-        onSave={handleUpdateIntake}
-        mode="edit"
-      />
+      {/* Edit intake slideout */}
+      {selectedIntake && showEditPanel && (
+        <IntakeEditSlideout
+          show={showEditPanel}
+          onHide={() => { setShowEditPanel(false); setSelectedIntake(null); }}
+          intake={selectedIntake}
+          drinks={availableDrinks}
+          onSave={handleUpdateIntake}
+        />
+      )}
 
-      {/* Clone intake panel */}
-      <IntakePanel
-        show={showClonePanel}
-        onHide={() => setShowClonePanel(false)}
-        intake={selectedIntake || undefined}
-        drinks={availableDrinks}
-        onSave={handleCloneIntake}
-        mode="clone"
-      />
+      {/* Clone intake slideout */}
+      {selectedIntake && showClonePanel && (
+        <IntakeCloneSlideout
+          show={showClonePanel}
+          onHide={() => { setShowClonePanel(false); setSelectedIntake(null); }}
+          intake={selectedIntake}
+          drinks={availableDrinks}
+          onSave={handleCloneIntake}
+        />
+      )}
 
       {/* Delete confirmation slideout */}
-      {selectedIntake && (
-        <SlideoutPanel
+      {selectedIntake && showDeletePanel && (
+        <IntakeDeleteConfirmation
           show={showDeletePanel}
-          onHide={() => setShowDeletePanel(false)}
-          title="Delete Caffeine Intake"
-          icon={faTrash}
-          size="sm"
-          footer={
-            <div className="d-flex justify-content-end gap-2">
-              <Button 
-                variant="outline-secondary" 
-                onClick={() => setShowDeletePanel(false)}
-              >
-                Cancel
-              </Button>
-              <Button 
-                variant="danger" 
-                onClick={handleDeleteIntake}
-              >
-                Delete
-              </Button>
-            </div>
-          }
-        >
-          <DeleteConfirmation
-            show={true}
-            onHide={() => setShowDeletePanel(false)}
-            onConfirm={handleDeleteIntake}
-            title="Delete Caffeine Intake"
-            message="You are about to delete the following caffeine intake record:"
-            itemDetails={
-              <>
-                <p className="mb-1"><strong>Date & Time:</strong> {new Date(selectedIntake.datetime).toLocaleString([], {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit'
-                })}</p>
-                <p className="mb-1">
-                  <strong>Drink:</strong> {selectedIntake.drink.brand !== 'unknown' ? `${selectedIntake.drink.brand} ` : ''}{selectedIntake.drink.product}
-                </p>
-                <p className="mb-1"><strong>Caffeine Amount:</strong> {selectedIntake.mg.toFixed(1)}mg</p>
-                {selectedIntake.notes && <p className="mb-0"><strong>Notes:</strong> {selectedIntake.notes}</p>}
-              </>
-            }
-          />
-        </SlideoutPanel>
+          onHide={() => { setShowDeletePanel(false); setSelectedIntake(null); }}
+          onConfirm={handleDeleteIntake}
+          intake={selectedIntake}
+        />
       )}
     </Container>
   );

@@ -35,6 +35,16 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './src/app/package-lock.json'
       
+      - name: Generate Version
+        id: version
+        run: |
+          TIMESTAMP=$(date '+%Y.%m%d.%H%M')
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          VERSION="v${TIMESTAMP}-${SHORT_SHA}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo ${VERSION} > ./src/app/public/version.txt
+          echo "Version generated: ${VERSION}" # Added logging for version generation
+
       - name: Install dependencies
         working-directory: ./src/app
         run: npm ci

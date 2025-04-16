@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faPlus, faMugHot } from '@fortawesome/free-solid-svg-icons';
 
-interface IntakeWelcomeProps {
+interface IntakeWelcomeCardProps {
   onAddClick: () => void;
 }
 
@@ -11,7 +11,7 @@ interface IntakeWelcomeProps {
  * Welcome component to display when no intake data is present
  * Provides explanation and a prominent Call To Action button
  */
-const IntakeWelcome: React.FC<IntakeWelcomeProps> = ({ onAddClick }) => {
+const IntakeWelcomeCard: React.FC<IntakeWelcomeCardProps> = ({ onAddClick }) => {
   return (
     <Card className="border-0 shadow my-4 welcome-intake">
       <Card.Body className="text-center py-5 px-4">
@@ -42,4 +42,4 @@ const IntakeWelcome: React.FC<IntakeWelcomeProps> = ({ onAddClick }) => {
   );
 };
 
-export default IntakeWelcome;
+export default IntakeWelcomeCard;

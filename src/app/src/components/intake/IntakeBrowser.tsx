@@ -1,5 +1,5 @@
 /**
- * IntakeLogTable - A searchable, sortable, paginated table of caffeine intake records
+ * IntakeBrowser - A searchable, sortable, paginated table of caffeine intake records
  */
 import React, { useState, useMemo, useEffect } from 'react';
 import { Table, Form, ButtonGroup, Button } from 'react-bootstrap';
@@ -26,9 +26,9 @@ const paginationStyle = {
 };
 
 /**
- * Props for IntakeLogTable component
+ * Props for IntakeBrowser component
  */
-export interface IntakeLogTableProps {
+export interface IntakeBrowserProps {
   intakes: CaffeineIntake[];
   onEditIntake: (intake: CaffeineIntake) => void;
   onDeleteIntake: (intake: CaffeineIntake) => void;
@@ -51,15 +51,16 @@ type SortDirection = 'asc' | 'desc';
 const RECORDS_PER_PAGE = 8;
 
 /**
- * IntakeLogTable component displays a searchable, sortable, paginated table of caffeine intake records
+ * IntakeBrowser component displays a searchable, sortable, paginated table of caffeine intake records
  */
-export const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
+export const IntakeBrowser: React.FC<IntakeBrowserProps> = ({
   intakes,
   onEditIntake,
   onDeleteIntake,
   onCloneIntake,
 }) => {
   const { theme } = useAppContext(); // Get current theme
+  
   // UI state
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -83,7 +84,7 @@ export const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
       (intake.notes?.toLowerCase().includes(term) ?? false)
     ));
   }, [intakes, searchTerm]);
-
+  
   // Step 2: Sort the filtered intakes
   const sortedIntakes = useMemo(() => {
     return [...filteredIntakes].sort((a, b) => {
@@ -168,7 +169,7 @@ export const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
   };
 
   return (
-    <div className="intake-log-table">
+    <div className="intake-browser">
       {/* Search bar and record count */}
       <div className="d-flex justify-content-between align-items-center mb-3">
         <Form.Control
@@ -295,3 +296,5 @@ export const IntakeLogTable: React.FC<IntakeLogTableProps> = ({
     </div>
   );
 };
+
+export default IntakeBrowser;
