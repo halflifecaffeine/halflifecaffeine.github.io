@@ -33,8 +33,8 @@ This application will:
 - **Language**: TypeScript only
 - **State Management**: React hooks and Context API
 - **Storage**: Browser LocalStorage
-- **Accessibility**: WCAG 2.1 AA compliance
-- **PWA**: Full support using CRA or Vite plugins
+- **Accessibility**: Initial accessibility features implemented with WCAG 2.1 AA compliance as an ongoing goal
+- **PWA**: Currently not implemented; planned for future development
 
 ---
 
@@ -49,8 +49,8 @@ This application will:
 - Auto-convert all input volumes to mg caffeine using drink data
 - All inputs validated for syntax, sanity, and unit correctness
 - Persist data in LocalStorage
-- Button to clear/reset all stored caffeine data
-- Show toast confirmations/errors on all actions
+- Interface for managing (edit, delete, clone) intake entries
+- Clear error handling with form validation
 
 ### 3.2. Caffeine Metabolism Engine
 
@@ -109,7 +109,7 @@ This application will:
 
 ### 4.1. Accessibility (a11y)
 
-- WCAG 2.1 AA compliant
+- Initial accessibility features implemented with WCAG 2.1 AA compliance as an ongoing goal
 - Semantic HTML and ARIA labels
 - Fully keyboard-navigable
 - Accessible color contrast and tab order

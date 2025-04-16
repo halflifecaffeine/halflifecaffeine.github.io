@@ -370,10 +370,14 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
   };
 
   return (
-    <Form onSubmit={handleSubmit} id={id || (intake && !isClone ? "intakeEditForm" : "intakeAddForm")}>
+    <Form 
+      onSubmit={handleSubmit} 
+      id={id || (intake && !isClone ? "intakeEditForm" : "intakeAddForm")}
+      aria-label={intake ? "Edit caffeine intake" : "Add caffeine intake"}
+    >
       <Form.Group className="mb-3" controlId="formIntakeDrink">
         <Form.Label>Drink</Form.Label>
-        <Select<DrinkOption, false> // Added explicit type parameters to Select component
+        <Select<DrinkOption, false>
           value={selectedOption}
           onChange={handleDrinkChange}
           options={drinkOptions}
@@ -382,10 +386,16 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
           isClearable
           isSearchable
           className={errors.drink ? 'is-invalid' : ''}
+          aria-invalid={!!errors.drink}
+          aria-describedby={errors.drink ? "drink-error-message" : undefined}
           components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
         />
         {errors.drink && (
-          <div className="invalid-feedback d-block">
+          <div 
+            className="invalid-feedback d-block" 
+            id="drink-error-message" 
+            role="alert"
+          >
             {errors.drink}
           </div>
         )}
@@ -403,10 +413,13 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
                 value={volume}
                 onChange={(e) => setVolume(e.target.value)}
                 isInvalid={!!errors.volume}
+                aria-invalid={!!errors.volume}
+                aria-describedby={errors.volume ? "volume-error-message" : undefined}
               />
               <Form.Select
                 value={volumeUnit}
                 onChange={(e) => setVolumeUnit(e.target.value as VolumeUnit)}
+                aria-label="Volume unit"
               >
                 <option value="oz">oz</option>
                 <option value="ml">ml</option>
@@ -414,7 +427,11 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
                 <option value="quart">quart</option>
                 <option value="gallon">gallon</option>
               </Form.Select>
-              <Form.Control.Feedback type="invalid">
+              <Form.Control.Feedback 
+                type="invalid"
+                id="volume-error-message" 
+                role="alert"
+              >
                 {errors.volume}
               </Form.Control.Feedback>
             </InputGroup>
@@ -429,8 +446,14 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
           value={dateTime}
           onChange={(e) => setDateTime(e.target.value)}
           isInvalid={!!errors.dateTime}
+          aria-invalid={!!errors.dateTime}
+          aria-describedby={errors.dateTime ? "datetime-error-message" : undefined}
         />
-        <Form.Control.Feedback type="invalid">
+        <Form.Control.Feedback 
+          type="invalid" 
+          id="datetime-error-message"
+          role="alert"
+        >
           {errors.dateTime}
         </Form.Control.Feedback>
       </Form.Group>
@@ -443,6 +466,7 @@ const IntakeForm: React.FC<IntakeFormProps> = ({
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Add any notes about this intake"
+          aria-label="Optional notes about this caffeine intake"
         />
       </Form.Group>
       

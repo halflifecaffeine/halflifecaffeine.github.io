@@ -4,7 +4,7 @@
   --font-primary: 'Jura', sans-serif;
   --font-display: 'Saira', sans-serif;
   /* --font-display: 'Smooch Sans', sans-serif; */
-}
+  }
 
 /* Apply fonts to the entire document */
 body {
@@ -32,4 +32,35 @@ h1, h2, h3, h4, h5, h6 {
 .custom-switch-brand .form-check-input:focus {
   border-color: var(--bs-primary);
   box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Accessibility Focus Styles */
+:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(74, 180, 222, 0.5);
+}
+
+/* Ensure interactive elements are clearly identifiable */
+button, 
+a[role="button"], 
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  cursor: pointer;
+}
+
+/* High contrast focus for form controls in dark mode */
+.dark-mode :focus-visible {
+  outline-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px var(--dark-mode-focus-ring);
+}
+
+/* Ensure sufficient contrast for text */
+.text-muted {
+  color: #6c757d !important; /* Ensure WCAG AA 4.5:1 contrast ratio */
+}
+
+.dark-mode .text-muted {
+  color: #9e9e9e !important; /* Better contrast in dark mode */
 }
