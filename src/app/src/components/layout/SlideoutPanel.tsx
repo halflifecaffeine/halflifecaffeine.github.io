@@ -29,31 +29,36 @@ const SlideoutPanel: React.FC<SlideoutPanelProps> = ({
   size = 'lg'
 }) => {
   return (
-    <Offcanvas show={show} onHide={onHide} placement="end" backdrop={true} className="slideout-panel" scroll={true} size={size}>
-      <Offcanvas.Header closeButton>
-        <Offcanvas.Title className="d-flex align-items-center gap-2">
-          {icon && <FontAwesomeIcon icon={icon} className="me-2" />}
-          {title}
+    <Offcanvas 
+      show={show} 
+      onHide={onHide} 
+      placement="end" 
+      backdrop={true} 
+      className="slideout-panel d-flex flex-column" 
+      scroll={false} 
+      size={size}
+    >
+      <Offcanvas.Header className="border-bottom pb-3">
+        <Offcanvas.Title className="w-100">
+          <div className="d-flex align-items-center">
+            {icon && <FontAwesomeIcon icon={icon} className="me-2" />}
+            <span>{title}</span>
+          </div>
+          {description && (
+            <small className="text-muted d-block mt-1 fs-6 fw-light lh-sm">{description}</small>
+          )}
         </Offcanvas.Title>
       </Offcanvas.Header>
       
-      <Offcanvas.Body className="d-flex flex-column">
-        {description && (
-          <div className="slideout-description mb-4 text-muted">
-            {description}
-          </div>
-        )}
-        
-        <div className="slideout-content flex-grow-1">
-          {children}
-        </div>
-        
-        {footer && (
-          <div className="slideout-footer mt-4 pt-3 border-top">
-            {footer}
-          </div>
-        )}
+      <Offcanvas.Body className="flex-grow-1 overflow-auto">
+        {children}
       </Offcanvas.Body>
+      
+      {footer && (
+        <div className="slideout-footer p-3 border-top mt-auto">
+          {footer}
+        </div>
+      )}
     </Offcanvas>
   );
 };

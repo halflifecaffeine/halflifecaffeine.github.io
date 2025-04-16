@@ -4,6 +4,8 @@
  */
 import React from 'react';
 import { Offcanvas, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faFloppyDisk, faPlus, faPencilAlt, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import { CustomDrink, Drink } from '../../types';
 import DrinkForm from '../DrinkForm';
@@ -26,19 +28,37 @@ const DrinkPanel: React.FC<DrinkPanelProps> = ({
 }) => {
   const { addCustomDrink, updateCustomDrink } = useAppContext();
   
-  // Generate a title based on the current mode
-  const getPanelTitle = () => {
+  // Generate panel data based on the current mode
+  const getPanelData = () => {
     switch(mode) {
       case 'add':
-        return 'Add Custom Drink';
+        return {
+          title: 'Add Custom Drink',
+          description: 'Create a new custom drink with caffeine content details.',
+          icon: faPlus
+        };
       case 'edit':
-        return 'Edit Custom Drink';
+        return {
+          title: 'Edit Custom Drink',
+          description: 'Update the details of this custom drink.',
+          icon: faPencilAlt
+        };
       case 'clone':
-        return 'Clone Drink';
+        return {
+          title: 'Clone Drink',
+          description: 'Create a new drink based on an existing one.',
+          icon: faCopy
+        };
       default:
-        return 'Custom Drink';
+        return {
+          title: 'Custom Drink',
+          description: 'Manage drink details.',
+          icon: faPlus
+        };
     }
   };
+  
+  const { title, description, icon } = getPanelData();
   
   // Handle form submission
   const handleSave = (drink: CustomDrink) => {
@@ -59,12 +79,18 @@ const DrinkPanel: React.FC<DrinkPanelProps> = ({
       show={show} 
       onHide={onHide} 
       placement="end"
-      className="drink-panel"
+      className="drink-panel d-flex flex-column"
     >
-      <Offcanvas.Header closeButton>
-        <Offcanvas.Title>{getPanelTitle()}</Offcanvas.Title>
+      <Offcanvas.Header closeButton className="border-bottom pb-3">
+        <Offcanvas.Title className="w-100">
+          <div className="d-flex align-items-center">
+            <FontAwesomeIcon icon={icon} className="me-2" />
+            <span>{title}</span>
+          </div>
+          <small className="text-muted d-block mt-1 fs-6 fw-light lh-sm">{description}</small>
+        </Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body className="d-flex flex-column">
+      <Offcanvas.Body className="flex-grow-1 overflow-auto">
         <div className="flex-grow-1 overflow-auto">
           <DrinkForm 
             drink={selectedDrink as CustomDrink}
@@ -79,16 +105,19 @@ const DrinkPanel: React.FC<DrinkPanelProps> = ({
           <Button 
             variant="outline-secondary" 
             onClick={onHide}
-            className="d-flex align-items-center"
+            className="d-flex align-items-center gap-2"
           >
-            &lt; Back
+            <FontAwesomeIcon icon={faChevronLeft} />
+            <span>Back</span>
           </Button>
           <Button 
             variant="primary" 
             type="submit"
             form={formId}
+            className="d-flex align-items-center gap-2"
           >
-            Save
+            <FontAwesomeIcon icon={faFloppyDisk} />
+            <span>Save Changes</span>
           </Button>
         </div>
       </div>

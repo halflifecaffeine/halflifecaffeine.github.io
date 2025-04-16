@@ -6,7 +6,8 @@ import { Container, Row, Col, Form, InputGroup, Table, Pagination, Card, Button,
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faSearch, faMugHot, faCoffee, faBolt, 
-  faPlus, faEdit, faTrash, faCopy 
+  faPlus, faEdit, faTrash, faCopy, 
+  faWhiskeyGlass, faChevronLeft
 } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
 import { useAppContext } from '../../contexts/AppContext';
@@ -197,7 +198,15 @@ export const DrinksPage: React.FC = () => {
 
   return (
     <Container className="py-4">
-      <h1 className="mb-4">Drinks Database</h1>
+      <div className="mb-4">
+        <h1>
+          <FontAwesomeIcon icon={faWhiskeyGlass} className="me-2" />
+          Drinks Database
+        </h1>
+        <small className="text-muted d-block mt-1">
+          This application uses a fixed database of known caffeine drinks. If you don't find your drink, you can add it below.
+        </small>
+      </div>
       <Card className="mb-4">
         <Card.Body>
           <Row className="g-3">
@@ -385,21 +394,25 @@ export const DrinksPage: React.FC = () => {
         show={showDeleteConfirmation}
         onHide={() => setShowDeleteConfirmation(false)}
         title="Delete Custom Drink"
+        description={`Are you sure you want to permanently delete?`}
         icon={faTrash}
         footer={
           <div className="d-flex justify-content-between w-100">
             <Button 
               variant="outline-secondary" 
               onClick={() => setShowDeleteConfirmation(false)}
-              className="d-flex align-items-center"
+              className="d-flex align-items-center gap-2"
             >
-              &lt; Back
+              <FontAwesomeIcon icon={faChevronLeft} />
+              <span>Back</span>
             </Button>
             <Button 
               variant="danger" 
               onClick={confirmDeleteDrink}
+              className="d-flex align-items-center gap-2"
             >
-              Delete
+              <FontAwesomeIcon icon={faTrash} />
+              <span>Permanently Delete</span>
             </Button>
           </div>
         }
@@ -411,6 +424,7 @@ export const DrinksPage: React.FC = () => {
             onHide={() => setShowDeleteConfirmation(false)}
             onConfirm={confirmDeleteDrink}
             title="Delete Custom Drink"
+            
             message={`Are you sure you want to delete "${drinkToDelete.product}"? This action cannot be undone.`}
             itemDetails={
               <>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPencilAlt, faTrash, faPlusSquare, faCopy } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPencilAlt, faTrash, faPlusSquare, faCopy, faChevronLeft, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import IntakeForm from '../../components/IntakeForm';
 import { IntakeLogTable } from '../../components/IntakeLogTable';
@@ -21,7 +21,7 @@ const IntakePage: React.FC = () => {
   const { state, addCaffeineIntake, updateCaffeineIntake, removeCaffeineIntake } = useAppContext();
   const [selectedIntake, setSelectedIntake] = useState<CaffeineIntake | null>(null);
   const [clonedIntake, setClonedIntake] = useState<CaffeineIntake | null>(null);
-  
+
   // Slideout panel visibility states
   const [showAddPanel, setShowAddPanel] = useState<boolean>(false);
   const [showEditPanel, setShowEditPanel] = useState<boolean>(false);
@@ -87,16 +87,19 @@ const IntakePage: React.FC = () => {
       <Button 
         variant="outline-secondary" 
         onClick={handleAddPanelClose}
-        className="d-flex align-items-center"
+        className="d-flex align-items-center gap-2"
       >
-        &lt; Back
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <span>Back</span>
       </Button>
       <Button 
         variant="primary" 
         type="submit"
         form="intakeAddForm"
+        className="d-flex align-items-center gap-2"
       >
-        Save Changes
+        <FontAwesomeIcon icon={faFloppyDisk} />
+        <span>Save Changes</span>
       </Button>
     </div>
   );
@@ -107,16 +110,19 @@ const IntakePage: React.FC = () => {
       <Button 
         variant="outline-secondary" 
         onClick={() => setShowEditPanel(false)}
-        className="d-flex align-items-center"
+        className="d-flex align-items-center gap-2"
       >
-        &lt; Back
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <span>Back</span>
       </Button>
       <Button 
         variant="primary" 
         type="submit"
         form="intakeEditForm"
+        className="d-flex align-items-center gap-2"
       >
-        Save Changes
+        <FontAwesomeIcon icon={faFloppyDisk} />
+        <span>Save Changes</span>
       </Button>
     </div>
   );
@@ -127,15 +133,18 @@ const IntakePage: React.FC = () => {
       <Button 
         variant="outline-secondary" 
         onClick={() => setShowDeletePanel(false)}
-        className="d-flex align-items-center"
+        className="d-flex align-items-center gap-2"
       >
-        &lt; Back
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <span>Back</span>
       </Button>
       <Button 
         variant="danger" 
         onClick={handleDeleteIntake}
+        className="d-flex align-items-center gap-2"
       >
-        Delete
+        <FontAwesomeIcon icon={faTrash} />
+        <span>Permanently Delete</span>
       </Button>
     </div>
   );
@@ -146,16 +155,26 @@ const IntakePage: React.FC = () => {
   // Determine the appropriate title and icon for the add panel based on whether we're cloning
   const addPanelTitle = clonedIntake ? "Clone Caffeine Intake" : "Add Caffeine Intake";
   const addPanelIcon = clonedIntake ? faCopy : faPlus;
-  const addPanelDescription = clonedIntake 
+  const addPanelDescription = clonedIntake
     ? "Create a new intake based on an existing one. Make any changes needed before saving."
     : "Record a new caffeine intake with the details below.";
 
   return (
     <Container className="py-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1><FontAwesomeIcon icon={faPlusSquare} className="me-2" />Caffeine Intake</h1>
-        <Button 
-          variant="primary" 
+
+        <div className="mb-1">
+          <h1>
+            <FontAwesomeIcon icon={faPlusSquare} className="me-2" />
+            Caffeine Intake
+          </h1>
+          <small className="text-muted d-block mt-1">
+            The table below is your caffeine intake log. You can add, edit, clone, or delete records as needed.
+          </small>
+        </div>
+
+        <Button
+          variant="primary"
           onClick={() => {
             setClonedIntake(null); // Ensure we're not cloning when clicking Add
             setShowAddPanel(true);
@@ -222,6 +241,7 @@ const IntakePage: React.FC = () => {
         show={showDeletePanel}
         onHide={() => setShowDeletePanel(false)}
         title="Delete Caffeine Intake"
+        description={`Are you sure you want to permanently delete?`}
         icon={faTrash}
         footer={deleteFooter}
         size="sm"
@@ -233,6 +253,7 @@ const IntakePage: React.FC = () => {
             onConfirm={handleDeleteIntake}
             title="Delete Caffeine Intake"
             message="You are about to delete the following caffeine intake record:"
+            
             itemDetails={
               <>
                 <p className="mb-1"><strong>Date & Time:</strong> {new Date(selectedIntake.datetime).toLocaleString([], {

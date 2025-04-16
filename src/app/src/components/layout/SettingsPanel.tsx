@@ -104,12 +104,20 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ show: externalShow, onClo
         show={showSettings} 
         onHide={handleClose} 
         placement="end"
-        className="settings-panel"
+        className="settings-panel d-flex flex-column"
       >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Settings</Offcanvas.Title>
+        <Offcanvas.Header closeButton className="border-bottom pb-3">
+          <Offcanvas.Title className="w-100">
+            <div className="d-flex align-items-center">
+              <FontAwesomeIcon icon={faGear} className="me-2" />
+              <span>Settings</span>
+            </div>
+            <small className="text-muted d-block mt-1 fs-6 fw-light lh-sm">
+              Configure your preferences and manage your data
+            </small>
+          </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
+        <Offcanvas.Body className="flex-grow-1 overflow-auto">
           <h5>Theme</h5>
           <div className="mb-3">
             <div className="d-flex gap-2">

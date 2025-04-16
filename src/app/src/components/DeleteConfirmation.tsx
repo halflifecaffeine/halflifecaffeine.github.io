@@ -7,7 +7,8 @@ interface DeleteConfirmationProps {
   onHide: () => void;
   onConfirm: () => void;
   title?: string;
-  message?: string;
+  message?: string; // Keep for backward compatibility
+  description?: string;
   itemDetails?: React.ReactNode;
 }
 
@@ -22,16 +23,20 @@ const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({
   onHide,
   onConfirm,
   title = "Confirm Deletion",
-  message = "Are you sure you want to delete this item?",
+  message, // Keep message prop for backward compatibility
+  description = "Are you sure you want to delete this item?",
   itemDetails
 }) => {
   if (!show) return null;
+
+  // Use message as a fallback if description is not provided
+  const displayText = message || description;
 
   return (
     <div className="delete-confirmation">
       <Alert variant="warning">
         <Alert.Heading>{title}</Alert.Heading>
-        <p>{message}</p>
+        <p>{displayText}</p>
       </Alert>
       
       {itemDetails && (
