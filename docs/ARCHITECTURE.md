@@ -21,7 +21,16 @@ Half-Life Caffeine Tracker is a React single-page application built with TypeScr
 ```
 src/app/src/
 ├── components/       # Reusable UI components
-│   └── layout/       # Layout components (header, footer, etc.)
+│   ├── common/       # Shared UI components used across features
+│   │   ├── displays/ # Display-oriented components (e.g., ThemeAwarePagination)
+│   │   ├── forms/    # Form-related components 
+│   │   ├── layout/   # Layout components (SlideoutPanel, etc.)
+│   │   └── modals/   # Modal dialog components (DeleteConfirmation, etc.)
+│   ├── dashboard/    # Data visualization and summary components
+│   ├── drinks/       # Drinks management components
+│   ├── intake/       # Caffeine intake management components
+│   ├── layout/       # Global layout components (Header, Footer)
+│   └── settings/     # User preferences and settings components
 ├── contexts/         # React context providers
 ├── data/             # Static data files
 ├── engine/           # Core calculation logic
@@ -84,20 +93,36 @@ The application persists all data locally in the user's browser using:
 
 ## UI Components
 
-### CaffeineChart
+### Dashboard Components
 
-The main visualization component that displays:
-- Current caffeine levels
-- Historical caffeine intake
-- Projected caffeine decay
-- Safe and sleep threshold indicators
+The main visualization and summary components that display:
+- Current caffeine levels (CurrentCaffeineDonut)
+- Historical and projected caffeine data (CaffeineChart)
+- Health information based on caffeine levels (CaffeineHealthInfo)
+- Tabular data view of intake records (CaffeineTable)
 
-### Intake Forms
+### Drinks Management
 
-Multiple user input methods:
-- Text-based intake entry
-- Time-grid selection
-- Drink database lookup
+A modular system for managing drink entries:
+- DrinkBrowser: Searchable, filterable display of available drinks
+- Specialized slideout components for different operations:
+  - DrinkAddSlideout: Adding new drinks
+  - DrinkEditSlideout: Editing existing drinks
+  - DrinkCloneSlideout: Cloning existing drinks
+  - DrinkDeleteConfirmation: Confirming drink deletion
+- DrinkForm: Reusable form component for drink data entry
+
+### Intake Management
+
+Similar modular system for managing caffeine intake:
+- IntakeBrowser: Searchable, sortable, paginated table of intake records
+- Specialized slideout components:
+  - IntakeAddSlideout: Adding new intake records
+  - IntakeEditSlideout: Editing existing records
+  - IntakeCloneSlideout: Cloning existing records
+  - IntakeDeleteConfirmation: Confirming intake deletion
+- IntakeForm: Reusable form component for intake data entry
+- IntakeWelcomeCard: Displayed when no intake records exist
 
 ## Data Schema
 
@@ -106,9 +131,11 @@ Multiple user input methods:
 ```typescript
 interface CaffeineIntake {
   id: string;
-  datetime: Date;
-  mg: number;
-  drinkId?: string;
+  datetime: string; // ISO format date string
+  drink: Drink;
+  volume: number;
+  unit: VolumeUnit; // 'oz' | 'ml' | 'cup' | 'quart' | 'gallon'
+  mg: number; // Total caffeine in milligrams
   notes?: string;
 }
 ```
@@ -117,14 +144,14 @@ interface CaffeineIntake {
 
 ```typescript
 interface Drink {
-  manufacturer: string;
+  id?: string; // Only for custom drinks
+  brand: string; // Previously called "manufacturer"
   product: string;
   category: string;
-  volume_oz: number;
-  caffeine_mg: number;
-  labels: string[];
-  source_url?: string;
-  source_type?: string;
+  caffeine_mg_per_oz: number; // Caffeine concentration
+  default_size_in_oz: number; // Default serving size
+  labels?: string[];
+  user_entered?: boolean; // Flag for custom drinks
 }
 ```
 
@@ -136,7 +163,7 @@ interface UserPreferences {
   maxSafeCaffeineLevel: number;
   sleepCaffeineThreshold: number;
   sleepStartHour: number;
-  theme: 'light' | 'dark' | 'system';
+  theme: 'light' | 'dark' | 'auto';
 }
 ```
 
@@ -145,10 +172,11 @@ interface UserPreferences {
 When adding new features, consider:
 
 1. **State Management**: Use AppContext for global state, component state for UI-specific state
-2. **New Components**: Create in the appropriate directory with proper TypeScript typing
-3. **New Features**: Consider mobile and desktop experiences
-4. **Calculations**: Add to the engine/ directory with proper unit tests
-5. **Data Storage**: Update storage schema carefully to ensure backward compatibility
+2. **Component Organization**: Follow the established pattern of specialized components with single responsibilities
+3. **New Components**: Create in the appropriate directory with proper TypeScript typing
+4. **New Features**: Consider mobile and desktop experiences
+5. **Calculations**: Add to the engine/ directory with proper unit tests
+6. **Data Storage**: Update storage schema carefully to ensure backward compatibility
 
 ## Performance Considerations
 

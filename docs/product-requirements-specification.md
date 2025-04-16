@@ -1,7 +1,7 @@
 # Product Requirements Specification
 
 **Product Title**: Half-Life Caffeine Tracker  
-**Repository**: https://github.com/halflifecaffeine-com/halflifecaffeine-com.github.io  
+**Repository**: https://github.com/halflifecaffeine/halflifecaffeine.github.io  
 **Domain**: [https://halflifecaffeine.com](https://halflifecaffeine.com)  
 **Hosting**: GitHub Pages  
 **PWA**: Yes (installable offline, no backend required)

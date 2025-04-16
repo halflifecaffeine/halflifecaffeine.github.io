@@ -884,7 +884,7 @@
   {
     "product": "Coca Cola Plus",
     "category": "Soda",
-    "brand": "Coca",
+    "brand": "Coca-Cola",
     "default_size_in_oz": 470.0,
     "caffeine_mg_per_oz": 0.1
   },
@@ -1157,21 +1157,21 @@
   {
     "product": "Diet Coke",
     "category": "Soda",
-    "brand": "Coke",
+    "brand": "Coca-Cola",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.8
   },
   {
     "product": "Diet Coke with Splenda",
     "category": "Soda",
-    "brand": "Coke",
+    "brand": "Coca-Cola",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.8
   },
   {
     "product": "Diet Dr Pepper",
     "category": "Soda",
-    "brand": "Coke",
+    "brand": "Coca-Cola",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.4
   },
@@ -1283,56 +1283,56 @@
   {
     "product": "Dunkin' Cold Brew",
     "category": "Coffee",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 24.0,
     "caffeine_mg_per_oz": 10.8
   },
   {
     "product": "Dunkin' Donuts Brewed Coffee",
     "category": "Coffee",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 14.0,
     "caffeine_mg_per_oz": 15.0
   },
   {
     "product": "Dunkin' Donuts Dunkaccino",
     "category": "unknown",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 14.0,
     "caffeine_mg_per_oz": 5.9
   },
   {
     "product": "Dunkin' Donuts Extra Charged Coffee",
     "category": "Coffee",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 14.0,
     "caffeine_mg_per_oz": 18.0
   },
   {
     "product": "Dunkin' Donuts Iced Coffee",
     "category": "Coffee",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 24.0,
     "caffeine_mg_per_oz": 12.2
   },
   {
     "product": "Dunkin' Donuts Iced Latte",
     "category": "Coffee",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 24.0,
     "caffeine_mg_per_oz": 6.9
   },
   {
     "product": "Dunkin' Donuts Iced Tea",
     "category": "Tea",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 24.0,
     "caffeine_mg_per_oz": 2.6
   },
   {
     "product": "Dunkin' Donuts Latte",
     "category": "Coffee",
-    "brand": "Dunkin'",
+    "brand": "Dunkin' Donuts",
     "default_size_in_oz": 14.0,
     "caffeine_mg_per_oz": 11.9
   },
@@ -4334,8 +4334,8 @@
   },
   {
     "product": "Wild Cherry Pepsi",
-    "category": "unknown",
-    "brand": "Wild",
+    "category": "Soda",
+    "brand": "PepsiCo",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 3.2
   },
