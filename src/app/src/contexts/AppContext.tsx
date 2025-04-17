@@ -30,10 +30,12 @@ interface AppContextType {
   addCustomDrink: (drink: CustomDrink) => void;
   updateCustomDrink: (drink: CustomDrink) => void;
   removeCustomDrink: (drink: CustomDrink) => void;
-  importData: (data: AppState) => void;
+  importData: (data: Partial<AppState>) => void;
+  importDataWithMerge: (data: { caffeineIntakes?: CaffeineIntake[], customDrinks?: CustomDrink[] }) => void;
   exportData: () => AppState;
   updatePreferences: (partialPreferences: Partial<UserPreferences>) => void;
   resetPreferences: () => void;
+  resetAllData: () => void;
   theme: 'light' | 'dark';
 }
 
@@ -123,7 +125,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  // Import data
+  // Import data (replacing existing)
   const importData = (data: Partial<AppState>) => {
     setState({
       ...state,
@@ -133,6 +135,30 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
         ...(data.preferences || {}),
       },
     });
+    setLastIntakeTimestamp(Date.now());
+  };
+
+  /**
+   * Import data with merge strategy - merges new data with existing data
+   * Prevents duplicates by checking IDs
+   */
+  const importDataWithMerge = (data: { caffeineIntakes?: CaffeineIntake[], customDrinks?: CustomDrink[] }) => {
+    const { caffeineIntakes = [], customDrinks = [] } = data;
+    
+    // Merge caffeine intakes without duplicates (by ID)
+    const existingIntakeIds = new Set(state.caffeineIntakes.map(intake => intake.id));
+    const newIntakes = caffeineIntakes.filter(intake => !existingIntakeIds.has(intake.id));
+    
+    // Merge custom drinks without duplicates (by ID)
+    const existingDrinkIds = new Set(state.customDrinks.map(drink => drink.id));
+    const newDrinks = customDrinks.filter(drink => !existingDrinkIds.has(drink.id));
+    
+    setState({
+      ...state,
+      caffeineIntakes: [...state.caffeineIntakes, ...newIntakes],
+      customDrinks: [...state.customDrinks, ...newDrinks]
+    });
+    
     setLastIntakeTimestamp(Date.now());
   };
 
@@ -163,6 +189,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     });
     setTheme(DEFAULT_PREFERENCES.theme);
   };
+  
+  /**
+   * Reset all user data but preserve preferences
+   */
+  const resetAllData = () => {
+    setState({
+      caffeineIntakes: [],
+      customDrinks: [],
+      preferences: state.preferences, // Preserve preferences
+    });
+    setLastIntakeTimestamp(Date.now());
+  };
 
   const value = {
     state,
@@ -175,9 +213,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     updateCustomDrink,
     removeCustomDrink,
     importData,
+    importDataWithMerge,
     exportData,
     updatePreferences,
     resetPreferences,
+    resetAllData,
     theme,
   };
 

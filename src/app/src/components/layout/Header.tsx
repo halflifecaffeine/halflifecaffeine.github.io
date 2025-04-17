@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPlusSquare, faGlassWhiskey, faGear, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPlusSquare, faGlassWhiskey, faGear, faInfoCircle, faDatabase } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import SettingsPanel from '../settings/SettingsPanel';
 
@@ -28,6 +28,7 @@ const Header: React.FC = () => {
     setShowSettings(false);
   };
 
+  
   return (
     <Navbar 
       bg="primary" 
@@ -59,6 +60,9 @@ const Header: React.FC = () => {
             </LinkContainer>
             <LinkContainer to="/drinks" onClick={closeNavMenu}>
               <Nav.Link><FontAwesomeIcon icon={faGlassWhiskey} className="me-1" /> Drinks</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/mydata" onClick={closeNavMenu}>
+              <Nav.Link><FontAwesomeIcon icon={faDatabase} className="me-1" /> My Data</Nav.Link>
             </LinkContainer>
           </Nav>
           <Nav>

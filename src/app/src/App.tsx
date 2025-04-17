@@ -11,6 +11,7 @@ import Footer from './components/layout/Footer'; // Import Footer
 import HomePage from './pages/home/HomePage';
 import IntakePage from './pages/intake/IntakePage';
 import DrinksPage from './pages/drinks/DrinksPage';
+import MyDataPage from './pages/mydata/MyDataPage'; // Import the new MyDataPage
 import PrivacyPage from './pages/privacy/PrivacyPage';
 import TermsPage from './pages/terms/TermsPage';
 import FAQPage from './pages/faq/FAQPage';
@@ -64,6 +65,7 @@ const App: React.FC = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/intake" element={<IntakePage />} />
               <Route path="/drinks" element={<DrinksPage />} />
+              <Route path="/mydata" element={<MyDataPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/faq" element={<FAQPage />} />

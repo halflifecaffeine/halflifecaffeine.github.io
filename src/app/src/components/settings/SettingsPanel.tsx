@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faMoon, faSun, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faMoon, faSun, faClock, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useAppContext } from '../../contexts/AppContext';
 import SlideoutPanel from '../common/layout/SlideoutPanel';
 
@@ -29,9 +29,6 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ show: externalShow, onClo
     state,
     updatePreferences,
     resetPreferences,
-    exportData,
-    importData,
-    clearAllIntakes,
   } = useAppContext();
 
   // Internal state for standalone mode
@@ -56,39 +53,11 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ show: externalShow, onClo
     }
   };
 
-  const handleExport = (): void => {
-    const data = exportData();
-    setExportString(JSON.stringify(data, null, 2));
-  };
-
-  const handleImport = (): void => {
-    try {
-      const data = JSON.parse(importString);
-      importData(data);
-      setImportString('');
-      setImportError(null);
-      handleClose();
-    } catch (error) {
-      setImportError('Invalid JSON format. Please check your data.');
-    }
-  };
-
   const handleResetPreferences = (): void => {
     if (window.confirm('Reset all settings to default values?')) {
       resetPreferences();
     }
   };
-
-  const handleClearData = (): void => {
-    if (window.confirm('Are you sure you want to clear all caffeine intake data? This cannot be undone.')) {
-      clearAllIntakes();
-      handleClose();
-    }
-  };
-
-  const [exportString, setExportString] = useState<string | null>(null);
-  const [importString, setImportString] = useState<string>('');
-  const [importError, setImportError] = useState<string | null>(null);
 
   const settingsContent = (
     <>
@@ -174,61 +143,25 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ show: externalShow, onClo
         </div>
       </div>
 
-      <h5 className="mt-4">Data Management</h5>
-      <div className="d-grid gap-2">
-        <Button variant="primary" onClick={handleExport}>
-          Export Data
-        </Button>
-        {exportString && (
-          <div className="mt-2">
-            <textarea 
-              className="form-control" 
-              rows={5} 
-              value={exportString} 
-              readOnly 
-            />
-            <div className="text-muted small mt-1">
-              Copy this data to save it somewhere safe.
-            </div>
-          </div>
-        )}
-        
-        <Button variant="outline-primary" onClick={() => setExportString(null)}>
-          Import Data
-        </Button>
-        {!exportString && (
-          <div className="mt-2">
-            <textarea 
-              className="form-control" 
-              rows={5} 
-              value={importString} 
-              onChange={(e) => setImportString(e.target.value)} 
-              placeholder="Paste exported data here..."
-            />
-            {importError && (
-              <div className="text-danger small">{importError}</div>
-            )}
-            <Button 
-              variant="primary" 
-              size="sm" 
-              className="mt-2" 
-              onClick={handleImport}
-              disabled={!importString.trim()}
-            >
-              Import
-            </Button>
-          </div>
-        )}
-        
-        <Button variant="danger" onClick={handleClearData}>
-          Clear All Intake Data
-        </Button>
-        
+      <div className="mt-4">
         <Button variant="outline-secondary" onClick={handleResetPreferences}>
           Reset All Settings
         </Button>
       </div>
     </>
+  );
+
+  const footer = (
+    <div className="d-flex justify-content-between w-100">
+      <Button 
+        variant="outline-secondary" 
+        onClick={handleClose}
+        className="d-flex align-items-center gap-2"
+      >
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <span>Back</span>
+      </Button>
+    </div>
   );
 
   return (
@@ -251,6 +184,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ show: externalShow, onClo
         title="Settings"
         description="Configure your preferences and manage your data"
         icon={faGear}
+        footer={footer}
       >
         {settingsContent}
       </SlideoutPanel>

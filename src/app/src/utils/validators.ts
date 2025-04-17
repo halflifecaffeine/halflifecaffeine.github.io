@@ -2,7 +2,7 @@
  * Validation utilities for Half-Life Caffeine Tracker
  */
 
-import { VolumeUnit } from '../types';
+import { VolumeUnit, CaffeineIntake, Drink } from '../types';
 
 /**
  * Check if a string is a valid time in HH:MM format
@@ -132,4 +132,171 @@ export const validateVolumeInput = (
 export const isValidDatetime = (datetimeString: string): boolean => {
   const date = new Date(datetimeString);
   return !isNaN(date.getTime());
+};
+
+/**
+ * Validate imported data to ensure it meets the required format
+ * @param data The data object to validate
+ * @returns Object with validation result and error message
+ */
+export const validateImportData = (data: any): { isValid: boolean; error?: string } => {
+  // Check if the data object exists
+  if (!data || typeof data !== 'object') {
+    return {
+      isValid: false,
+      error: 'Invalid data format: Expected a JSON object'
+    };
+  }
+
+  // Check for version information (optional but recommended)
+  if (data.version && typeof data.version !== 'string') {
+    return {
+      isValid: false,
+      error: 'Invalid version format: Expected a string'
+    };
+  }
+
+  // Validate caffeine intakes if present
+  if ('caffeineIntakes' in data) {
+    if (!Array.isArray(data.caffeineIntakes)) {
+      return {
+        isValid: false,
+        error: 'Invalid caffeineIntakes format: Expected an array'
+      };
+    }
+
+    // Validate each intake
+    for (let i = 0; i < data.caffeineIntakes.length; i++) {
+      const intake = data.caffeineIntakes[i];
+      
+      // Check for required fields
+      if (!intake.id || typeof intake.id !== 'string') {
+        return {
+          isValid: false,
+          error: `Invalid intake at position ${i}: Missing or invalid id`
+        };
+      }
+      
+      if (!intake.datetime || !isValidDatetime(intake.datetime)) {
+        return {
+          isValid: false,
+          error: `Invalid intake at position ${i}: Missing or invalid datetime`
+        };
+      }
+      
+      if (!intake.drink || typeof intake.drink !== 'object') {
+        return {
+          isValid: false,
+          error: `Invalid intake at position ${i}: Missing or invalid drink`
+        };
+      }
+      
+      // Validate the drink object within intake
+      const drink = intake.drink;
+      if (!drink.brand || typeof drink.brand !== 'string' ||
+          !drink.product || typeof drink.product !== 'string' ||
+          !drink.category || typeof drink.category !== 'string' ||
+          typeof drink.caffeine_mg_per_oz !== 'number' ||
+          typeof drink.default_size_in_oz !== 'number') {
+        return {
+          isValid: false,
+          error: `Invalid intake at position ${i}: Drink missing required properties`
+        };
+      }
+      
+      // Check volume and unit
+      if (typeof intake.volume !== 'number' || intake.volume <= 0) {
+        return {
+          isValid: false,
+          error: `Invalid intake at position ${i}: Missing or invalid volume`
+        };
+      }
+      
+      const validUnits: VolumeUnit[] = ['oz', 'ml', 'cup', 'quart', 'gallon'];
+      if (!intake.unit || !validUnits.includes(intake.unit as VolumeUnit)) {
+        return {
+          isValid: false,
+          error: `Invalid intake at position ${i}: Missing or invalid unit`
+        };
+      }
+      
+      // Check caffeine amount
+      if (typeof intake.mg !== 'number' || intake.mg < 0) {
+        return {
+          isValid: false,
+          error: `Invalid intake at position ${i}: Missing or invalid caffeine amount`
+        };
+      }
+      
+      // Notes are optional - no validation needed
+    }
+  }
+
+  // Validate custom drinks if present
+  if ('customDrinks' in data) {
+    if (!Array.isArray(data.customDrinks)) {
+      return {
+        isValid: false,
+        error: 'Invalid customDrinks format: Expected an array'
+      };
+    }
+
+    // Validate each custom drink
+    for (let i = 0; i < data.customDrinks.length; i++) {
+      const drink = data.customDrinks[i];
+      
+      // Check for required fields
+      if (!drink.id || typeof drink.id !== 'string') {
+        return {
+          isValid: false,
+          error: `Invalid custom drink at position ${i}: Missing or invalid id`
+        };
+      }
+      
+      if (!drink.brand || typeof drink.brand !== 'string') {
+        return {
+          isValid: false,
+          error: `Invalid custom drink at position ${i}: Missing or invalid brand`
+        };
+      }
+      
+      if (!drink.product || typeof drink.product !== 'string') {
+        return {
+          isValid: false,
+          error: `Invalid custom drink at position ${i}: Missing or invalid product`
+        };
+      }
+      
+      if (!drink.category || typeof drink.category !== 'string') {
+        return {
+          isValid: false,
+          error: `Invalid custom drink at position ${i}: Missing or invalid category`
+        };
+      }
+      
+      if (typeof drink.caffeine_mg_per_oz !== 'number' || drink.caffeine_mg_per_oz < 0) {
+        return {
+          isValid: false,
+          error: `Invalid custom drink at position ${i}: Missing or invalid caffeine_mg_per_oz`
+        };
+      }
+      
+      if (typeof drink.default_size_in_oz !== 'number' || drink.default_size_in_oz <= 0) {
+        return {
+          isValid: false,
+          error: `Invalid custom drink at position ${i}: Missing or invalid default_size_in_oz`
+        };
+      }
+      
+      // user_entered should be true for custom drinks
+      if (drink.user_entered !== true) {
+        return {
+          isValid: false,
+          error: `Invalid custom drink at position ${i}: Missing or invalid user_entered flag`
+        };
+      }
+    }
+  }
+
+  return { isValid: true };
 };
