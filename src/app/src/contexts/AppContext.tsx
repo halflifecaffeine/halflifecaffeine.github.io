@@ -31,7 +31,7 @@ interface AppContextType {
   updateCustomDrink: (drink: CustomDrink) => void;
   removeCustomDrink: (drink: CustomDrink) => void;
   importData: (data: Partial<AppState>) => void;
-  importDataWithMerge: (data: { caffeineIntakes?: CaffeineIntake[], customDrinks?: CustomDrink[] }) => void;
+  importDataWithMerge: (data: { caffeineIntakes?: CaffeineIntake[], customDrinks?: CustomDrink[], preferences?: UserPreferences }) => void;
   exportData: () => AppState;
   updatePreferences: (partialPreferences: Partial<UserPreferences>) => void;
   resetPreferences: () => void;
@@ -142,8 +142,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
    * Import data with merge strategy - merges new data with existing data
    * Prevents duplicates by checking IDs
    */
-  const importDataWithMerge = (data: { caffeineIntakes?: CaffeineIntake[], customDrinks?: CustomDrink[] }) => {
-    const { caffeineIntakes = [], customDrinks = [] } = data;
+  const importDataWithMerge = (data: { caffeineIntakes?: CaffeineIntake[], customDrinks?: CustomDrink[], preferences?: UserPreferences }) => {
+    const { caffeineIntakes = [], customDrinks = [], preferences } = data;
     
     // Merge caffeine intakes without duplicates (by ID)
     const existingIntakeIds = new Set(state.caffeineIntakes.map(intake => intake.id));
@@ -156,8 +156,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     setState({
       ...state,
       caffeineIntakes: [...state.caffeineIntakes, ...newIntakes],
-      customDrinks: [...state.customDrinks, ...newDrinks]
+      customDrinks: [...state.customDrinks, ...newDrinks],
+      // Merge preferences if provided in the import data
+      preferences: preferences ? {
+        ...state.preferences, // Keep existing preferences
+        ...preferences, // Override with imported preferences
+      } : state.preferences
     });
+    
+    // Update theme if it changed with imported preferences
+    if (preferences?.theme && preferences.theme !== state.preferences.theme) {
+      setTheme(preferences.theme);
+    }
     
     setLastIntakeTimestamp(Date.now());
   };

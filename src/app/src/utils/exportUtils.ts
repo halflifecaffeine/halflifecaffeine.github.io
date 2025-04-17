@@ -1,4 +1,4 @@
-import { CaffeineIntake } from '../types';
+import { CaffeineIntake, UserPreferences } from '../types';
 
 /**
  * Export data as a JSON file
@@ -75,7 +75,7 @@ const convertIntakesToCSV = (intakes: CaffeineIntake[]): string => {
         .map(cell => 
           // Quote cells that contain commas or quotes
           cell.includes(',') || cell.includes('"') 
-            ? `"${cell.replace(/"/g, '""')}"` 
+            ? `"${cell.replace(/"/g, '""')}"`
             : cell
         )
         .join(',')

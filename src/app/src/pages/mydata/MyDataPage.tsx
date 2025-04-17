@@ -23,6 +23,7 @@ const MyDataPage: React.FC = () => {
     exportToJSON({
       caffeineIntakes: state.caffeineIntakes,
       customDrinks: state.customDrinks,
+      preferences: state.preferences,
       version: '1.0'
     }, 'halflife-caffeine-data.json');
   };
@@ -54,12 +55,14 @@ const MyDataPage: React.FC = () => {
           // Import the validated data with merge
           importDataWithMerge({
             caffeineIntakes: parsedData.caffeineIntakes || [],
-            customDrinks: parsedData.customDrinks || []
+            customDrinks: parsedData.customDrinks || [],
+            preferences: parsedData.preferences
           });
           
+          const prefsImported = parsedData.preferences ? 'and preferences ' : '';
           setImportAlert({
             type: 'success',
-            message: `Successfully imported ${parsedData.caffeineIntakes?.length || 0} caffeine intake records and ${parsedData.customDrinks?.length || 0} custom drinks.`
+            message: `Successfully imported ${parsedData.caffeineIntakes?.length || 0} caffeine intake records, ${parsedData.customDrinks?.length || 0} custom drinks, ${prefsImported}from the file.`
           });
         } else {
           setImportAlert({
@@ -134,6 +137,13 @@ const MyDataPage: React.FC = () => {
           user_entered: true
         }
       ],
+      preferences: {
+        theme: "auto",
+        halfLifeHours: 6,
+        maxSafeCaffeineLevel: 400,
+        sleepCaffeineThreshold: 100,
+        sleepStartHour: 22
+      },
       version: "1.0"
     };
 
@@ -203,6 +213,7 @@ const MyDataPage: React.FC = () => {
                       <li>JSON files with "caffeineIntakes" and "customDrinks" arrays</li>
                       <li>Each intake must include: id, datetime, drink, volume, unit, and mg</li>
                       <li>Each custom drink must include: id, brand, product, category, and caffeine information</li>
+                      <li>User preferences can be included for theme, caffeine half-life, daily limit, and bedtime</li>
                     </ul>
                   </div>
                 </Card.Body>
@@ -235,7 +246,7 @@ const MyDataPage: React.FC = () => {
                     <div className="small text-muted mt-2">
                       <p className="mb-1">Export formats:</p>
                       <ul className="mb-0">
-                        <li><strong>JSON:</strong> Complete backup of all data</li>
+                        <li><strong>JSON:</strong> Complete backup of all data (intakes, custom drinks, and preferences)</li>
                         <li><strong>CSV:</strong> Only caffeine intakes (compatible with spreadsheets)</li>
                       </ul>
                     </div>

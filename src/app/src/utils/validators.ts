@@ -2,7 +2,7 @@
  * Validation utilities for Half-Life Caffeine Tracker
  */
 
-import { VolumeUnit, CaffeineIntake, Drink } from '../types';
+import { VolumeUnit, CaffeineIntake, Drink, UserPreferences } from '../types';
 
 /**
  * Check if a string is a valid time in HH:MM format
@@ -135,6 +135,82 @@ export const isValidDatetime = (datetimeString: string): boolean => {
 };
 
 /**
+ * Validate user preferences data
+ * @param preferences The preferences object to validate
+ * @returns Object with validation result and error message
+ */
+export const validatePreferencesData = (preferences: any): { isValid: boolean; error?: string } => {
+  if (!preferences || typeof preferences !== 'object') {
+    return {
+      isValid: false,
+      error: 'Invalid preferences format: Expected an object'
+    };
+  }
+
+  // Validate theme
+  if ('theme' in preferences) {
+    const validThemes = ['auto', 'light', 'dark'];
+    if (!validThemes.includes(preferences.theme)) {
+      return {
+        isValid: false,
+        error: `Invalid theme: "${preferences.theme}". Expected one of: ${validThemes.join(', ')}`
+      };
+    }
+  }
+
+  // Validate halfLifeHours
+  if ('halfLifeHours' in preferences) {
+    if (typeof preferences.halfLifeHours !== 'number' || 
+        preferences.halfLifeHours < 1 || 
+        preferences.halfLifeHours > 24) {
+      return {
+        isValid: false,
+        error: 'Invalid halfLifeHours: Expected a number between 1 and 24'
+      };
+    }
+  }
+
+  // Validate maxSafeCaffeineLevel
+  if ('maxSafeCaffeineLevel' in preferences) {
+    if (typeof preferences.maxSafeCaffeineLevel !== 'number' || 
+        preferences.maxSafeCaffeineLevel < 0 || 
+        preferences.maxSafeCaffeineLevel > 1000) {
+      return {
+        isValid: false,
+        error: 'Invalid maxSafeCaffeineLevel: Expected a number between 0 and 1000'
+      };
+    }
+  }
+
+  // Validate sleepCaffeineThreshold
+  if ('sleepCaffeineThreshold' in preferences) {
+    if (typeof preferences.sleepCaffeineThreshold !== 'number' || 
+        preferences.sleepCaffeineThreshold < 0 || 
+        preferences.sleepCaffeineThreshold > 500) {
+      return {
+        isValid: false,
+        error: 'Invalid sleepCaffeineThreshold: Expected a number between 0 and 500'
+      };
+    }
+  }
+
+  // Validate sleepStartHour
+  if ('sleepStartHour' in preferences) {
+    if (typeof preferences.sleepStartHour !== 'number' || 
+        preferences.sleepStartHour < 0 || 
+        preferences.sleepStartHour > 23 ||
+        !Number.isInteger(preferences.sleepStartHour)) {
+      return {
+        isValid: false,
+        error: 'Invalid sleepStartHour: Expected an integer between 0 and 23'
+      };
+    }
+  }
+
+  return { isValid: true };
+};
+
+/**
  * Validate imported data to ensure it meets the required format
  * @param data The data object to validate
  * @returns Object with validation result and error message
@@ -154,6 +230,14 @@ export const validateImportData = (data: any): { isValid: boolean; error?: strin
       isValid: false,
       error: 'Invalid version format: Expected a string'
     };
+  }
+
+  // Validate preferences if present
+  if ('preferences' in data) {
+    const preferencesValidation = validatePreferencesData(data.preferences);
+    if (!preferencesValidation.isValid) {
+      return preferencesValidation;
+    }
   }
 
   // Validate caffeine intakes if present
