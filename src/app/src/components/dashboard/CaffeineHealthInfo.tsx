@@ -69,7 +69,7 @@ const CaffeineHealthInfo: React.FC<CaffeineHealthInfoProps> = ({
         <Col md={6}>
           <Card className="h-100">
             <Card.Header className="d-flex justify-content-between align-items-center">
-              <strong>Daily Safe Intake</strong>
+              <strong>Daily Limit</strong>
               {getSafeLevelStatus()}
             </Card.Header>
             <Card.Body>
@@ -83,7 +83,7 @@ const CaffeineHealthInfo: React.FC<CaffeineHealthInfoProps> = ({
                   currentLevel > maxSafeLevel * 0.75 ? "warning" : "success"
                 } />
               </div>
-              <p className="mb-1">FDA recommends no more than {maxSafeLevel}mg of caffeine per day for healthy adults.</p>
+              <p className="mb-1"><a href="https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much#Footnote" target="_blank">FDA recommends</a> no more than {maxSafeLevel}mg of caffeine per day for healthy adults.</p>
               {currentLevel > maxSafeLevel && (
                 <p className="text-danger mb-0">
                   <strong>You're {Math.round(currentLevel - maxSafeLevel)}mg above the daily recommended limit.</strong>
@@ -115,7 +115,7 @@ const CaffeineHealthInfo: React.FC<CaffeineHealthInfoProps> = ({
                   currentLevel > sleepThreshold ? "warning" : "success"
                 } />
               </div>
-              <p className="mb-1">Caffeine levels above {sleepThreshold}mg within  {(halfLifeHours !== 6) ? `${halfLifeHours}` : '6'} hours of bedtime may disrupt sleep quality.</p>
+              <p className="mb-1"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10930107/" target="_blank">Research shows</a> that caffeine levels above ~{sleepThreshold}mg within ~{(halfLifeHours !== 6) ? `${halfLifeHours}` : '6'} hours of bedtime may disrupt sleep quality.</p>
               {currentLevel > sleepThreshold && (
                 <p className="text-warning mb-0">
                   <strong>Sleep may be difficult until levels decrease.</strong>
