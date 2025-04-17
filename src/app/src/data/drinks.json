@@ -8,7 +8,7 @@
   },
   {
     "product": "3 Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "unknown",
     "default_size_in_oz": 16.9,
     "caffeine_mg_per_oz": 3.0
@@ -30,21 +30,21 @@
   {
     "product": "4C Energy Drink Mix",
     "category": "Energy Drink",
-    "brand": "unknown",
+    "brand": "4C",
     "default_size_in_oz": 16.9,
     "caffeine_mg_per_oz": 10.1
   },
   {
     "product": "5 Hour Energy",
     "category": "Energy Drink",
-    "brand": "unknown",
+    "brand": "Living Essentials",
     "default_size_in_oz": 1.93,
     "caffeine_mg_per_oz": 103.6
   },
   {
     "product": "5 Hour Energy Extra Strength",
     "category": "Energy Drink",
-    "brand": "unknown",
+    "brand": "Living Essentials",
     "default_size_in_oz": 1.93,
     "caffeine_mg_per_oz": 119.2
   },
@@ -64,8 +64,8 @@
   },
   {
     "product": "7-Up",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Soda",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
@@ -79,21 +79,21 @@
   {
     "product": "A&W Cream Soda",
     "category": "Soda",
-    "brand": "A&W",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
   {
     "product": "A&W Root Beer",
-    "category": "unknown",
-    "brand": "A&W",
+    "category": "Soda",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
   {
     "product": "A&W Zero Sugar Cream Soda",
     "category": "Soda",
-    "brand": "A&W",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
@@ -134,7 +134,7 @@
   },
   {
     "product": "AHA Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "AHA",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 2.5
@@ -232,7 +232,7 @@
   },
   {
     "product": "Arti Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Arti",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 10.0
@@ -323,7 +323,7 @@
   },
   {
     "product": "Barqs Root Beer",
-    "category": "unknown",
+    "category": "Soda",
     "brand": "Barqs",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 1.8
@@ -610,21 +610,21 @@
   },
   {
     "product": "Bubbl'r Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Bubbl'r",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 5.8
   },
   {
     "product": "Bubly Bounce Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Bubly",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 2.9
   },
   {
     "product": "Bubly Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Bubly",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
@@ -743,7 +743,7 @@
   },
   {
     "product": "Caribou BOUsted Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Caribou",
     "default_size_in_oz": 11.5,
     "caffeine_mg_per_oz": 6.5
@@ -1779,7 +1779,7 @@
   },
   {
     "product": "Hint Caffeine Kick Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Hint",
     "default_size_in_oz": 16.0,
     "caffeine_mg_per_oz": 3.8
@@ -1807,8 +1807,8 @@
   },
   {
     "product": "IBC Root Beer",
-    "category": "unknown",
-    "brand": "IBC",
+    "category": "Soda",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
@@ -1905,22 +1905,22 @@
   },
   {
     "product": "K Cup Decaf",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Coffee",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 8.0,
     "caffeine_mg_per_oz": 0.5
   },
   {
     "product": "K Cup Tea",
     "category": "Tea",
-    "brand": "unknown",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 8.0,
     "caffeine_mg_per_oz": 5.1
   },
   {
     "product": "K-Cup Coffee",
     "category": "Coffee",
-    "brand": "K-Cup",
+    "brand": "Keurig Dr Pepper",
     "default_size_in_oz": 8.0,
     "caffeine_mg_per_oz": 12.5
   },
@@ -2010,8 +2010,8 @@
   },
   {
     "product": "La Croix Sparkling Water",
-    "category": "unknown",
-    "brand": "unknown",
+    "category": "Flavored Water",
+    "brand": "National Beverage",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
   },
@@ -2031,7 +2031,7 @@
   },
   {
     "product": "Limitless Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Limitless",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 2.9
@@ -2339,7 +2339,7 @@
   },
   {
     "product": "Monster Tour Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Monster",
     "default_size_in_oz": 16.0,
     "caffeine_mg_per_oz": 0.0
@@ -2794,7 +2794,7 @@
   },
   {
     "product": "Pep Talk Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Pep",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 4.6
@@ -2864,7 +2864,7 @@
   },
   {
     "product": "Perrier Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Perrier",
     "default_size_in_oz": 11.15,
     "caffeine_mg_per_oz": 0.0
@@ -2878,7 +2878,7 @@
   },
   {
     "product": "Phocus Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Phocus",
     "default_size_in_oz": 11.5,
     "caffeine_mg_per_oz": 6.5
@@ -2913,7 +2913,7 @@
   },
   {
     "product": "Polar Seltzer Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Polar",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 0.0
@@ -4054,7 +4054,7 @@
   },
   {
     "product": "Tonic Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Tonic",
     "default_size_in_oz": 10.0,
     "caffeine_mg_per_oz": 0.0
@@ -4229,7 +4229,7 @@
   },
   {
     "product": "VitaRain Zero Enhanced Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "VitaRain",
     "default_size_in_oz": 20.0,
     "caffeine_mg_per_oz": 2.1
@@ -4278,7 +4278,7 @@
   },
   {
     "product": "Water Joe",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Water",
     "default_size_in_oz": 20.0,
     "caffeine_mg_per_oz": 3.5
@@ -4446,14 +4446,14 @@
   },
   {
     "product": "Yerbae Sparkling Water",
-    "category": "unknown",
+    "category": "Flavored Water",
     "brand": "Yerbae",
     "default_size_in_oz": 12.0,
     "caffeine_mg_per_oz": 8.3
   },
   {
     "product": "YMateina Yerba Mate",
-    "category": "unknown",
+    "category": "Tea",
     "brand": "YMateina",
     "default_size_in_oz": 8.0,
     "caffeine_mg_per_oz": 10.0
@@ -4513,5 +4513,19 @@
     "brand": "Zombie",
     "default_size_in_oz": 3.4,
     "caffeine_mg_per_oz": 23.5
+  },
+  {
+    "product": "4C Half & Half Iced Tea",
+    "category": "Tea",
+    "brand": "4C",
+    "default_size_in_oz": 64.0,
+    "caffeine_mg_per_oz": 0.3
+  },
+  {
+    "product": "4C Green Tea",
+    "category": "Tea",
+    "brand": "4C",
+    "default_size_in_oz": 64.0,
+    "caffeine_mg_per_oz": 1.3
   }
 ]

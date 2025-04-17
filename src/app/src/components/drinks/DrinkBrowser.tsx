@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faSearch, faMugHot, faCoffee, faBolt, 
   faEdit, faTrash, faCopy, 
-  faSort, faSortUp, faSortDown
+  faSort, faSortUp, faSortDown, faGlassWater
 } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
 import { Drink, CustomDrink } from '../../types';
@@ -213,6 +213,8 @@ const DrinkBrowser: React.FC<DrinkBrowserProps> = ({
         return faCoffee;
       case 'energy drink':
         return faBolt;
+      case 'flavored water':
+        return faGlassWater;
       default:
         return faMugHot;
     }
