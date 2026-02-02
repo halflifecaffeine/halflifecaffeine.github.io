@@ -19,7 +19,7 @@ Half-Life Caffeine Tracker is a React single-page application built with TypeScr
 ## Directory Structure
 
 ```
-src/app/src/
+src/src/
 ├── components/       # Reusable UI components
 │   ├── common/       # Shared UI components used across features
 │   │   ├── displays/ # Display-oriented components (e.g., ThemeAwarePagination)

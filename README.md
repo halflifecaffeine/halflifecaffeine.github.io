@@ -41,7 +41,7 @@ cd halflifecaffeine.github.io
 2. Install the dependencies
 
 ```bash
-cd src/app
+cd src
 npm install
 ```
 
